@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>Model Viewer AR - VR</title>
+  <meta name="description" content="Model Viewer (VR / AR) • A-Frame">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+  <script src="https://unpkg.com/aframe-extras@3.3.0/dist/aframe-extras.min.js"></script>
+  <script src="/static/hide-on-enter-ar.js"></script>
+  <script src="/static/ar-shadows.js"></script>
+  <script src="/static/ar-hit-test.js"></script>
+  <script src="/static/model-viewer.js"></script>
+  <script src="/static/background-gradient.js"></script>
+</head>
+<body>
+
+<a-scene
+  renderer="colorManagement: true;"
+  info-message="htmlSrc: #messageText"
+  model-viewer="gltfModel: #model_placeholder; ">
+  <a-assets>
+   
+    <a-asset-item id="model_placeholder"
+      src="Models/NPC/Humanoid/Teleporter.glb"
+      response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+     <img id="shadow" src="https://cdn.glitch.com/20600112-c04b-492c-8190-8a5ccc06f37d%2Fshadow.png?v=1606338852399"></img>
+   
+  </a-assets>
+</a-scene>
+</body>
+</html>
