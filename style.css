@@ -2,3 +2,34 @@
   height: 480px;
   width: 720px;
 }
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  padding-top: 20px;
+}
+
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  color: #fff;
+}
+
+.sidebar a:hover {
+  background-color: #555;
+}
+
+.content {
+  margin-left: 200px; /* Ширина бокового меню */
+  padding: 20px;
+}
