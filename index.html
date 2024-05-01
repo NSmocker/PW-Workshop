@@ -1,52 +1,41 @@
-<html>
-
+<!DOCTYPE html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="script.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  
+  <meta charset="utf-8">
+  <title>Model Viewer AR - VR</title>
+  <meta name="description" content="Model Viewer (VR / AR) • A-Frame">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="info-message.js"></script>
+  <script src="https://unpkg.com/aframe-extras@3.3.0/dist/aframe-extras.min.js"></script>
+  <script src="hide-on-enter-ar.js"></script>
+  <script src="ar-shadows.js"></script>
+  <script src="ar-hit-test.js"></script>
+  <script src="model-viewer.js"></script>
+  <script src="background-gradient.js"></script>
 </head>
-
 <body>
-  <p1>Hello world</p1>
-  <div id="3d-model-container"></div>
-  <script>
-    // Створення сцени
-    const scene = new THREE.Scene();
 
-    // Створення камери
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+<a-scene
+  renderer="colorManagement: true;"
+  info-message="htmlSrc: #messageText"
+  model-viewer="gltfModel: #triceratops; title: Triceratops">
+  <a-assets>
+    <!--
+      Model source: https://sketchfab.com/3d-models/triceratops-d16aabe33dc24f8ab37e3df50c068265
+      Model author: https://sketchfab.com/VapTor
+      Model license: Sketcfab Standard
+    -->
+    <a-asset-item id="triceratops"
+      src="https://cdn.aframe.io/examples/ar/models/triceratops/scene.gltf"
+      response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
 
-    // Створення рендерера
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById('3d-model-container').appendChild(renderer.domElement);
+    <a-asset-item id="reticle"
+      src="https://cdn.aframe.io/examples/ar/models/reticle/reticle.gltf"
+      response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
 
-    // Завантаження моделі
-    const loader = new THREE.GLTFLoader();
-    loader.load(
-      'Models/NPC/Humanoid/Teleporter.glb',
-      function (gltf) {
-        scene.add(gltf.scene);
-      },
-      undefined,
-      function (error) {
-        console.error(error);
-      }
-    );
-
-    // Налаштування камери
-    camera.position.z = 5;
-
-    // Анімація
-    function animate() {
-      requestAnimationFrame(animate);
-      renderer.render(scene, camera);
-    }
-    animate();
-  </script>
+    <img id="shadow" src="https://cdn.glitch.com/20600112-c04b-492c-8190-8a5ccc06f37d%2Fshadow.png?v=1606338852399"></img>
+    <a-asset-item id="messageText" src="message.html"></a-asset-item>
+  </a-assets>
+</a-scene>
 </body>
-
 </html>
