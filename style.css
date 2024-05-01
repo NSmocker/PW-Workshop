@@ -33,3 +33,14 @@ body, html {
   margin-left: 200px; /* Ширина бокового меню */
   padding: 20px;
 }
+
+#toggleBtn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
