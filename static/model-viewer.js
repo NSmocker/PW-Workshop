@@ -1,17 +1,17 @@
 /* global AFRAME, THREE */
 AFRAME.registerComponent('model-viewer', {
   schema: {
-    gltfModel: {default: ''},
-    title: {default: ''},
-    uploadUIEnabled: {default: true}
+    gltfModel: { default: '' },
+    title: { default: '' },
+    uploadUIEnabled: { default: true }
   },
-  init: function () {
+  init: function() {
     var el = this.el;
 
-    el.setAttribute('renderer', {colorManagement: true});
-    el.setAttribute('cursor', {rayOrigin: 'mouse', fuse: false});
-    el.setAttribute('webxr', {optionalFeatures: 'hit-test, local-floor'});
-    el.setAttribute('raycaster', {objects: '.raycastable'});
+    el.setAttribute('renderer', { colorManagement: true });
+    el.setAttribute('cursor', { rayOrigin: 'mouse', fuse: false });
+    el.setAttribute('webxr', { optionalFeatures: 'hit-test, local-floor' });
+    el.setAttribute('raycaster', { objects: '.raycastable' });
 
     this.onModelLoaded = this.onModelLoaded.bind(this);
 
@@ -42,7 +42,7 @@ AFRAME.registerComponent('model-viewer', {
     if (this.data.uploadUIEnabled) { this.initUploadInput(); }
 
     // Disable context menu on canvas when pressing mouse right button;
-    this.el.sceneEl.canvas.oncontextmenu = function (evt) { evt.preventDefault(); };
+    this.el.sceneEl.canvas.oncontextmenu = function(evt) { evt.preventDefault(); };
 
     window.addEventListener('orientationchange', this.onOrientationChange);
 
@@ -69,30 +69,31 @@ AFRAME.registerComponent('model-viewer', {
     this.modelEl.addEventListener('model-loaded', this.onModelLoaded);
   },
 
-  initUploadInput: function () {
+  initUploadInput: function() {
     var uploadContainerEl = this.uploadContainerEl = document.createElement('div');
     var inputEl = this.inputEl = document.createElement('input');
     var submitButtonEl = this.submitButtonEl = document.createElement('button');
     var style = document.createElement('style');
-    var css =
-      '.a-upload-model  {box-sizing: border-box; display: inline-block; height: 34px; padding: 0; width: 70%;' +
-      'bottom: 20px; left: 15%; right: 15%; position: absolute; color: white;' +
-      'font-size: 12px; line-height: 12px; border: none;' +
-      'border-radius: 5px}' +
-      '.a-upload-model.hidden {display: none}' +
-      '.a-upload-model-button {cursor: pointer; padding: 0px 2px 0 2px; font-weight: bold; color: #666; border: 3px solid #666; box-sizing: border-box; vertical-align: middle; width: 25%; max-width: 110px; border-radius: 10px; height: 34px; background-color: white; margin: 0;}' +
-      '.a-upload-model-button:hover {border-color: #ef2d5e; color: #ef2d5e}' +
-      '.a-upload-model-input {color: #666; vertical-align: middle; padding: 0px 10px 0 10px; text-transform: uppercase; border: 0; width: 75%; height: 100%; border-radius: 10px; margin-right: 10px}' +
-      '@media only screen and (max-width: 800px) {' +
-      '.a-upload-model {margin: auto;}' +
-      '.a-upload-model-input {width: 70%;}}' +
-      '@media only screen and (max-width: 700px) {' +
-      '.a-upload-model {display: none}}';
+    /*var css =
+       '.a-upload-model  {box-sizing: border-box; display: inline-block; height: 34px; padding: 0; width: 70%;' +
+       'bottom: 20px; left: 15%; right: 15%; position: absolute; color: white;' +
+       'font-size: 12px; line-height: 12px; border: none;' +
+       'border-radius: 5px}' +
+       '.a-upload-model.hidden {display: none}' +
+       '.a-upload-model-button {cursor: pointer; padding: 0px 2px 0 2px; font-weight: bold; color: #666; border: 3px solid #666; box-sizing: border-box; vertical-align: middle; width: 25%; max-width: 110px; border-radius: 10px; height: 34px; background-color: white; margin: 0;}' +
+       '.a-upload-model-button:hover {border-color: #ef2d5e; color: #ef2d5e}' +
+       '.a-upload-model-input {color: #666; vertical-align: middle; padding: 0px 10px 0 10px; text-transform: uppercase; border: 0; width: 75%; height: 100%; border-radius: 10px; margin-right: 10px}' +
+       '@media only screen and (max-width: 800px) {' +
+       '.a-upload-model {margin: auto;}' +
+       '.a-upload-model-input {width: 70%;}}' +
+       '@media only screen and (max-width: 700px) {' +
+       '.a-upload-model {display: none}}';*/
+       var css = ".a-upload-model {display: none}"; 
     var inputDefaultValue = this.inputDefaultValue = 'Copy URL to glTF or glb model';
 
     if (AFRAME.utils.device.checkARSupport()) {
       css += '@media only screen and (max-width: 800px) {' +
-      '.a-upload-model-input {width: 60%;}}';
+        '.a-upload-model-input {width: 60%;}}';
     }
 
     uploadContainerEl.classList.add('a-upload-model');
@@ -108,19 +109,19 @@ AFRAME.registerComponent('model-viewer', {
     submitButtonEl.addEventListener('click', this.submitURLButtonClicked);
 
     inputEl.classList.add('a-upload-model-input');
-    inputEl.onfocus = function () {
+    inputEl.onfocus = function() {
       if (this.value !== inputDefaultValue) { return; }
       this.value = '';
     };
-    inputEl.onblur = function () {
+    inputEl.onblur = function() {
       if (this.value) { return; }
       this.value = inputDefaultValue;
     };
 
-    this.el.sceneEl.addEventListener('infomessageopened', function () {
+    this.el.sceneEl.addEventListener('infomessageopened', function() {
       uploadContainerEl.classList.add('hidden');
     });
-    this.el.sceneEl.addEventListener('infomessageclosed', function () {
+    this.el.sceneEl.addEventListener('infomessageclosed', function() {
       uploadContainerEl.classList.remove('hidden');
     });
 
@@ -132,24 +133,24 @@ AFRAME.registerComponent('model-viewer', {
     this.el.sceneEl.appendChild(uploadContainerEl);
   },
 
-  update: function () {
+  update: function() {
     if (!this.data.gltfModel) { return; }
     this.modelEl.setAttribute('gltf-model', this.data.gltfModel);
   },
 
-  submitURLButtonClicked: function (evt) {
+  submitURLButtonClicked: function(evt) {
     var modelURL = this.inputEl.value;
     if (modelURL === this.inputDefaultValue) { return; }
     this.el.setAttribute('model-viewer', 'gltfModel', modelURL);
   },
 
-  initCameraRig: function () {
+  initCameraRig: function() {
     var cameraRigEl = this.cameraRigEl = document.createElement('a-entity');
     var cameraEl = this.cameraEl = document.createElement('a-entity');
     var rightHandEl = this.rightHandEl = document.createElement('a-entity');
     var leftHandEl = this.leftHandEl = document.createElement('a-entity');
 
-    cameraEl.setAttribute('camera', {fov: 60});
+    cameraEl.setAttribute('camera', { fov: 60 });
     cameraEl.setAttribute('look-controls', {
       magicWindowTrackingEnabled: false,
       mouseEnabled: false,
@@ -157,14 +158,14 @@ AFRAME.registerComponent('model-viewer', {
     });
 
     rightHandEl.setAttribute('rotation', '0 90 0');
-    rightHandEl.setAttribute('laser-controls', {hand: 'right'});
-    rightHandEl.setAttribute('raycaster', {objects: '.raycastable'});
-    rightHandEl.setAttribute('line', {color: '#118A7E'});
+    rightHandEl.setAttribute('laser-controls', { hand: 'right' });
+    rightHandEl.setAttribute('raycaster', { objects: '.raycastable' });
+    rightHandEl.setAttribute('line', { color: '#118A7E' });
 
     leftHandEl.setAttribute('rotation', '0 90 0');
-    leftHandEl.setAttribute('laser-controls', {hand: 'right'});
-    leftHandEl.setAttribute('raycaster', {objects: '.raycastable'});
-    leftHandEl.setAttribute('line', {color: '#118A7E'});
+    leftHandEl.setAttribute('laser-controls', { hand: 'right' });
+    leftHandEl.setAttribute('raycaster', { objects: '.raycastable' });
+    leftHandEl.setAttribute('line', { color: '#118A7E' });
 
     cameraRigEl.appendChild(cameraEl);
     cameraRigEl.appendChild(rightHandEl);
@@ -173,9 +174,9 @@ AFRAME.registerComponent('model-viewer', {
     this.el.appendChild(cameraRigEl);
   },
 
-  initBackground: function () {
+  initBackground: function() {
     var backgroundEl = this.backgroundEl = document.querySelector('a-entity');
-    backgroundEl.setAttribute('geometry', {primitive: 'sphere', radius: 65});
+    backgroundEl.setAttribute('geometry', { primitive: 'sphere', radius: 65 });
     backgroundEl.setAttribute('material', {
       shader: 'background-gradient',
       colorTop: '#37383c',
@@ -185,7 +186,7 @@ AFRAME.registerComponent('model-viewer', {
     backgroundEl.setAttribute('hide-on-enter-ar', '');
   },
 
-  initEntities: function () {
+  initEntities: function() {
     // Container for our entities to keep the scene clean and tidy.
     var containerEl = this.containerEl = document.createElement('a-entity');
     // Plane used as a hit target for laser controls when in VR mode
@@ -218,7 +219,7 @@ AFRAME.registerComponent('model-viewer', {
 
     reticleEl.setAttribute('gltf-model', '#reticle');
     reticleEl.setAttribute('scale', '0.8 0.8 0.8');
-    reticleEl.setAttribute('ar-hit-test', {targetEl: '#modelPivot'});
+    reticleEl.setAttribute('ar-hit-test', { targetEl: '#modelPivot' });
     reticleEl.setAttribute('visible', 'false');
 
     modelEl.id = 'model';
@@ -282,7 +283,7 @@ AFRAME.registerComponent('model-viewer', {
     this.el.appendChild(reticleEl);
   },
 
-  onThumbstickMoved: function (evt) {
+  onThumbstickMoved: function(evt) {
     var modelPivotEl = this.modelPivotEl;
     var modelScale = this.modelScale || modelPivotEl.object3D.scale.x;
     modelScale -= evt.detail.y / 20;
@@ -291,7 +292,7 @@ AFRAME.registerComponent('model-viewer', {
     this.modelScale = modelScale;
   },
 
-  onMouseWheel: function (evt) {
+  onMouseWheel: function(evt) {
     var modelPivotEl = this.modelPivotEl;
     var modelScale = this.modelScale || modelPivotEl.object3D.scale.x;
     modelScale -= evt.deltaY / 100;
@@ -301,7 +302,7 @@ AFRAME.registerComponent('model-viewer', {
     this.modelScale = modelScale;
   },
 
-  onMouseDownLaserHitPanel: function (evt) {
+  onMouseDownLaserHitPanel: function(evt) {
     var cursorEl = evt.detail.cursorEl;
     var intersection = cursorEl.components.raycaster.getIntersection(this.laserHitPanelEl);
     if (!intersection) { return; }
@@ -311,7 +312,7 @@ AFRAME.registerComponent('model-viewer', {
     this.oldHandY = undefined;
   },
 
-  onMouseUpLaserHitPanel: function (evt) {
+  onMouseUpLaserHitPanel: function(evt) {
     var cursorEl = evt.detail.cursorEl;
     if (cursorEl === this.leftHandEl) { this.leftHandPressed = false; }
     if (cursorEl === this.rightHandEl) { this.rightHandPressed = false; }
@@ -319,7 +320,7 @@ AFRAME.registerComponent('model-viewer', {
     if (this.activeHandEl === cursorEl) { this.activeHandEl = undefined; }
   },
 
-  onOrientationChange: function () {
+  onOrientationChange: function() {
     if (AFRAME.utils.device.isLandscape()) {
       this.cameraRigEl.object3D.position.z -= 1;
     } else {
@@ -327,7 +328,7 @@ AFRAME.registerComponent('model-viewer', {
     }
   },
 
-  tick: function () {
+  tick: function() {
     var modelPivotEl = this.modelPivotEl;
     var intersection;
     var intersectionPosition;
@@ -352,7 +353,7 @@ AFRAME.registerComponent('model-viewer', {
     this.oldHandY = intersectionPosition.y;
   },
 
-  onEnterVR: function () {
+  onEnterVR: function() {
     var cameraRigEl = this.cameraRigEl;
 
     this.cameraRigPosition = cameraRigEl.object3D.position.clone();
@@ -366,7 +367,7 @@ AFRAME.registerComponent('model-viewer', {
     }
   },
 
-  onExitVR: function () {
+  onExitVR: function() {
     var cameraRigEl = this.cameraRigEl;
 
     cameraRigEl.object3D.position.copy(this.cameraRigPosition);
@@ -375,12 +376,12 @@ AFRAME.registerComponent('model-viewer', {
     cameraRigEl.object3D.rotation.set(0, 0, 0);
   },
 
-  onTouchMove: function (evt) {
+  onTouchMove: function(evt) {
     if (evt.touches.length === 1) { this.onSingleTouchMove(evt); }
     if (evt.touches.length === 2) { this.onPinchMove(evt); }
   },
 
-  onSingleTouchMove: function (evt) {
+  onSingleTouchMove: function(evt) {
     var dX;
     var dY;
     var modelPivotEl = this.modelPivotEl;
@@ -400,7 +401,7 @@ AFRAME.registerComponent('model-viewer', {
     this.oldClientY = evt.touches[0].clientY;
   },
 
-  onPinchMove: function (evt) {
+  onPinchMove: function(evt) {
     var dX = evt.touches[0].clientX - evt.touches[1].clientX;
     var dY = evt.touches[0].clientY - evt.touches[1].clientY;
     var modelPivotEl = this.modelPivotEl;
@@ -418,20 +419,20 @@ AFRAME.registerComponent('model-viewer', {
     this.oldDistance = distance;
   },
 
-  onTouchEnd: function (evt) {
+  onTouchEnd: function(evt) {
     this.oldClientX = undefined;
     this.oldClientY = undefined;
     if (evt.touches.length < 2) { this.oldDistance = undefined; }
   },
 
-  onMouseUp: function (evt) {
+  onMouseUp: function(evt) {
     this.leftRightButtonPressed = false;
     if (evt.buttons === undefined || evt.buttons !== 0) { return; }
     this.oldClientX = undefined;
     this.oldClientY = undefined;
   },
 
-  onMouseMove: function (evt) {
+  onMouseMove: function(evt) {
     if (this.leftRightButtonPressed) {
       this.dragModel(evt);
     } else {
@@ -439,7 +440,7 @@ AFRAME.registerComponent('model-viewer', {
     }
   },
 
-  dragModel: function (evt) {
+  dragModel: function(evt) {
     var dX;
     var dY;
     var modelPivotEl = this.modelPivotEl;
@@ -452,7 +453,7 @@ AFRAME.registerComponent('model-viewer', {
     this.oldClientY = evt.clientY;
   },
 
-  rotateModel: function (evt) {
+  rotateModel: function(evt) {
     var dX;
     var dY;
     var modelPivotEl = this.modelPivotEl;
@@ -469,11 +470,11 @@ AFRAME.registerComponent('model-viewer', {
     this.oldClientY = evt.clientY;
   },
 
-  onModelLoaded: function () {
+  onModelLoaded: function() {
     this.centerAndScaleModel();
   },
 
-  centerAndScaleModel: function () {
+  centerAndScaleModel: function() {
     var box;
     var size;
     var center;
@@ -525,7 +526,7 @@ AFRAME.registerComponent('model-viewer', {
     if (AFRAME.utils.device.isLandscape()) { this.cameraRigEl.object3D.position.z -= 1; }
   },
 
-  onMouseDown: function (evt) {
+  onMouseDown: function(evt) {
     if (evt.buttons) { this.leftRightButtonPressed = evt.buttons === 3; }
     this.oldClientX = evt.clientX;
     this.oldClientY = evt.clientY;
