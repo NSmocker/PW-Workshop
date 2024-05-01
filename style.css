@@ -6,26 +6,28 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background-image: url("assets/imgs/bg.jpg");
+  background-repeat: repeat-y;
 }
 
-.sidebar {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  top: 0;
-  left: 0;
+.main-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width:100%;
   background-color: #333;
-  padding-top: 20px;
+
 }
 
-.sidebar a {
+.main-menu a {
   padding: 10px 15px;
   text-decoration: none;
   display: block;
   color: #fff;
 }
 
-.sidebar a:hover {
+.main-menu a:hover {
   background-color: #555;
 }
 
@@ -34,13 +36,10 @@ body, html {
   padding: 20px;
 }
 
-#toggleBtn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
+main
+{
+  display: flex;
+  flex-direction: collumn;
+  justify-content: center;
+  align-items: center;
 }
