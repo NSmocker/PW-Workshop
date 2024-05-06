@@ -5,13 +5,15 @@
   <title>PW Workshop</title>
 
   <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="assets/js/main-menu.js"></script>
+  <script src="assets/js/models-viewport.js"></script>
 </head>
 
 <body>
 
-
-
+  <!--<iframe src="model-placeholder.html" frameborder="0" width="640" height="480" id="model_viewport"> </iframe>
+ -->
+ 
+ 
 <link rel="stylesheet" type="text/css" href="navbar.css">
 <header class="main-menu">
     <img src="assets/imgs/workshop-icon.png">
@@ -19,9 +21,53 @@
     <a href="Software.html">Software</a>
     <a href="Guides.html">Guides</a>
 </header>
-
+<div id="iframe-containter">
+  <button onclick="hideIframe()">Hide</button>
+  <iframe title="Humanoid Teleporter PW" width="640" height="480" id="model_viewport" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/d05b1b63ced04945852e35418f5c2407/embed"> </iframe> 
+ </div>
   <main>
-   <ul>NPC
+    
+    <table>
+      <tr>
+        <th>
+         <h1>NPC</h1> 
+          <button onclick="showTeleporter()">teleporter</button>
+
+        </th>
+        <th>
+          <h1>Monsters</h1> 
+          <button onclick="showTree()">teleporter</button>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <h1>ARMOR</h1>
+        </td>
+        <td>
+          <h1>WEAPON</h1>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <h1>STYLE</h1>
+        </td>
+        <td>
+          <h1> CHARACTERS</h1>
+        </td>
+      </tr>
+    </table>
+
+    <style>
+      table {
+        margin: 0 auto;
+        width: 60%;
+        text-align: center;
+        vertical-align: middle;
+     
+      }
+    </style>
+  
+  <!--    <ul>NPC
     <li><a href="#">NPC</a></li>
   
   </ul>
@@ -47,8 +93,7 @@
     
   </ul>
 
-
-
+-->
 
 
 
