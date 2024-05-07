@@ -8,5 +8,5 @@ function showTeleporter()
 }   
 function showTree() 
 {   document.getElementById("iframe-containter").style.display = "flex";
-    document.getElementById("model_viewport").setAttribute("src", "https://sketchfab.com/models/642c8138a00f4c50a1516a308734dd65/embed");
+    document.getElementById("model_viewport").setAttribute("src", "https://sketchfab.com/models/97b73d521eb3464e99dc4aa010437240/embed");
 }   
