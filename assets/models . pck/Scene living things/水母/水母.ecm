@@ -1,0 +1,279 @@
+MOXTVersion: 43
+SkinModelPath: Models\场景活物\水母\水母.SMD
+AutoUpdata: 1
+OrgColor: ffffffff
+SrcBlend: 5
+DestBlend: 6
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+NewScale: 0
+BoneNum: 0
+
+DefSpeed: 1.000000
+CanCastShadow: 1
+ChannelCount: 0
+ChannelCount: 16
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+CoGfxNum: 0
+ComActCount: 6
+CombineActName: 快速移动
+LoopCount: 1
+RankCount: 0
+EventChannel: 0
+PlaySpeed: 1.000000
+BaseActCount: 1
+BaseActName: 快速移动
+ActStartTime: 0
+LoopMinNum: -1
+LoopMaxNum: -1
+EventCount: 2
+EventType: 103
+StartTime: 0
+TimeSpan: -1
+Once: 0
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ApplyChild: 0
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: NPC\水母_快速移动.gfx
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.000000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxOuterPath: 0
+GfxRelToECM: 0
+GfxParamCount: 0
+CombineActName: 慢速移动
+LoopCount: 1
+RankCount: 0
+EventChannel: 0
+PlaySpeed: 1.000000
+BaseActCount: 1
+BaseActName: 慢速移动
+ActStartTime: 0
+LoopMinNum: -1
+LoopMaxNum: -1
+EventCount: 2
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: NPC\水母_慢速移动.gfx
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.000000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxOuterPath: 0
+GfxRelToECM: 0
+GfxParamCount: 0
+EventType: 103
+StartTime: 0
+TimeSpan: -1
+Once: 0
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ApplyChild: 0
+CombineActName: 死亡
+LoopCount: 1
+RankCount: 0
+EventChannel: 0
+PlaySpeed: 1.000000
+BaseActCount: 1
+BaseActName: 死亡
+ActStartTime: 0
+LoopMinNum: 1
+LoopMaxNum: 1
+EventCount: 2
+EventType: 103
+StartTime: 0
+TimeSpan: -1
+Once: 0
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ApplyChild: 0
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: NPC\水母_死亡.gfx
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.000000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxOuterPath: 0
+GfxRelToECM: 0
+GfxParamCount: 0
+CombineActName: 休闲
+LoopCount: 1
+RankCount: 0
+EventChannel: 0
+PlaySpeed: 1.000000
+BaseActCount: 1
+BaseActName: 站立
+ActStartTime: 0
+LoopMinNum: 1
+LoopMaxNum: 1
+EventCount: 2
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: NPC\水母_休闲.gfx
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.000000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxOuterPath: 0
+GfxRelToECM: 0
+GfxParamCount: 0
+EventType: 103
+StartTime: 0
+TimeSpan: -1
+Once: 0
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ApplyChild: 0
+CombineActName: 休闲1
+LoopCount: 1
+RankCount: 0
+EventChannel: 0
+PlaySpeed: 1.000000
+BaseActCount: 1
+BaseActName: 站立
+ActStartTime: 0
+LoopMinNum: 1
+LoopMaxNum: 1
+EventCount: 2
+EventType: 103
+StartTime: 0
+TimeSpan: -1
+Once: 0
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ApplyChild: 0
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: NPC\水母_休闲.gfx
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.000000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxOuterPath: 0
+GfxRelToECM: 0
+GfxParamCount: 0
+CombineActName: 站立
+LoopCount: 1
+RankCount: 0
+EventChannel: 0
+PlaySpeed: 1.000000
+BaseActCount: 1
+BaseActName: 站立
+ActStartTime: 0
+LoopMinNum: -1
+LoopMaxNum: -1
+EventCount: 2
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: NPC\水母_站立.gfx
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.000000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxOuterPath: 0
+GfxRelToECM: 0
+GfxParamCount: 0
+EventType: 103
+StartTime: 0
+TimeSpan: -1
+Once: 0
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ColorValue: 1.000000, 1.000000, 1.000000, 0.500000
+ApplyChild: 0
+ScriptCount: 0
+AddiSkinCount: 0
+ChildCount: 0
+PhysFileName: 水母.mphy
+ECMHookCount: 0
