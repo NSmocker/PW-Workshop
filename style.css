@@ -45,11 +45,12 @@ main {
   justify-content: center;
 
 }
-.iframe-containter iframe
+table 
 {
-  
- 
-  
+  margin: 0 auto;
+  width: 60%;
+  text-align: center;
+  vertical-align: middle;
+   
 }
-/*/////////////////////////////////////////////////*/
 
