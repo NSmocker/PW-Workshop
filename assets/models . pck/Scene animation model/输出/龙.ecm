@@ -1,0 +1,12 @@
+MOXTVersion: 13
+SkinModelPath: Models\场景动画模型\输出\都城大龙.SMD
+ComActCount: 1
+CombineActName: 龙旋转
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 旋转
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+AddiSkinCount: 0
+ChildCount: 0
