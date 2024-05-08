@@ -1,0 +1,10 @@
+MOXTVersion: 14
+SkinModelPath: Models\Weapons\怪物\炊具\铲子\铲子.SMD
+CoGfxNum: 0
+ComActCount: 1
+CombineActName: 刀光
+LoopCount: 1
+BaseActCount: 0
+EventCount: 0
+AddiSkinCount: 0
+ChildCount: 0

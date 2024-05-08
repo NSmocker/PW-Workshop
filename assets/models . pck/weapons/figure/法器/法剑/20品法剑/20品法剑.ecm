@@ -1,0 +1,77 @@
+MOXTVersion: 60
+SkinModelPath: Models\Weapons\人物\法器\法剑\20品法剑\20品法剑.SMD
+AutoUpdata: 1
+OrgColor: ffffffff
+EmissiveCol: 0
+SrcBlend: 5
+DestBlend: 6
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+NewScale: 0
+BoneNum: 1
+BoneIndex: 0
+BoneSclType: 1
+BoneScale: 1.000000, 1.000000, 1.000000
+
+DefSpeed: 1.000000
+CanCastShadow: 1
+RenderModel: 1
+RenderEdge: 1
+PSFileVersion: 1
+ShaderFile: 
+ShaderTex: 
+PSConstCount: 0
+ChannelCount: 0
+ChannelCount: 16
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+CoGfxNum: 1
+ComActCount: 0
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFileNum: 1
+FxFilePath: 人物\通用\武器\武器效果\20品法剑_效果.gfx
+HookName: 
+HookOffset: 0.000000, 0.173289, -0.073523
+HookYaw: 0.000000
+HookPitch: 0.130899
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1000
+UseModelAlpha: 1
+CustomPath: 0
+GfxScale: 1.000000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxOuterPath: 0
+GfxRelToECM: 0
+GfxDelayTime: 0
+GfxParamCount: 0
+ScriptCount: 0
+AddiSkinCount: 0
+ChildCount: 0
+PhysFileName: 20品法剑.mphy
+ECMHookCount: 0

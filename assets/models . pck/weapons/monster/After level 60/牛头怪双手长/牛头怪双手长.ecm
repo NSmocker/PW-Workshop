@@ -1,0 +1,20 @@
+MOXTVersion: 20
+SkinModelPath: Models\Weapons\怪物\60级以后\牛头怪双手长\牛头怪双手长.SMD
+OrgColor: ffffffff
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+BoneNum: 1
+BoneIndex: 0
+BoneSclType: 1
+BoneScale: 2.000000, 2.000000, 2.000000
+CoGfxNum: 0
+ComActCount: 0
+AddiSkinCount: 0
+ChildCount: 0

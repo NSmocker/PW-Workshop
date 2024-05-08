@@ -1,0 +1,17 @@
+MOXTVersion: 20
+SkinModelPath: Models\Weapons\怪物\60级以后\火山之王双手长\火山之王双手长.SMD
+OrgColor: ffffffff
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+BoneNum: 0
+CoGfxNum: 0
+ComActCount: 0
+AddiSkinCount: 0
+ChildCount: 0
