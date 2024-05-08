@@ -1,0 +1,406 @@
+MOXTVersion: 21
+SkinModelPath: Models\NPCs\怪物\01牛妖\暴牙牛喽罗\c身高\暴牙牛喽罗.smd
+OrgColor: ffffffff
+SrcBlend: 5
+DestBlend: 6
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+BoneNum: 0
+CoGfxNum: 0
+ComActCount: 16
+CombineActName: 技能施放起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 技能起
+ActStartTime: 0
+LoopCount: 1
+EventCount: 0
+CombineActName: 愤怒施放落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 技能落
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\技能\通用技能效果.gfx
+HookName: 
+HookOffset: 0.000000, 0.500000, 0.300000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 1.500000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 站立
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 站立
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 休闲
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 休闲
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 101
+StartTime: 0
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\01.暴牙牛喽罗\A.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 6.000000
+MaxDist: 25.000000
+CombineActName: 戒备
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 刀系_戒备
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 技能施放落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 技能落
+ActStartTime: 0
+LoopCount: 1
+EventCount: 0
+CombineActName: 慢速移动
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 慢速移动
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 技能吟唱
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 刀系_戒备
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 普攻2起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 刀系_普攻准备2
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 101
+StartTime: 0
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\01.暴牙牛喽罗\D-2.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 6.000000
+MaxDist: 25.000000
+CombineActName: 普攻1起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 刀系_普攻准备1
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 101
+StartTime: 250
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\01.暴牙牛喽罗\D-1.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 6.000000
+MaxDist: 25.000000
+CombineActName: 愤怒施放起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 技能起
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\技能\通用技能效果.gfx
+HookName: 
+HookOffset: 0.000000, 0.500000, 0.300000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 1.500000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 快速移动
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 快速移动
+ActStartTime: 0
+LoopCount: -1
+EventCount: 1
+EventType: 101
+StartTime: 0
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\01.暴牙牛喽罗\E.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 6.000000
+MaxDist: 25.000000
+CombineActName: 死亡
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 死亡
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 101
+StartTime: 0
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\01.暴牙牛喽罗\C.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 6.000000
+MaxDist: 25.000000
+CombineActName: 普攻2落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 刀系_普攻实行2
+ActStartTime: 0
+LoopCount: 1
+EventCount: 0
+CombineActName: 普攻1落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 刀系_普攻实行1
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 102
+StartTime: 50
+TimeSpan: -1
+Once: 0
+ChildActName: 刀光
+HHName: HH_righthandweapon
+IsTrail: 1
+TrailSpan: 200
+Segs: 67
+Pos: 0.892004, 1.359071, 1.026389
+Dir: -0.267962, -0.791331, -0.056846, 0.546589
+Pos: 0.855306, 1.389598, 1.081860
+Dir: -0.277775, -0.794729, -0.056272, 0.536731
+Pos: 0.816018, 1.422108, 1.136479
+Dir: -0.287817, -0.798103, -0.055744, 0.526389
+Pos: 0.774136, 1.456673, 1.190039
+Dir: -0.298066, -0.801445, -0.055271, 0.515546
+Pos: 0.729667, 1.493352, 1.242323
+Dir: -0.308503, -0.804745, -0.054860, 0.504185
+Pos: 0.682625, 1.532202, 1.293105
+Dir: 0.319103, 0.807992, 0.054520, -0.492290
+Pos: 0.633423, 1.572992, 1.341979
+Dir: 0.329755, 0.811133, 0.054281, -0.479978
+Pos: 0.582621, 1.615365, 1.388569
+Dir: 0.340331, 0.814104, 0.054175, -0.467412
+Pos: 0.530323, 1.659284, 1.432762
+Dir: 0.350820, 0.816904, 0.054196, -0.454594
+Pos: 0.476634, 1.704709, 1.474452
+Dir: 0.361209, 0.819532, 0.054338, -0.441524
+Pos: 0.421661, 1.751597, 1.513536
+Dir: 0.371488, 0.821985, 0.054595, -0.428201
+Pos: 0.365516, 1.799900, 1.549918
+Dir: 0.381646, 0.824264, 0.054961, -0.414626
+Pos: 0.308317, 1.849567, 1.583508
+Dir: 0.391669, 0.826367, 0.055426, -0.400800
+Pos: 0.250180, 1.900542, 1.614221
+Dir: 0.401548, 0.828293, 0.055983, -0.386725
+Pos: 0.191226, 1.952766, 1.641979
+Dir: 0.411272, 0.830041, 0.056623, -0.372400
+Pos: 0.131576, 2.006176, 1.666708
+Dir: 0.420830, 0.831610, 0.057334, -0.357827
+Pos: 0.071357, 2.060709, 1.688343
+Dir: 0.430211, 0.833000, 0.058108, -0.343007
+Pos: 0.010691, 2.116293, 1.706823
+Dir: 0.439405, 0.834209, 0.058931, -0.327942
+Pos: -0.050295, 2.172859, 1.722094
+Dir: 0.448402, 0.835238, 0.059792, -0.312632
+Pos: -0.111474, 2.230330, 1.734108
+Dir: 0.457193, 0.836085, 0.060677, -0.297078
+Pos: -0.172720, 2.288630, 1.742824
+Dir: 0.465768, 0.836749, 0.061572, -0.281282
+Pos: -0.233906, 2.347677, 1.748206
+Dir: 0.474118, 0.837231, 0.062462, -0.265245
+Pos: -0.294907, 2.407389, 1.750224
+Dir: 0.482235, 0.837529, 0.063331, -0.248968
+Pos: -0.355597, 2.467683, 1.748852
+Dir: 0.490110, 0.837641, 0.064162, -0.232450
+Pos: -0.415853, 2.528469, 1.744073
+Dir: 0.497736, 0.837567, 0.064938, -0.215692
+Pos: -0.475551, 2.589658, 1.735872
+Dir: 0.505104, 0.837306, 0.065637, -0.198695
+Pos: -0.534570, 2.651158, 1.724242
+Dir: 0.512209, 0.836856, 0.066242, -0.181458
+Pos: -0.592790, 2.712877, 1.709177
+Dir: 0.519042, 0.836214, 0.066729, -0.163980
+Pos: -0.650000, 2.774606, 1.690741
+Dir: 0.525588, 0.835378, 0.067074, -0.146294
+Pos: -0.705745, 2.835849, 1.669213
+Dir: 0.531808, 0.834350, 0.067246, -0.128527
+Pos: -0.759910, 2.896523, 1.644706
+Dir: 0.537706, 0.833130, 0.067204, -0.110683
+Pos: -0.812383, 2.956548, 1.617342
+Dir: 0.543286, 0.831720, 0.066910, -0.092768
+Pos: -0.863060, 3.015848, 1.587246
+Dir: 0.548553, 0.830119, 0.066318, -0.074787
+Pos: -0.911841, 3.074354, 1.554551
+Dir: 0.553514, 0.828328, 0.065381, -0.056742
+Pos: -0.958635, 3.132003, 1.519393
+Dir: 0.558176, 0.826344, 0.064047, -0.038636
+Pos: -1.003351, 3.188737, 1.481915
+Dir: 0.562545, 0.824165, 0.062262, -0.020468
+Pos: -1.045906, 3.244503, 1.442266
+Dir: 0.566632, 0.821783, 0.059962, -0.002241
+Pos: -1.086216, 3.299259, 1.400595
+Dir: 0.570444, 0.819194, 0.057079, 0.016050
+Pos: -1.124199, 3.352965, 1.357062
+Dir: 0.573990, 0.816386, 0.053534, 0.034407
+Pos: -1.159775, 3.405593, 1.311827
+Dir: 0.577278, 0.813347, 0.049240, 0.052836
+Pos: -1.192860, 3.457123, 1.265061
+Dir: 0.580318, 0.810059, 0.044096, 0.071345
+Pos: -1.223358, 3.507546, 1.216941
+Dir: 0.583115, 0.806502, 0.037981, 0.089942
+Pos: -1.251164, 3.556866, 1.167658
+Dir: 0.585675, 0.802644, 0.030752, 0.108640
+Pos: -1.276152, 3.605104, 1.117416
+Dir: 0.587997, 0.798448, 0.022232, 0.127456
+Pos: -1.298158, 3.652304, 1.066445
+Dir: 0.590079, 0.793865, 0.012201, 0.146409
+Pos: -1.316964, 3.698541, 1.015008
+Dir: 0.591909, 0.788825, 0.000366, 0.165526
+Pos: -1.332247, 3.743940, 0.963433
+Dir: 0.593459, 0.783233, -0.013676, 0.184840
+Pos: -1.343503, 3.788711, 0.912157
+Dir: 0.594679, 0.776947, -0.030519, 0.204399
+Pos: -1.349843, 3.833232, 0.861845
+Dir: 0.595470, 0.769740, -0.051144, 0.224277
+Pos: -1.349368, 3.878294, 0.813753
+Dir: 0.595616, 0.761186, -0.077494, 0.244606
+Pos: -1.336061, 3.926322, 0.771566
+Dir: 0.594467, 0.750121, -0.115342, 0.265752
+Pos: -1.320289, 3.929955, 0.787391
+Dir: 0.593973, 0.748973, -0.127203, 0.264679
+Pos: -1.304226, 3.933565, 0.803071
+Dir: 0.593328, 0.747774, -0.139045, 0.263559
+Pos: -1.287875, 3.937145, 0.818598
+Dir: 0.592529, 0.746525, -0.150862, 0.262392
+Pos: -1.271240, 3.940693, 0.833966
+Dir: 0.591578, 0.745228, -0.162652, 0.261179
+Pos: -1.254323, 3.944204, 0.849168
+Dir: 0.590475, 0.743883, -0.174410, 0.259921
+Pos: -1.237127, 3.947675, 0.864195
+Dir: 0.589220, 0.742490, -0.186133, 0.258617
+Pos: -1.219657, 3.951102, 0.879043
+Dir: 0.587813, 0.741051, -0.197816, 0.257269
+Pos: -1.201918, 3.954480, 0.893704
+Dir: 0.586255, 0.739567, -0.209457, 0.255877
+Pos: -1.183911, 3.957804, 0.908171
+Dir: 0.584547, 0.738039, -0.221050, 0.254442
+Pos: -1.165644, 3.961074, 0.922438
+Dir: 0.582689, 0.736466, -0.232594, 0.252966
+Pos: -1.147119, 3.964283, 0.936500
+Dir: 0.580681, 0.734852, -0.244083, 0.251448
+Pos: -1.128344, 3.967428, 0.950349
+Dir: 0.578526, 0.733196, -0.255514, 0.249889
+Pos: -1.109321, 3.970503, 0.963980
+Dir: 0.576223, 0.731500, -0.266883, 0.248291
+Pos: -1.090058, 3.973509, 0.977387
+Dir: 0.573775, 0.729764, -0.278188, 0.246655
+Pos: -1.070559, 3.976436, 0.990564
+Dir: 0.571182, 0.727991, -0.289424, 0.244980
+Pos: -1.050833, 3.979285, 1.003507
+Dir: 0.568445, 0.726180, -0.300588, 0.243268
+CombineActName: 愤怒吟唱
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 站立
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+AddiSkinCount: 1
+AddiSkinPath: NPCs\怪物\01牛妖\暴牙牛喽罗\c身高\暴牙牛士兵.SKI
+ChildCount: 1
+ChildName: 123
+ChildPath: Models\Weapons\怪物\单手短武器\怪物刀剑2\大.ecm
+HHName: HH_righthandweapon
+CCName: CC_weapon
