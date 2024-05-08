@@ -1,0 +1,12 @@
+MOXTComActCount: 1
+CombineActName: ÌøÔ¾¿ÕÖĞ·­¹ö_Ë«ÊÖ³¤
+LoopCount: 1
+RankCount: 0
+EventChannel: 0
+PlaySpeed: 1.000000
+BaseActCount: 1
+BaseActName: ÌøÔ¾¿Õ·­
+ActStartTime: 0
+LoopMinNum: 1
+LoopMaxNum: 1
+EventCount: 0
