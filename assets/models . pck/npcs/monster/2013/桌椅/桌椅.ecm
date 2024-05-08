@@ -1,0 +1,52 @@
+MOXTVersion: 67
+SkinModelPath: Models\NPCs\π÷ŒÔ\2013\◊¿“Œ\◊¿“Œ.SMD
+AutoUpdata: 1
+OrgColor: ffffffff
+EmissiveCol: 0
+SrcBlend: 5
+DestBlend: 6
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+NewScale: 0
+BoneNum: 0
+
+DefSpeed: 1.000000
+CanCastShadow: 1
+RenderModel: 1
+RenderEdge: 1
+PSFileVersion: 1
+ShaderFile: 
+ShaderTex: 
+PSConstCount: 0
+ChannelCount: 0
+ChannelCount: 16
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+CoGfxNum: 0
+ComActCount: 0
+ScriptCount: 0
+AddiSkinCount: 0
+ChildCount: 0
+PhysFileName: 
+ECMHookCount: 0
