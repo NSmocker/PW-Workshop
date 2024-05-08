@@ -1,0 +1,83 @@
+MOXTVersion: 18
+SkinModelPath: Models\Players\通用装备\飞剑\风火轮3\风火轮3.SMD
+OrgColor: ffffffff
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+BoneNum: 0
+CoGfxNum: 1
+ComActCount: 6
+EventType: 100
+StartTime: 0
+Once: 0
+FxFilePath: 人物\通用\飞行\风火轮飞行3.gfx
+HookName: CC_feijian
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.000000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 飞剑高空下降
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 风火轮高空下降
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 飞剑飞行
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 风火轮前进
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 飞剑悬停
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 风火轮悬停
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 飞剑降落
+LoopCount: 1
+BaseActCount: 0
+EventCount: 1
+EventType: 103
+StartTime: 225
+Once: 0
+ColorValue: 1.000000, 1.000000, 1.000000, 1.000000
+ColorValue: 0.000000, 0.000000, 0.000000, -1.000000
+ColorValue: 0.000000, 0.000000, 0.000000, 0.000000
+ColorValue: 4.000000, 4.000000, 4.000000, 4.000000
+ApplyChild: 0
+CombineActName: 飞剑起飞
+LoopCount: 1
+BaseActCount: 0
+EventCount: 1
+EventType: 103
+StartTime: 0
+Once: 0
+ColorValue: 1.000000, 1.000000, 1.000000, 0.000000
+ColorValue: 0.000000, 0.000000, 0.000000, 0.700000
+ColorValue: 0.000000, 0.000000, 0.000000, 0.000000
+ColorValue: 4.000000, 4.000000, 4.000000, 4.000000
+ApplyChild: 0
+CombineActName: 飞剑低空下降
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 风火轮低空下降
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+AddiSkinCount: 0
+ChildCount: 0

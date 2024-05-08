@@ -1,0 +1,70 @@
+MOXTVersion: 21
+SkinModelPath: Models\Players\Í¨ÓÃ×°±¸\·É½£\·É½£7\·É½£7.SMD
+OrgColor: ffffffff
+SrcBlend: 5
+DestBlend: 6
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+BoneNum: 0
+CoGfxNum: 0
+ComActCount: 6
+CombineActName: ·É½£¸ß¿ÕÏÂ½µ
+LoopCount: 1
+BaseActCount: 0
+EventCount: 0
+CombineActName: ·É½£·ÉÐÐ
+LoopCount: 1
+BaseActCount: 0
+EventCount: 0
+CombineActName: ·É½£ÐüÍ£
+LoopCount: 1
+BaseActCount: 0
+EventCount: 0
+CombineActName: ·É½£½µÂä
+LoopCount: 1
+BaseActCount: 0
+EventCount: 1
+EventType: 103
+StartTime: 225
+TimeSpan: -1
+Once: 0
+ColorValue: 1.000000, 1.000000, 1.000000, 1.000000
+ColorValue: 0.000000, 0.000000, 0.000000, -3.000000
+ColorValue: 0.000000, 0.000000, 0.000000, 0.000000
+ColorValue: 4.000000, 4.000000, 4.000000, 4.000000
+ApplyChild: 0
+CombineActName: ·É½£Æð·É
+LoopCount: 1
+BaseActCount: 0
+EventCount: 2
+EventType: 103
+StartTime: 0
+TimeSpan: -1
+Once: 0
+ColorValue: 1.000000, 1.000000, 1.000000, 0.000000
+ColorValue: 0.000000, 0.000000, 0.000000, 0.000000
+ColorValue: 0.000000, 0.000000, 0.000000, 0.000000
+ColorValue: 4.000000, 4.000000, 4.000000, 4.000000
+ApplyChild: 0
+EventType: 103
+StartTime: 675
+TimeSpan: -1
+Once: 0
+ColorValue: 1.000000, 1.000000, 1.000000, 0.000000
+ColorValue: 0.000000, 0.000000, 0.000000, 2.000000
+ColorValue: 0.000000, 0.000000, 0.000000, 0.000000
+ColorValue: 4.000000, 4.000000, 4.000000, 4.000000
+ApplyChild: 0
+CombineActName: ·É½£µÍ¿ÕÏÂ½µ
+LoopCount: 1
+BaseActCount: 0
+EventCount: 0
+AddiSkinCount: 0
+ChildCount: 0
