@@ -1,0 +1,596 @@
+MOXTVersion: 21
+SkinModelPath: Models\NPCs\怪物\12水元素\寒冰公主\a身高\寒冰公主.SMD
+OrgColor: ffffffff
+SrcBlend: 5
+DestBlend: 6
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+BoneNum: 0
+CoGfxNum: 1
+ComActCount: 22
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\通用\冰雾.gfx
+HookName: HH_righthandweapon
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 0.100000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 技能施放起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_愤怒施放起
+ActStartTime: 25
+LoopCount: 1
+EventCount: 0
+CombineActName: 愤怒施放落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_愤怒施放落
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\技能\通用技能效果.gfx
+HookName: 
+HookOffset: 0.000000, 0.500000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 0.800000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 站立
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_站立
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 冰锥术施放落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_冰锥术施放落
+ActStartTime: 0
+LoopCount: 1
+EventCount: 0
+CombineActName: 休闲
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_休闲
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 101
+StartTime: 0
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\25.寒冰公主\a.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 5.000000
+MaxDist: 25.000000
+CombineActName: 媚惑术施放起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_冰锥术施放起
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\技能\紫色魔法阵.gfx
+HookName: 
+HookOffset: 0.000000, 0.500000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 0.600000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 戒备
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_戒备
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 技能施放落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_愤怒施放落
+ActStartTime: 25
+LoopCount: 1
+EventCount: 0
+CombineActName: 慢速移动
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_慢速移动
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 媚惑术施放落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_冰锥术施放落
+ActStartTime: 0
+LoopCount: 1
+EventCount: 0
+CombineActName: 技能吟唱
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_戒备
+ActStartTime: 25
+LoopCount: -1
+EventCount: 0
+CombineActName: 普攻2起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_普攻2起
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 101
+StartTime: 275
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\25.寒冰公主\d2.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 5.000000
+MaxDist: 25.000000
+CombineActName: 普攻1起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_普攻1起
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 101
+StartTime: 525
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\25.寒冰公主\d1.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 5.000000
+MaxDist: 25.000000
+CombineActName: 媚惑术吟唱
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_戒备
+ActStartTime: 0
+LoopCount: -1
+EventCount: 1
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\技能\紫色魔法阵.gfx
+HookName: 
+HookOffset: 0.000000, 0.500000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 0.600000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 冰锥术吟唱
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_戒备
+ActStartTime: 0
+LoopCount: -1
+EventCount: 1
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\技能\雪花围绕.gfx
+HookName: 
+HookOffset: 0.000000, 0.500000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 1.000000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 愤怒施放起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_愤怒施放起
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\技能\通用技能效果.gfx
+HookName: 
+HookOffset: 0.000000, 0.500000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 0.800000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 快速移动
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_快速移动
+ActStartTime: 0
+LoopCount: -1
+EventCount: 1
+EventType: 101
+StartTime: 0
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\25.寒冰公主\e.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 5.000000
+MaxDist: 25.000000
+CombineActName: 死亡
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_死亡
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 101
+StartTime: 0
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\25.寒冰公主\c.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 5.000000
+MaxDist: 25.000000
+CombineActName: 冰锥术施放起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_冰锥术施放起
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\技能\雪花围绕.gfx
+HookName: 
+HookOffset: 0.000000, 0.500000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 1.000000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 普攻2落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_普攻2落
+ActStartTime: 0
+LoopCount: 1
+EventCount: 0
+CombineActName: 普攻1落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_普攻1落
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 102
+StartTime: 0
+TimeSpan: -1
+Once: 0
+ChildActName: 刀光
+HHName: HH_righthandweapon
+IsTrail: 1
+TrailSpan: 300
+Segs: 101
+Pos: 0.243541, 1.112085, 0.206134
+Dir: -0.217597, -0.802296, 0.118057, 0.543172
+Pos: 0.259932, 1.117704, 0.203424
+Dir: -0.207039, -0.799710, 0.130030, 0.548353
+Pos: 0.276471, 1.123586, 0.199801
+Dir: -0.195535, -0.796763, 0.141558, 0.553982
+Pos: 0.293118, 1.129738, 0.195238
+Dir: -0.183097, -0.793414, 0.152618, 0.560070
+Pos: 0.309830, 1.136169, 0.189710
+Dir: -0.169740, -0.789619, 0.163186, 0.566622
+Pos: 0.326561, 1.142887, 0.183193
+Dir: -0.155477, -0.785334, 0.173241, 0.573643
+Pos: 0.343259, 1.149903, 0.175662
+Dir: -0.140327, -0.780508, 0.182758, 0.581133
+Pos: 0.359873, 1.157226, 0.167095
+Dir: -0.124308, -0.775091, 0.191712, 0.589091
+Pos: 0.375955, 1.164865, 0.158196
+Dir: -0.107635, -0.769610, 0.199975, 0.596762
+Pos: 0.391893, 1.172833, 0.148241
+Dir: -0.090141, -0.763412, 0.207664, 0.604939
+Pos: 0.406968, 1.180574, 0.136979
+Dir: -0.072443, -0.756230, 0.214120, 0.614020
+Pos: 0.421817, 1.188663, 0.124675
+Dir: -0.053953, -0.748264, 0.220000, 0.623530
+Pos: 0.436369, 1.197111, 0.111308
+Dir: -0.034698, -0.739451, 0.225272, 0.633452
+Pos: 0.450543, 1.205931, 0.096857
+Dir: -0.014707, -0.729724, 0.229901, 0.643764
+Pos: 0.464258, 1.215135, 0.081309
+Dir: 0.005987, -0.719016, 0.233853, 0.654440
+Pos: 0.477423, 1.224734, 0.064653
+Dir: 0.027347, -0.707261, 0.237094, 0.665448
+Pos: 0.489943, 1.234735, 0.046883
+Dir: 0.049332, -0.694387, 0.239586, 0.676751
+Pos: 0.501719, 1.245146, 0.028002
+Dir: 0.071896, -0.680326, 0.241293, 0.688306
+Pos: 0.512645, 1.255973, 0.008017
+Dir: 0.094988, -0.665007, 0.242176, 0.700067
+Pos: 0.522610, 1.267220, -0.013056
+Dir: 0.118553, -0.648362, 0.242197, 0.711978
+Pos: 0.531500, 1.278886, -0.035190
+Dir: 0.142529, -0.630320, 0.241316, 0.723982
+Pos: 0.539197, 1.290971, -0.058353
+Dir: 0.166849, -0.610813, 0.239494, 0.736011
+Pos: 0.545578, 1.303468, -0.082498
+Dir: 0.191439, -0.589775, 0.236690, 0.747993
+Pos: 0.550552, 1.316336, -0.107057
+Dir: 0.215740, -0.567707, 0.233265, 0.759442
+Pos: 0.554092, 1.329542, -0.131798
+Dir: 0.239570, -0.544793, 0.229342, 0.770201
+Pos: 0.556186, 1.343058, -0.156636
+Dir: 0.262896, -0.521069, 0.224941, 0.780240
+Pos: 0.556825, 1.356854, -0.181482
+Dir: 0.285685, -0.496576, 0.220084, 0.789531
+Pos: 0.556011, 1.370901, -0.206251
+Dir: 0.307905, -0.471355, 0.214793, 0.798049
+Pos: 0.553749, 1.385168, -0.230855
+Dir: 0.329528, -0.445449, 0.209092, 0.805771
+Pos: 0.550052, 1.399623, -0.255209
+Dir: 0.350524, -0.418900, 0.203007, 0.812677
+Pos: 0.544940, 1.414235, -0.279231
+Dir: 0.370867, -0.391757, 0.196564, 0.818747
+Pos: 0.538440, 1.428972, -0.302838
+Dir: 0.390531, -0.364064, 0.189791, 0.823968
+Pos: 0.530582, 1.443801, -0.325953
+Dir: 0.409493, -0.335870, 0.182717, 0.828325
+Pos: 0.521405, 1.458688, -0.348499
+Dir: 0.427730, -0.307223, 0.175370, 0.831809
+Pos: 0.510952, 1.473603, -0.370405
+Dir: 0.445224, -0.278173, 0.167782, 0.834413
+Pos: 0.499271, 1.488511, -0.391604
+Dir: 0.461955, -0.248770, 0.159984, 0.836131
+Pos: 0.486416, 1.503379, -0.412033
+Dir: 0.477908, -0.219065, 0.152007, 0.836964
+Pos: 0.472444, 1.518177, -0.431633
+Dir: 0.493067, -0.189108, 0.143884, 0.836911
+Pos: 0.457418, 1.532870, -0.450352
+Dir: 0.507421, -0.158949, 0.135648, 0.835978
+Pos: 0.441402, 1.547428, -0.468142
+Dir: 0.520958, -0.128641, 0.127332, 0.834171
+Pos: 0.424467, 1.561820, -0.484960
+Dir: 0.533670, -0.098234, 0.118970, 0.831500
+Pos: 0.406684, 1.576013, -0.500773
+Dir: 0.545550, -0.067777, 0.110594, 0.827980
+Pos: 0.388125, 1.589978, -0.515548
+Dir: 0.556593, -0.037323, 0.102239, 0.823625
+Pos: 0.368868, 1.603686, -0.529264
+Dir: 0.566796, -0.006918, 0.093939, 0.818456
+Pos: 0.348989, 1.617107, -0.541903
+Dir: 0.576158, 0.023386, 0.085726, 0.812493
+Pos: 0.328615, 1.630175, -0.553421
+Dir: 0.584672, 0.053473, 0.077659, 0.805772
+Pos: 0.307882, 1.642837, -0.563794
+Dir: 0.592342, 0.083231, 0.069794, 0.798331
+Pos: 0.286886, 1.655069, -0.573034
+Dir: 0.599190, 0.112606, 0.062172, 0.790206
+Pos: 0.265726, 1.666852, -0.581159
+Dir: 0.605238, 0.141541, 0.054832, 0.781439
+Pos: 0.244497, 1.678165, -0.588196
+Dir: 0.610511, 0.169985, 0.047813, 0.772072
+Pos: 0.223296, 1.688992, -0.594179
+Dir: 0.615037, 0.197884, 0.041152, 0.762153
+Pos: 0.202218, 1.699316, -0.599149
+Dir: 0.618848, 0.225185, 0.034890, 0.751732
+Pos: 0.181356, 1.709120, -0.603154
+Dir: 0.621977, 0.251837, 0.029064, 0.740863
+Pos: 0.160803, 1.718390, -0.606246
+Dir: 0.624458, 0.277788, 0.023714, 0.729605
+Pos: 0.140654, 1.727113, -0.608488
+Dir: 0.626331, 0.302984, 0.018880, 0.718020
+Pos: 0.121002, 1.735272, -0.609946
+Dir: 0.627637, 0.327371, 0.014604, 0.706178
+Pos: 0.101944, 1.742854, -0.610694
+Dir: 0.628417, 0.350892, 0.010931, 0.694152
+Pos: 0.083582, 1.749839, -0.610812
+Dir: 0.628720, 0.373483, 0.007910, 0.682026
+Pos: 0.066023, 1.756210, -0.610389
+Dir: 0.628594, 0.395077, 0.005596, 0.669891
+Pos: 0.049388, 1.761941, -0.609519
+Dir: 0.628090, 0.415593, 0.004054, 0.657852
+Pos: 0.033817, 1.767002, -0.608309
+Dir: 0.627265, 0.434936, 0.003364, 0.646032
+Pos: 0.019479, 1.771348, -0.606876
+Dir: 0.626179, 0.452987, 0.003625, 0.634578
+Pos: 0.006596, 1.774918, -0.605352
+Dir: 0.624897, 0.469581, 0.004973, 0.623676
+Pos: -0.004525, 1.777616, -0.603895
+Dir: 0.623491, 0.484490, 0.007603, 0.613572
+Pos: -0.013413, 1.779285, -0.602697
+Dir: 0.622040, 0.497350, 0.011820, 0.604623
+Pos: -0.019237, 1.779629, -0.602023
+Dir: 0.620636, 0.507513, 0.018168, 0.597421
+Pos: -0.020154, 1.777961, -0.602319
+Dir: 0.619392, 0.513512, 0.027874, 0.593196
+Pos: -0.012239, 1.773539, -0.604037
+Dir: 0.618997, 0.510375, 0.040297, 0.595597
+Pos: -0.003111, 1.770112, -0.605332
+Dir: 0.619717, 0.502535, 0.047036, 0.600996
+Pos: 0.006047, 1.766617, -0.606451
+Dir: 0.620267, 0.494650, 0.053800, 0.606379
+Pos: 0.015230, 1.763054, -0.607394
+Dir: 0.620643, 0.486723, 0.060586, 0.611745
+Pos: 0.024434, 1.759422, -0.608158
+Dir: 0.620847, 0.478755, 0.067390, 0.617091
+Pos: 0.033656, 1.755722, -0.608743
+Dir: 0.620876, 0.470748, 0.074210, 0.622416
+Pos: 0.042890, 1.751955, -0.609147
+Dir: 0.620731, 0.462704, 0.081042, 0.627718
+Pos: 0.052133, 1.748121, -0.609370
+Dir: 0.620410, 0.454623, 0.087882, 0.632997
+Pos: 0.061381, 1.744221, -0.609410
+Dir: 0.619912, 0.446509, 0.094728, 0.638251
+Pos: 0.070629, 1.740256, -0.609267
+Dir: 0.619238, 0.438362, 0.101577, 0.643478
+Pos: 0.079872, 1.736225, -0.608939
+Dir: 0.618387, 0.430185, 0.108423, 0.648677
+Pos: 0.089106, 1.732130, -0.608427
+Dir: 0.617359, 0.421980, 0.115266, 0.653846
+Pos: 0.098327, 1.727972, -0.607729
+Dir: 0.616153, 0.413747, 0.122100, 0.658984
+Pos: 0.107531, 1.723751, -0.606847
+Dir: 0.614770, 0.405490, 0.128923, 0.664089
+Pos: 0.116713, 1.719468, -0.605778
+Dir: 0.613209, 0.397210, 0.135731, 0.669161
+Pos: 0.125868, 1.715124, -0.604524
+Dir: 0.611470, 0.388909, 0.142521, 0.674197
+Pos: 0.134992, 1.710719, -0.603084
+Dir: 0.609555, 0.380589, 0.149290, 0.679196
+Pos: 0.144081, 1.706255, -0.601458
+Dir: 0.607462, 0.372252, 0.156034, 0.684157
+Pos: 0.153130, 1.701732, -0.599647
+Dir: 0.605193, 0.363899, 0.162751, 0.689079
+Pos: 0.162134, 1.697152, -0.597650
+Dir: 0.602749, 0.355534, 0.169435, 0.693961
+Pos: 0.171089, 1.692516, -0.595469
+Dir: 0.600128, 0.347157, 0.176085, 0.698800
+Pos: 0.179991, 1.687824, -0.593104
+Dir: 0.597334, 0.338771, 0.182698, 0.703597
+Pos: 0.189033, 1.683037, -0.590496
+Dir: 0.594327, 0.330228, 0.189270, 0.708450
+Pos: 0.199579, 1.677868, -0.587193
+Dir: 0.590835, 0.320478, 0.195802, 0.714052
+Pos: 0.210021, 1.672639, -0.583656
+Dir: 0.587155, 0.310718, 0.202278, 0.719574
+Pos: 0.220352, 1.667350, -0.579888
+Dir: 0.583291, 0.300951, 0.208692, 0.725016
+Pos: 0.230568, 1.662005, -0.575890
+Dir: 0.579242, 0.291179, 0.215042, 0.730377
+Pos: 0.240662, 1.656604, -0.571667
+Dir: 0.575011, 0.281407, 0.221324, 0.735655
+Pos: 0.250627, 1.651149, -0.567221
+Dir: 0.570599, 0.271635, 0.227533, 0.740850
+Pos: 0.260459, 1.645644, -0.562556
+Dir: 0.566009, 0.261867, 0.233668, 0.745962
+Pos: 0.270152, 1.640088, -0.557674
+Dir: 0.561242, 0.252107, 0.239724, 0.750988
+Pos: 0.279700, 1.634484, -0.552579
+Dir: 0.556299, 0.242356, 0.245698, 0.755928
+Pos: 0.289097, 1.628835, -0.547276
+Dir: 0.551185, 0.232618, 0.251587, 0.760782
+Pos: 0.298339, 1.623142, -0.541768
+Dir: 0.545900, 0.222895, 0.257386, 0.765548
+CombineActName: 愤怒吟唱
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 寒冰公主_戒备
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+AddiSkinCount: 1
+AddiSkinPath: NPCs\怪物\12水元素\寒冰公主\a身高\冰晶侍女.SKI
+ChildCount: 1
+ChildName: 123
+ChildPath: Models\Weapons\怪物\冰剑\怪物冰剑\小.ecm
+HHName: HH_righthandweapon
+CCName: CC_weapon
