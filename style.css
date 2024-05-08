@@ -57,3 +57,16 @@ table
    
 }
 
+.split-screen
+{
+display: flex;
+flex-direction: row;
+}
+.split-screen-left
+{
+  width: 50%;
+} 
+.split-screen-left
+{
+  width: 50%;
+} 
