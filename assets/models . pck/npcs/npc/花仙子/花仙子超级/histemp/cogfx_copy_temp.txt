@@ -1,0 +1,20 @@
+MOXTCoGfxNumber: 1
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\宠物通用\花仙子中级_身后花粉.gfx
+HookName: HH_胸部
+HookOffset: 0.000000, -0.099855, -0.306188
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.000000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxOuterPath: 0
+GfxRelToECM: 0
+GfxParamCount: 0

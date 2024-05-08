@@ -1,0 +1,72 @@
+MOXTVersion: 59
+SkinModelPath: Models\NPCs\npc\¸²Ëª¹¬ÃÅ\¸²Ëª¹¬ÃÅ.SMD
+AutoUpdata: 1
+OrgColor: ff2492ff
+EmissiveCol: 64000000
+SrcBlend: 2
+DestBlend: 2
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+NewScale: 0
+BoneNum: 1
+BoneIndex: 0
+BoneSclType: 1
+BoneScale: 1.190000, 2.300000, 1.190000
+
+DefSpeed: 1.000000
+CanCastShadow: 1
+RenderModel: 1
+RenderEdge: 1
+ShaderFile: 
+ShaderTex: 
+PSConstCount: 0
+ChannelCount: 0
+ChannelCount: 16
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+ChannelMask: -1
+CoGfxNum: 0
+ComActCount: 1
+CombineActName: 22
+LoopCount: 1
+RankCount: 0
+EventChannel: 0
+PlaySpeed: 1.000000
+StopChildAct: 0
+ResetMtl: 0
+BaseActCount: 0
+EventCount: 1
+EventType: 103
+StartTime: 0
+TimeSpan: -1
+Once: 0
+ColorValue: 1.000000, 1.000000, 1.000000, 1.000000
+ColorValue: 0.000000, 0.000000, 0.000000, -10.000000
+ColorValue: 0.000000, 0.000000, 0.000000, 0.000000
+ColorValue: 4.000000, 4.000000, 4.000000, 4.000000
+ApplyChild: 0
+ScriptCount: 0
+AddiSkinCount: 0
+ChildCount: 0
+PhysFileName: 
+ECMHookCount: 0

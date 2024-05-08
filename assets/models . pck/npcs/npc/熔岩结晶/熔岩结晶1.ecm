@@ -1,0 +1,45 @@
+MOXTVersion: 22
+SkinModelPath: Models\NPCs\npc\ÈÛÑÒ½á¾§\ÈÛÑÒ½á¾§.SMD
+OrgColor: ffffb3b3
+SrcBlend: 5
+DestBlend: 6
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+BoneNum: 3
+BoneIndex: 0
+BoneSclType: 1
+BoneScale: 1.000000, 5.000000, 3.000000
+BoneIndex: 1
+BoneSclType: 1
+BoneScale: 2.000000, 2.000000, 2.000000
+BoneIndex: 2
+BoneSclType: 1
+BoneScale: 2.000000, 2.000000, 2.000000
+CoGfxNum: 1
+ComActCount: 0
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: ¹ÖÎï\Í¨ÓÃ\»ðÁú»ð3.gfx
+HookName: 
+HookOffset: 0.120190, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 15.000000
+GfxAlpha: 0.500000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+AddiSkinCount: 0
+ChildCount: 0
