@@ -1,0 +1,26 @@
+MOXTVersion: 15
+SkinModelPath: Models\NPCs\NPc\冶炼炉\冶炼炉.SMD
+CoGfxNum: 1
+ComActCount: 2
+EventType: 100
+FxStartTime: 0
+FxFilePath: 场景\篝火.gfx
+HookName: 
+HookOffset: 0.000000, 2.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+BindParent: 1
+FadeOut: 1
+GfxScale: 1.000000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 站立
+LoopCount: 1
+BaseActCount: 0
+EventCount: 0
+CombineActName: 四处张望
+LoopCount: 1
+BaseActCount: 0
+EventCount: 0
+AddiSkinCount: 0
+ChildCount: 0

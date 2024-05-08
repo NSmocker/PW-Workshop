@@ -1,0 +1,60 @@
+MOXTVersion: 18
+SkinModelPath: Models\NPCs\npc\Ůnpc8\Ůnpc8.SMD
+OrgColor: ffffffff
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+BoneNum: 0
+CoGfxNum: 0
+ComActCount: 6
+CombineActName:  
+LoopCount: 1
+BaseActCount: 1
+BaseActName:  
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName:  
+LoopCount: 1
+BaseActCount: 1
+BaseActName:  
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName:  
+LoopCount: 1
+BaseActCount: 1
+BaseActName:  
+ActStartTime: 0
+LoopCount: 1
+EventCount: 0
+CombineActName:  
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName:  
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName:  
+LoopCount: 1
+BaseActCount: 1
+BaseActName:  
+ActStartTime: 0
+LoopCount: 1
+EventCount: 0
+ScriptCount: 0
+AddiSkinCount: 0
+ChildCount: 0
