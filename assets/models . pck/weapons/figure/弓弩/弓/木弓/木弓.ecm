@@ -1,0 +1,71 @@
+MOXTVersion: 18
+SkinModelPath: Models\Weapons\人物\弓弩\弓\木弓\木弓.SMD
+OrgColor: ffffffff
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+BoneNum: 0
+CoGfxNum: 0
+ComActCount: 3
+CombineActName: 掉落保护
+LoopCount: 1
+BaseActCount: 0
+EventCount: 1
+EventType: 100
+StartTime: 0
+Once: 0
+FxFilePath: 程序联入\物品掉落.gfx
+HookName: 
+HookOffset: 0.000000, 0.200000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 1.000000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 掉落保护_空中
+LoopCount: 1
+BaseActCount: 0
+EventCount: 1
+EventType: 100
+StartTime: 0
+Once: 0
+FxFilePath: 程序联入\空中物品掉落.gfx
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 1.000000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 掉落保护_水中
+LoopCount: 1
+BaseActCount: 0
+EventCount: 1
+EventType: 100
+StartTime: 0
+Once: 0
+FxFilePath: 程序联入\水中物品掉落.gfx
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 1.000000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+AddiSkinCount: 0
+ChildCount: 0

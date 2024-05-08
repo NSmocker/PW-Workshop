@@ -1,0 +1,35 @@
+MOXTVersion: 21
+SkinModelPath: Models\Weapons\人物\拳套\拳套\灭度拳套\贯征拳套.SMD
+OrgColor: ffffffff
+SrcBlend: 5
+DestBlend: 6
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+BoneNum: 0
+CoGfxNum: 1
+ComActCount: 0
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 人物\通用\拳套\灭度拳套.gfx
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 1.200000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+AddiSkinCount: 0
+ChildCount: 0
