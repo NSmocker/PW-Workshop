@@ -1,0 +1,12 @@
+MOXTComActCount: 1
+CombineActName: 水中漂浮_通用
+LoopCount: 1
+RankCount: 0
+EventChannel: 0
+PlaySpeed: 1.000000
+BaseActCount: 1
+BaseActName: 战斗站立
+ActStartTime: 0
+LoopMinNum: -1
+LoopMaxNum: -1
+EventCount: 0
