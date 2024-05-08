@@ -1,0 +1,543 @@
+MOXTVersion: 21
+SkinModelPath: Models\NPCs\怪物\03狼妖\血狼勇士\c身高\血狼勇士.SMD
+OrgColor: ffffffff
+SrcBlend: 5
+DestBlend: 6
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+BoneNum: 0
+CoGfxNum: 0
+ComActCount: 19
+CombineActName: 技能施放起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_愤怒施放起
+ActStartTime: 0
+LoopCount: 1
+EventCount: 0
+CombineActName: 愤怒施放落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_愤怒施放落
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\技能\通用技能效果.gfx
+HookName: 
+HookOffset: 0.000000, 0.500000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 1.500000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 站立
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_站立
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 冰锥术施放落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_冰锥术施放落
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 100
+StartTime: 550
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\技能\喷冰2.gfx
+HookName: HH_fx
+HookOffset: 0.600000, 0.000000, 0.000000
+HookYaw: 1.570796
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 0.600000
+GfxSpeed: 1.500000
+GfxParamCount: 0
+CombineActName: 休闲
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_休闲
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 101
+StartTime: 0
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\03.山狼怪\A.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 5.000000
+MaxDist: 25.000000
+CombineActName: 戒备
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_戒备
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 技能施放落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_愤怒施放落
+ActStartTime: 0
+LoopCount: 1
+EventCount: 0
+CombineActName: 慢速移动
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_慢速移动
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 技能吟唱
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_戒备
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+CombineActName: 普攻2起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_普攻2起
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 101
+StartTime: 500
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\03.山狼怪\D-1.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 5.000000
+MaxDist: 25.000000
+CombineActName: 普攻1起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_普攻1起
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 101
+StartTime: 500
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\03.山狼怪\D-1.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 5.000000
+MaxDist: 25.000000
+CombineActName: 冰锥术吟唱
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_戒备
+ActStartTime: 0
+LoopCount: -1
+EventCount: 1
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\技能\雪花围绕.gfx
+HookName: 
+HookOffset: 0.000000, 1.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 1.500000
+GfxSpeed: 0.500000
+GfxParamCount: 0
+CombineActName: 愤怒施放起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_愤怒施放起
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\技能\通用技能效果.gfx
+HookName: 
+HookOffset: 0.000000, 0.500000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 1.500000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+CombineActName: 快速移动
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_快速移动
+ActStartTime: 0
+LoopCount: -1
+EventCount: 1
+EventType: 101
+StartTime: 250
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\03.山狼怪\E.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 5.000000
+MaxDist: 25.000000
+CombineActName: 死亡
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_死亡
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 101
+StartTime: 250
+TimeSpan: -1
+Once: 1
+FxFilePath: Creature\Monster\03.山狼怪\C.wav
+HookName: 
+HookOffset: 0.000000, 0.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+SoundVer: 1
+Force2D: 0
+IsLoop: 0
+Volume: 100
+MinDist: 5.000000
+MaxDist: 25.000000
+CombineActName: 冰锥术施放起
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_冰锥术施放起
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: 怪物\技能\雪花围绕.gfx
+HookName: 
+HookOffset: 0.000000, 1.000000, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 0
+GfxScale: 1.500000
+GfxSpeed: 0.500000
+GfxParamCount: 0
+CombineActName: 普攻2落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_普攻2落
+ActStartTime: 0
+LoopCount: 1
+EventCount: 0
+CombineActName: 普攻1落
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_普攻1落
+ActStartTime: 0
+LoopCount: 1
+EventCount: 1
+EventType: 102
+StartTime: 0
+TimeSpan: -1
+Once: 0
+ChildActName: 刀光
+HHName: HH_righthandweapon
+IsTrail: 1
+TrailSpan: 300
+Segs: 101
+Pos: 0.866726, 0.636596, 0.490023
+Dir: 0.099471, -0.759967, 0.025533, 0.641797
+Pos: 0.895820, 0.658421, 0.535917
+Dir: 0.087801, -0.752661, 0.050874, 0.650541
+Pos: 0.925213, 0.682698, 0.580844
+Dir: 0.076102, -0.744872, 0.076114, 0.658469
+Pos: 0.954809, 0.709351, 0.624723
+Dir: 0.064386, -0.736627, 0.101233, 0.665572
+Pos: 0.982028, 0.737107, 0.667706
+Dir: 0.051980, -0.728025, 0.125662, 0.671928
+Pos: 1.009439, 0.767048, 0.709541
+Dir: 0.039619, -0.719017, 0.149945, 0.677467
+Pos: 1.036938, 0.799083, 0.750169
+Dir: 0.027313, -0.709632, 0.174062, 0.682187
+Pos: 1.064424, 0.833123, 0.789536
+Dir: 0.015071, -0.699902, 0.197990, 0.686083
+Pos: 1.091790, 0.869068, 0.827601
+Dir: 0.002901, -0.689856, 0.221711, 0.689155
+Pos: 1.118931, 0.906820, 0.864330
+Dir: -0.009189, -0.679526, 0.245205, 0.691400
+Pos: 1.145740, 0.946273, 0.899700
+Dir: -0.021193, -0.668943, 0.268452, 0.692820
+Pos: 1.172108, 0.987319, 0.933697
+Dir: -0.033104, -0.658139, 0.291432, 0.693415
+Pos: 1.197928, 1.029845, 0.966313
+Dir: -0.044919, -0.647146, 0.314127, 0.693187
+Pos: 1.223091, 1.073739, 0.997555
+Dir: -0.056633, -0.635995, 0.336518, 0.692141
+Pos: 1.247489, 1.118882, 1.027434
+Dir: -0.068243, -0.624720, 0.358586, 0.690278
+Pos: 1.271017, 1.165154, 1.055972
+Dir: -0.079748, -0.613352, 0.380311, 0.687607
+Pos: 1.293567, 1.212430, 1.083200
+Dir: -0.091146, -0.601924, 0.401677, 0.684131
+Pos: 1.315036, 1.260585, 1.109154
+Dir: -0.102437, -0.590468, 0.422664, 0.679860
+Pos: 1.335319, 1.309493, 1.133883
+Dir: -0.113623, -0.579015, 0.443254, 0.674802
+Pos: 1.354318, 1.359021, 1.157439
+Dir: -0.124705, -0.567598, 0.463428, 0.668966
+Pos: 1.371934, 1.409037, 1.179883
+Dir: -0.135686, -0.556247, 0.483169, 0.662364
+Pos: 1.388070, 1.459407, 1.201282
+Dir: -0.146571, -0.544994, 0.502458, 0.655007
+Pos: 1.402636, 1.509993, 1.221709
+Dir: -0.157365, -0.533869, 0.521277, 0.646909
+Pos: 1.413958, 1.559147, 1.242417
+Dir: -0.168380, -0.523607, 0.538668, 0.638216
+Pos: 1.421547, 1.606073, 1.263970
+Dir: -0.179714, -0.514495, 0.554290, 0.629095
+Pos: 1.425401, 1.650377, 1.286614
+Dir: -0.191369, -0.506615, 0.568068, 0.619692
+Pos: 1.425532, 1.691675, 1.310584
+Dir: -0.203345, -0.500040, 0.579931, 0.610156
+Pos: 1.421963, 1.729581, 1.336097
+Dir: -0.215635, -0.494835, 0.589809, 0.600638
+Pos: 1.414720, 1.763717, 1.363349
+Dir: -0.228229, -0.491054, 0.597632, 0.591282
+Pos: 1.403832, 1.793708, 1.392508
+Dir: -0.241104, -0.488741, 0.603331, 0.582231
+Pos: 1.389320, 1.819182, 1.423711
+Dir: -0.254236, -0.487932, 0.606831, 0.573621
+Pos: 1.371193, 1.839766, 1.457054
+Dir: -0.267587, -0.488652, 0.608057, 0.565582
+Pos: 1.349445, 1.855090, 1.492591
+Dir: -0.281111, -0.490912, 0.606926, 0.558232
+Pos: 1.324046, 1.864782, 1.530319
+Dir: -0.294750, -0.494714, 0.603349, 0.551680
+Pos: 1.294939, 1.868470, 1.570181
+Dir: -0.308438, -0.500046, 0.597229, 0.546020
+Pos: 1.262038, 1.865780, 1.612050
+Dir: -0.322091, -0.506885, 0.588459, 0.541332
+Pos: 1.225219, 1.856344, 1.655721
+Dir: -0.335614, -0.515192, 0.576925, 0.537679
+Pos: 1.184323, 1.839794, 1.700906
+Dir: -0.348894, -0.524912, 0.562498, 0.535104
+Pos: 1.139151, 1.815775, 1.747213
+Dir: -0.361802, -0.535975, 0.545040, 0.533631
+Pos: 1.089463, 1.783953, 1.794146
+Dir: -0.374193, -0.548289, 0.524403, 0.533255
+Pos: 1.034982, 1.744023, 1.841081
+Dir: -0.385899, -0.561743, 0.500426, 0.533948
+Pos: 0.975394, 1.695728, 1.887264
+Dir: -0.396733, -0.576200, 0.472944, 0.535650
+Pos: 0.910354, 1.638875, 1.931791
+Dir: -0.406487, -0.591496, 0.441782, 0.538266
+Pos: 0.839495, 1.573369, 1.973598
+Dir: -0.414928, -0.607437, 0.406764, 0.541662
+Pos: 0.762437, 1.499237, 2.011461
+Dir: -0.421803, -0.623795, 0.367715, 0.545662
+Pos: 0.681494, 1.421459, 2.043315
+Dir: -0.427259, -0.639484, 0.326316, 0.549572
+Pos: 0.598993, 1.344442, 2.068151
+Dir: -0.431552, -0.653719, 0.284120, 0.552894
+Pos: 0.515259, 1.268728, 2.085984
+Dir: -0.434684, -0.666470, 0.241256, 0.555574
+Pos: 0.430621, 1.194844, 2.096890
+Dir: -0.436665, -0.677718, 0.197853, 0.557563
+Pos: 0.345418, 1.123297, 2.100991
+Dir: -0.437508, -0.687448, 0.154045, 0.558813
+Pos: 0.259987, 1.054567, 2.098465
+Dir: -0.437235, -0.695657, 0.109962, 0.559280
+Pos: 0.174662, 0.989105, 2.089530
+Dir: -0.435874, -0.702350, 0.065740, 0.558924
+Pos: 0.089772, 0.927330, 2.074447
+Dir: -0.433456, -0.707542, 0.021509, 0.557707
+Pos: 0.005638, 0.869621, 2.053510
+Dir: -0.430021, -0.711256, -0.022600, 0.555596
+Pos: -0.077433, 0.816320, 2.027038
+Dir: -0.425611, -0.713523, -0.066460, 0.552560
+Pos: -0.159145, 0.767733, 1.995367
+Dir: -0.420276, -0.714386, -0.109945, 0.548572
+Pos: -0.239223, 0.724124, 1.958849
+Dir: -0.414068, -0.713897, -0.152937, 0.543607
+Pos: -0.317405, 0.685725, 1.917829
+Dir: -0.407045, -0.712115, -0.195317, 0.537641
+Pos: -0.393454, 0.652735, 1.872643
+Dir: -0.399267, -0.709110, -0.236974, 0.530653
+Pos: -0.467152, 0.625334, 1.823604
+Dir: -0.390801, -0.704962, -0.277800, 0.522618
+Pos: -0.538299, 0.603690, 1.770982
+Dir: -0.381716, -0.699765, -0.317690, 0.513513
+Pos: -0.606715, 0.587977, 1.714983
+Dir: -0.372087, -0.693623, -0.356541, 0.503307
+Pos: -0.672240, 0.578404, 1.655714
+Dir: -0.361993, -0.686660, -0.394251, 0.491961
+Pos: -0.734716, 0.575268, 1.593126
+Dir: -0.351523, -0.679025, -0.430710, 0.479422
+Pos: -0.793982, 0.579050, 1.526894
+Dir: -0.340778, -0.670909, -0.465790, 0.465609
+Pos: -0.849826, 0.590653, 1.456130
+Dir: -0.329884, -0.662583, -0.499311, 0.450387
+Pos: -0.901834, 0.612167, 1.378424
+Dir: -0.319020, -0.654531, -0.530938, 0.433498
+Pos: -0.929360, 0.636129, 1.318665
+Dir: -0.312326, -0.651433, -0.547840, 0.421852
+Pos: -0.916201, 0.639132, 1.318013
+Dir: -0.313392, -0.655930, -0.539843, 0.424395
+Pos: -0.902996, 0.642310, 1.317239
+Dir: -0.314407, -0.660364, -0.531805, 0.426908
+Pos: -0.889753, 0.645663, 1.316341
+Dir: -0.315372, -0.664734, -0.523730, 0.429390
+Pos: -0.876478, 0.649192, 1.315315
+Dir: -0.316285, -0.669036, -0.515622, 0.431843
+Pos: -0.863179, 0.652898, 1.314158
+Dir: -0.317146, -0.673269, -0.507482, 0.434268
+Pos: -0.849864, 0.656779, 1.312868
+Dir: -0.317955, -0.677430, -0.499317, 0.436663
+Pos: -0.836542, 0.660835, 1.311444
+Dir: -0.318713, -0.681518, -0.491129, 0.439030
+Pos: -0.823218, 0.665068, 1.309883
+Dir: -0.319419, -0.685529, -0.482922, 0.441369
+Pos: -0.809901, 0.669475, 1.308183
+Dir: -0.320074, -0.689463, -0.474700, 0.443681
+Pos: -0.796600, 0.674056, 1.306342
+Dir: -0.320678, -0.693317, -0.466467, 0.445966
+Pos: -0.783321, 0.678811, 1.304358
+Dir: -0.321231, -0.697089, -0.458226, 0.448225
+Pos: -0.770073, 0.683739, 1.302232
+Dir: -0.321734, -0.700778, -0.449982, 0.450458
+Pos: -0.756863, 0.688838, 1.299960
+Dir: -0.322188, -0.704382, -0.441738, 0.452667
+Pos: -0.743699, 0.694109, 1.297543
+Dir: -0.322595, -0.707900, -0.433499, 0.454851
+Pos: -0.730588, 0.699549, 1.294979
+Dir: -0.322953, -0.711330, -0.425268, 0.457011
+Pos: -0.717539, 0.705158, 1.292267
+Dir: -0.323265, -0.714670, -0.417049, 0.459148
+Pos: -0.704558, 0.710934, 1.289408
+Dir: -0.323532, -0.717919, -0.408846, 0.461263
+Pos: -0.691654, 0.716876, 1.286401
+Dir: -0.323755, -0.721077, -0.400663, 0.463357
+Pos: -0.678833, 0.722981, 1.283246
+Dir: -0.323936, -0.724142, -0.392503, 0.465429
+Pos: -0.666103, 0.729249, 1.279942
+Dir: -0.324076, -0.727113, -0.384371, 0.467482
+Pos: -0.653473, 0.735678, 1.276492
+Dir: -0.324176, -0.729990, -0.376270, 0.469516
+Pos: -0.641237, 0.741079, 1.273209
+Dir: -0.323975, -0.732640, -0.368734, 0.471502
+Pos: -0.631331, 0.737097, 1.272362
+Dir: -0.321648, -0.734179, -0.365457, 0.473250
+Pos: -0.621349, 0.733174, 1.271472
+Dir: -0.319304, -0.735697, -0.362177, 0.474997
+Pos: -0.611292, 0.729312, 1.270541
+Dir: -0.316944, -0.737195, -0.358896, 0.476743
+Pos: -0.601161, 0.725513, 1.269567
+Dir: -0.314568, -0.738672, -0.355612, 0.478487
+Pos: -0.590958, 0.721777, 1.268551
+Dir: -0.312177, -0.740128, -0.352327, 0.480230
+Pos: -0.580684, 0.718106, 1.267492
+Dir: -0.309771, -0.741564, -0.349041, 0.481970
+Pos: -0.570340, 0.714501, 1.266389
+Dir: -0.307349, -0.742979, -0.345753, 0.483708
+Pos: -0.559930, 0.710964, 1.265243
+Dir: -0.304913, -0.744374, -0.342463, 0.485443
+Pos: -0.549454, 0.707496, 1.264054
+Dir: -0.302463, -0.745747, -0.339173, 0.487175
+Pos: -0.538912, 0.704098, 1.262820
+Dir: -0.299998, -0.747099, -0.335881, 0.488904
+Pos: -0.528308, 0.700772, 1.261542
+Dir: -0.297520, -0.748431, -0.332588, 0.490629
+CombineActName: 愤怒吟唱
+LoopCount: 1
+BaseActCount: 1
+BaseActName: 血狼勇士_戒备
+ActStartTime: 0
+LoopCount: -1
+EventCount: 0
+AddiSkinCount: 1
+AddiSkinPath: NPCs\怪物\03狼妖\血狼勇士\c身高\血狼卫兵.SKI
+ChildCount: 1
+ChildName: 123
+ChildPath: Models\Weapons\怪物\单手短武器\怪物刀剑7\大.ecm
+HHName: HH_righthandweapon
+CCName: CC_weapon
