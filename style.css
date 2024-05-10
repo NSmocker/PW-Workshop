@@ -58,6 +58,7 @@ table
 {
 display: flex;
 flex-direction: row;
+padding-top: 30px;
 }
 .split-screen-left
 {
