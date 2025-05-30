@@ -1,0 +1,44 @@
+\Ambience\		|	+环境音效
+	3Dim\		|		三维音效
+	Zone\		|		单场音效
+\Character\		|	+人物角色音效
+	01FighterM\	|		男武侠音效
+	02FighterF\	|		女武侠音效
+	03MageM\	|		男法师音效
+	04MageF\	|		女法师音效
+	06RangerM	|		男羽芒音效
+	07RangerF	|		女羽芒音效
+	08ElfM\		|		男羽灵音效
+	09ElfF\		|		女羽灵音效
+	10Barb\		|		妖兽单音效
+	11Fairy\	|		女妖精音效
+	FootStep\	|		行动音效（含走跑游飞）
+	NormalAction\	|		普通行为音效
+	NPC\		|		NPC音效
+\Creature\		|	+怪物音效
+	Monster\	|		怪物分类音效
+	NormalAction\	|		普通行为音效
+	Skill\		|		技能音效
+	SpecialDeath\	|		特殊死亡音效
+\Effect\		|	+特效音效
+	Player\		|		玩家效果音
+	Travel\		|		交通工具效果音
+\Event\			|	+特殊事件效果音（暂空，将来如巨石倒下、海啸之类的音效放此）
+\Interface\		|	+界面音效
+\Item\			|	+物品音效
+	DropSound\	|		物品掉落音效
+	UseSound\	|		物品使用音效
+	WeaponAttack\	|		武器攻击音效
+	WeaponHit\	|		武器击中音效
+	EquipSound\	|		装备物品音效
+\Pet\			|	+宠物音效
+	Normal\		|		场景小宠物
+	Player\		|		玩家宠物
+\Skill\			|	+技能音效
+	01Fighter\	|		武侠技能音效
+	02Mage\		|		法师技能音效
+	04Barb\		|		妖兽技能音效
+	05Fairy\	|		妖精技能音效
+	06Ranger\	|		羽芒技能音效
+	07Elf\		|		羽灵技能音效
+	Summon\		|		召唤物行为音效

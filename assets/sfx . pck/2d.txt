@@ -1,0 +1,12 @@
+武侠男走	SFX\Character\FootStep\LandWalkMaleA.wav
+武侠男跑	SFX\Character\FootStep\LandRunMaleA.wav
+法师女走	SFX\Character\FootStep\LandWalkFemaleA.wav
+法师女跑	SFX\Character\FootStep\LandRunFemaleA.wav
+妖兽男走	SFX\Character\FootStep\LandWalkBeastA.wav
+妖兽男跑	SFX\Character\FootStep\LandRunBeastA.wav
+白虎走		SFX\Character\FootStep\LandWalkTigerA.wav
+白虎跑		SFX\Character\FootStep\LandRunTigerA.wav
+羽灵女走	SFX\Character\FootStep\LandWalkFemaleA.wav
+羽灵女跑	SFX\Character\FootStep\LandRunFemaleA.wav
+水上		SFX\Character\FootStep\Swim.wav
+水下		SFX\Character\FootStep\Float.wav
