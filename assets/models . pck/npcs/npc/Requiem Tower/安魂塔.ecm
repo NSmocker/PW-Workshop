@@ -1,0 +1,14 @@
+MOXTVersion: 14
+SkinModelPath: Models\NPCs\npc\安魂塔\安魂塔.SMD
+CoGfxNum: 0
+ComActCount: 2
+CombineActName: 站立
+LoopCount: 1
+BaseActCount: 0
+EventCount: 0
+CombineActName: 四处张望
+LoopCount: 1
+BaseActCount: 0
+EventCount: 0
+AddiSkinCount: 0
+ChildCount: 0

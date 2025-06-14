@@ -1,0 +1,10 @@
+MOXTEventType: 104
+StartTime: 425
+TimeSpan: -1
+Once: 0
+AtkPath: 花仙子中级_击中2.att
+Divisions: 1
+AtkUseDelay: 0
+AtkDelayNum: 2
+AtkDelayTime: 0
+AtkDelayTime: 0

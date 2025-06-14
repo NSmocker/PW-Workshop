@@ -1,0 +1,121 @@
+MOXTVersion: 22
+SkinModelPath: Models\NPCs\npc\¹¬µÆ2\¹¬µÆ5.SMD
+OrgColor: ffffffff
+SrcBlend: 5
+DestBlend: 6
+OuterNum: 8
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+Float: 1.000000
+BoneNum: 0
+CoGfxNum: 6
+ComActCount: 0
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: ³¡¾°\µÆÁý.gfx
+HookName: 
+HookOffset: 0.000000, 1.543122, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.100000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: ³¡¾°\µÆÁý.gfx
+HookName: 
+HookOffset: 0.000000, 1.020684, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.000000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: ³¡¾°\µÆÁý.gfx
+HookName: 
+HookOffset: 0.000000, 1.543122, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.100000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: ³¡¾°\µÆÁý.gfx
+HookName: 
+HookOffset: 0.000000, 1.020684, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.000000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: ³¡¾°\µÆÁý.gfx
+HookName: 
+HookOffset: 0.000000, 1.543122, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.100000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+EventType: 100
+StartTime: 0
+TimeSpan: -1
+Once: 0
+FxFilePath: ³¡¾°\µÆÁý.gfx
+HookName: 
+HookOffset: 0.000000, 1.020684, 0.000000
+HookYaw: 0.000000
+HookPitch: 0.000000
+HookRot: 0.000000
+BindParent: 1
+FadeOut: 1
+UseModelAlpha: 1
+GfxScale: 1.000000
+GfxAlpha: 1.000000
+GfxSpeed: 1.000000
+GfxParamCount: 0
+AddiSkinCount: 0
+ChildCount: 0
