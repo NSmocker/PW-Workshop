@@ -1,0 +1,25 @@
+[limits]
+count = 10
+
+bone0 = xiong_z
+bone1 = xiong_y
+bone2 = Bip01 L Clavicle
+bone3 = Bip01 R Clavicle
+bone4 = Bip01 L UpperArm
+bone5 = Bip01 R UpperArm
+bone6 = Bip01 L Forearm
+bone7 = Bip01 R Forearm
+bone8 = Bip01 L Calf
+bone9 = Bip01 R Calf
+
+
+value0 = 0,0,0.45,2,2,1.35
+value1 = 0,0,0.45,2,2,1.35
+value2 = 0.00,0.7,0.00,2.00,1.45,2.00
+value3 = 0.00,0.7,0.00,2.00,1.45,2.00
+value4 = 0.00,0.6,0.00,2.00,1.45,2.00
+value5 = 0.00,0.6,0.00,2.00,1.45,2.00
+value6 = 0.00,0.6,0.00,2.00,1.5,2.00
+value7 = 0.00,0.6,0.00,2.00,1.5,2.00
+value8 = 0.00,0.6,0.00,2.00,1.5,2.00
+value9 = 0.00,0.6,0.00,2.00,1.5,2.00
