@@ -1,0 +1,13 @@
+sPCK 3.0.1
+
+ * fixed application exit code is now 0 when no error occurs
+ * updated command line help
+
+sPCK 3.0
+
+ * initial linux release with changed project structure
+ * fixed: wrong max. size of table entry changed from 276 to 272 bytes
+ * fixed: condition for commandline path check on extraction
+ * added support for commandline argument of compression level (0-9)
+ * changed various terminal outputs
+ * removed some commented code fragments

@@ -1,0 +1,1 @@
+sPCK.exe -pw -xp "C:\Users\ronny\Desktop\ec_patch_522-528.cup"
