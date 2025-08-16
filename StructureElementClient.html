@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Структура Element Client - PW Workshop</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="assets/js/main-menu.js"></script>
+</head>
+
+<body>
+
+
+<link rel="stylesheet" type="text/css" href="navbar.css">
+<header class="main-menu">
+  <img src="assets/imgs/workshop-icon.png">
+  <a href="index.html">Головна</a>
+  <a href="Software.html">Програмне Забезпечення</a>
+  <a href="Guides.html">Гайди</a>
+  <a href="HowTo.html">Контакти</a>
+  <a href="3DModelsBase.html">База з 3Д моделями</a>
+  <a href="StructureElementClient.html">Структура Element Client</a>
+</header>
+
+
+<div id="MainInfoPanel">
+
+  <h1>Структура Element Client</h1>
+  <p style="color: white; font-size: 1.1em; text-align: left; width: 200px;">
+    <div class="spoiler"></div>
+        <button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';" style="width: 200px;">
+            папка maps
+        </button>
+         <p style="color: white; font-size: 1.2em; word-break: break-word; width: 80%; display: none;">
+            В цій папці знаходяться файли, в який збережено місцеположення 3Д модельок, та їх налаштування. Кожна папка це окрема локація.<br>
+            В кожній папці є такі файли:
+            <ul>
+                <li>precinct.clt - позначає координати площі. До кожної площі прив'язується: Назва (видно в грі при вході в територію), фонова музика, фонові звукові ефекти.</li>
+                <li>region.clt - (поки не розумію)</li>
+                <li>*map_part*.ecbsd -налаштування світла, фізичні 3Д моделі, та візуальні 3Д моделі</li>
+                <li>*map_part*.world.ecwld налаштування світла, фізичні 3Д моделі, та візуальні 3Д моделі</li>
+                <li>*map_part*.world.ecwld налаштування світла, фізичні 3Д моделі, та візуальні 3Д моделі</li>
+                
+            </ul>
+        </div>
+    </div>
+  </p>
+
+</div>
+
+
+
+
+
+  <footer>
+    Разработано  <a href="https://t.me/SilverEcho97">Silver Echo Games</a>
+  </footer>
+  
+</body>
+
+</html>
