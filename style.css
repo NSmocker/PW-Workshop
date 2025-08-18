@@ -18,7 +18,7 @@ body, html {
   padding-right: 5%;
   padding-bottom: 5%;
   background-image: url('assets/imgs/blockPanel.png');
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -34,6 +34,7 @@ body, html {
   font-family: Arial, sans-serif;
   background-image: url("assets/imgs/bg.jpg");
   background-repeat: repeat-y;
+  background-attachment: fixed; /* Фіксуємо фон */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,4 +95,4 @@ padding-top: 30px;
 .split-screen-left
 {
   width: 50%;
-} 
+}
