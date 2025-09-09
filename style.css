@@ -6,6 +6,25 @@
   font-style: normal;
 }
 
+/* Import Anime Ace font once for the whole site */
+@import url('https://fonts.cdnfonts.com/css/anime-ace');
+
+/* Reusable link style used across pages */
+.custom-link {
+  color: white !important;
+  text-transform: uppercase;
+  font-style: italic;
+  font-family: 'anime ace', 'Dancing Script', cursive;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.custom-link:hover {
+  text-decoration: underline;
+}
+
 body, html {
   font-family: 'PWFont', Arial, sans-serif;
 }
@@ -14,6 +33,7 @@ body, html {
   /*width: 1200px;*/
   /*height: 1800px;*/
   width: 90%;
+  min-height: 100%;
   height: auto;
   padding-top: 5%;
   padding-left: 2%;
