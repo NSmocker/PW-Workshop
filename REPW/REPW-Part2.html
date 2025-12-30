@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>REPW Part 1 - PW Workshop</title>
+  <title>REPW Part 2 - PW Workshop</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN850ZWDRX"></script>
@@ -16,7 +16,7 @@
 
   <link rel="stylesheet" type="text/css" href="../style.css">
   <style>
-    /* Comic viewer styles - preview + overlay */
+    /* Comic viewer styles - preview + overlay (copied from Part1) */
     #comicViewer { max-width: 900px; margin: 0 auto; text-align: center; }
     #comicViewer .preview { cursor: pointer; width: 100%; border:4px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.3); background:#000; display:block; }
     #openHint { margin-top:8px; color:#ddd; }
@@ -90,21 +90,38 @@
 <div id="MainInfoPanel">
   <div id="comicViewer">
     <!-- Preview (click to open overlay viewer) -->
-    <img id="previewImage" class="preview" src="Part1/Frame0.png" alt="Preview - click to open переглядач">
+    <img id="previewImage" class="preview" src="Part2/Frame0.png" alt="Preview - click to open переглядач">
+    <h1 style="font-size: 60px; color: gold; text-align: center;">Частина 2</h1>
     <div id="openHint">Натисніть на картинку, щоб відкрити переглядач</div>
 
     <div id="thumbs" role="list">
-      <img src="Part1/Frame0.png" data-index="0" alt="0" class="active">
-      <img src="Part1/Frame1.png" data-index="1" alt="1">
-      <img src="Part1/Frame2.png" data-index="2" alt="2">
-      <img src="Part1/Frame3.png" data-index="3" alt="3">
-      <img src="Part1/Frame4.png" data-index="4" alt="4">
-      <img src="Part1/Frame5.png" data-index="5" alt="5">
-      <img src="Part1/Frame6.png" data-index="6" alt="6">
-      <img src="Part1/Frame7.png" data-index="7" alt="7">
-      <img src="Part1/Frame8.png" data-index="8" alt="8">
-      <img src="Part1/Frame9.png" data-index="9" alt="9">
-      <img src="Part1/Frame10.png" data-index="10" alt="10">
+      <img src="Part2/Frame0.png" data-index="0" alt="0" class="active">
+      <img src="Part2/Frame1.png" data-index="1" alt="1">
+      <img src="Part2/Frame2.png" data-index="2" alt="2">
+      <img src="Part2/Frame3.png" data-index="3" alt="3">
+      <img src="Part2/Frame4.png" data-index="4" alt="4">
+      <img src="Part2/Frame5.png" data-index="5" alt="5">
+      <img src="Part2/Frame6.png" data-index="6" alt="6">
+      <img src="Part2/Frame7.png" data-index="7" alt="7">
+      <img src="Part2/Frame8.png" data-index="8" alt="8">
+      <img src="Part2/Frame9.png" data-index="9" alt="9">
+      <img src="Part2/Frame10.png" data-index="10" alt="10">
+      <img src="Part2/Frame11.png" data-index="11" alt="11">
+      <img src="Part2/Frame12.png" data-index="12" alt="12">
+      <img src="Part2/Frame13.png" data-index="13" alt="13">
+      <img src="Part2/Frame14.png" data-index="14" alt="14">
+      <img src="Part2/Frame15.png" data-index="15" alt="15">
+      <img src="Part2/Frame16.png" data-index="16" alt="16">
+      <img src="Part2/Frame17.png" data-index="17" alt="17">
+      <img src="Part2/Frame18.png" data-index="18" alt="18">
+      <img src="Part2/Frame20.png" data-index="19" alt="20">
+      <img src="Part2/Frame21.png" data-index="20" alt="21">
+      <img src="Part2/Frame22.png" data-index="21" alt="22">
+      <img src="Part2/Frame23.png" data-index="22" alt="23">
+      <img src="Part2/Frame24.png" data-index="23" alt="24">
+      <img src="Part2/Frame25.png" data-index="24" alt="25">
+      <img src="Part2/Frame26.png" data-index="25" alt="26">
+      <img src="Part2/Frame27.png" data-index="26" alt="27">
     </div>
   </div>
 </div>
@@ -118,9 +135,9 @@
   <div class="overlay-content" role="dialog" aria-modal="true">
     <button id="overlayClose" class="overlay-close" aria-label="Закрити">&times;</button>
     <button id="overlayLeft" class="overlay-nav" aria-label="Попередня картинка">Попередня картинка</button>
-    <img id="overlayImage" src="Part1/Frame1.png" alt="Comic frame">
+    <img id="overlayImage" src="Part2/Frame0.png" alt="Comic frame">
     <button id="overlayRight" class="overlay-nav" aria-label="Наступна картинка">Наступна картинка</button>
-    <div id="overlayCounter">Зображення 1 з 11</div>
+    <div id="overlayCounter">Зображення 1 з 27</div>
     <div id="overlayThumbs"></div>
   </div>
 </div>
@@ -128,8 +145,11 @@
 <script>
   (function(){
     const images = [
-      "Part1/Frame0.png","Part1/Frame1.png","Part1/Frame2.png","Part1/Frame3.png","Part1/Frame4.png","Part1/Frame5.png",
-      "Part1/Frame6.png","Part1/Frame7.png","Part1/Frame8.png","Part1/Frame9.png","Part1/Frame10.png"
+      "Part2/Frame0.png","Part2/Frame1.png","Part2/Frame2.png","Part2/Frame3.png","Part2/Frame4.png","Part2/Frame5.png",
+      "Part2/Frame6.png","Part2/Frame7.png","Part2/Frame8.png","Part2/Frame9.png","Part2/Frame10.png","Part2/Frame11.png",
+      "Part2/Frame12.png","Part2/Frame13.png","Part2/Frame14.png","Part2/Frame15.png","Part2/Frame16.png","Part2/Frame17.png",
+      "Part2/Frame18.png","Part2/Frame20.png","Part2/Frame21.png","Part2/Frame22.png","Part2/Frame23.png","Part2/Frame24.png",
+      "Part2/Frame25.png","Part2/Frame26.png","Part2/Frame27.png"
     ];
 
     let index = 0;
