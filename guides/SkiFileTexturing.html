@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>SKI File Texturing - PW Workshop</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN850ZWDRX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+
+    gtag('config', 'G-LN850ZWDRX');
+  </script>
+
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <script src="../assets/js/main-menu.js"></script>
+</head>
+
+<body>
+
+
+<link rel="stylesheet" type="text/css" href="../navbar.css">
+<header class="main-menu">
+  <img src="../assets/imgs/workshop-icon.png">
+  <a href="../index.html">Головна</a>
+  <a href="../Software.html">Програмне Забезпечення</a>
+  <a href="../Guides.html">Гайди</a>
+  <a href="../HowTo.html">Контакти</a>
+  <a href="../3DModelsBase.html">База з 3Д моделями</a>
+  <a href="../StructureElementClient.html">Структура Element Client</a>
+  <a href="../comix.html">Комікси</a>
+</header>
+
+
+<div id="MainInfoPanel">
+
+  <h1 style="color:rgb(255, 175, 2);">SKI File Texturing</h1>
+  <h2 style="color:rgb(255, 175, 2);">Основи текстурування</h2>
+  <p style="color: white; font-size: 1.2em; word-break: break-word; width: 80%; ">
+Текстурування броні та стилю:
+    <ul  style="color: white;">
+                <li>Якщо текстур немає. Броня взагалі не показується, та немає помилки про відкриття у логах клієнта.</li>
+                <li>texture.dds - без префікса, альфа - чорний колір, броня альфу читає як матовість. Чим прозоріше - тим МАТОВІШЕ!</li>
+                <li>rw_texture.dds Альфа використовуэться як дірка. Якщо немає поруч nb_rw текстури - вся броня максимально матова.</li>
+                <li>nb_rw_texture.dds - Зелений канал використовуэться для маски глянцеовсті, усе інше - не зрозуміло. У цій текстурі не має бути альфи.    </li> 
+                <li>До тих пір поки альфа не прибрана, броня може бути чорного кольору без глянцевості.(баг)    </li> 
+            </ul>
+  </p>
+
+</div>
+
+
+</body>
+
+</html>
