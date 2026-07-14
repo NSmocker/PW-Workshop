@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Консольні команди для Elementclient.ext - PW Workshop</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN850ZWDRX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+
+    gtag('config', 'G-LN850ZWDRX');
+  </script>
+
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <script src="../assets/js/main-menu.js"></script>
+</head>
+
+<body>
+
+
+<link rel="stylesheet" type="text/css" href="../navbar.css">
+<header class="main-menu">
+  <img src="../assets/imgs/workshop-icon.png">
+  <a href="../index.html">Головна</a>
+  <a href="../Software.html">Програмне Забезпечення</a>
+  <a href="../Guides.html">Гайди</a>
+  <a href="../HowTo.html">Контакти</a>
+  <a href="../3DModelsBase.html">База з 3Д моделями</a>
+  <a href="../StructureElementClient.html">Структура Element Client</a>
+  <a href="../comix.html">Комікси</a>
+</header>
+
+
+<div id="MainInfoPanel">
+
+  <h1 style="color:rgb(255, 175, 2);">Консольні команди для Elementclient.ext</h1>
+  <p style="color: white; font-size: 1.2em; word-break: break-word; width: 80%; ">
+    <ul style="color: white; font-size: 1.1em;">
+      <li><code style="color: rgb(255, 175, 2);">"d_cameramode"</code> - персонаж стоїть на місці а ви вільно крутите камеру на 360*</li>
+      <li><code style="color: rgb(255, 175, 2);">"d_boundbox"</code> - ставить на і навколо персонажів "сетки"</li>
+      <li><code style="color: rgb(255, 175, 2);">"d_rtdebug"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_npcid"</code> - показує ID NPC</li>
+      <li><code style="color: rgb(255, 175, 2);">"d_runspeed"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_goto"</code> - переміститися на координати, наприклад 437, 567</li>
+      <li><code style="color: rgb(255, 175, 2);">"d_fly"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_c2scmd"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_viewradius"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_relogin"</code> - вийти у меню вибору персонажів</li>
+      <li><code style="color: rgb(255, 175, 2);">"d_skill"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_render_water"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_render_grass"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_render_forest"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_render_shadow"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_render_outline"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_turnaround"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_testdist"</code> - відстань до цілі показується під курсором</li>
+      <li><code style="color: rgb(255, 175, 2);">"d_gfx"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_showpos"</code> - показує координати монстрів, NPC, героя і т.д</li>
+      <li><code style="color: rgb(255, 175, 2);">"d_trnlayer"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_a3dstat"</code> - показує статистику гри типу FPS</li>
+      <li><code style="color: rgb(255, 175, 2);">"d_gamestat"</code> - показує налаштування гри у вигляді статистики на дисплеї</li>
+      <li><code style="color: rgb(255, 175, 2);">"d_treelod"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_fps"</code> - показує fps у правому верхньому куті</li>
+      <li><code style="color: rgb(255, 175, 2);">"d_playerradius"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_showid"</code> - перемикання між показами ID персонажів та їх Ніками</li>
+      <li><code style="color: rgb(255, 175, 2);">"d_skipframe"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_modelupdate"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_minidump"</code> - у мене вилетіла гра з помилкою</li>
+      <li><code style="color: rgb(255, 175, 2);">"d_settimeofday"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_getservertime"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_task"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_mipmapbias"</code> - якщо поставити 50 зробить 2D</li>
+      <li><code style="color: rgb(255, 175, 2);">"d_trncull"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_gscmd"</code></li>
+      <li><code style="color: rgb(255, 175, 2);">"d_delcmd"</code></li>
+    </ul>
+  </p>
+
+  <h2 style="color:rgb(255, 175, 2);">Швидкі команди для телепорта</h2>
+  <p style="color: white; font-size: 1.1em; word-break: break-word; width: 80%; ">
+    Використовуйте команду <code style="color: rgb(255, 175, 2);">d_goto</code> з координатами нижче для швидкого телепорту.
+  </p>
+  <table style="color: white; font-size: 1em; border-collapse: collapse; width: 90%;">
+    <thead>
+      <tr style="border-bottom: 2px solid rgb(255, 175, 2);">
+        <th style="text-align: left; padding: 8px; color: rgb(255, 175, 2);">ID</th>
+        <th style="text-align: left; padding: 8px; color: rgb(255, 175, 2);">Команда</th>
+        <th style="text-align: left; padding: 8px; color: rgb(255, 175, 2);">Назва / Опис</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">162</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 162 -270.7 -310.0 300.0</code></td><td style="padding: 6px;">is62 = Ізначальний світ (Стартова локація у версії 1.5.1)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">1</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 1 3170.5 -5250.3 220.0</code></td><td style="padding: 6px;">gs01 = Світ</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">201</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 201 0.0 333.0 261.0</code></td><td style="padding: 6px;">arena01 = Арена міста мечів (Лока для івента асурів)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">202</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 202 0.0 0.0 261.0</code></td><td style="padding: 6px;">arena02 = Арена міста оборотнів</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">203</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 203 0.0 0.0 261.0</code></td><td style="padding: 6px;">arena03 = Арена міста перів</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">204</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 204 -54.7 173.9 261.0</code></td><td style="padding: 6px;">arena04 = Арена міста драконів</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">101</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 101 69.6 -43.0 19.0</code></td><td style="padding: 6px;">is01 = Місто темних звірів</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">102</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 102 43.8 -283.7 223.0</code></td><td style="padding: 6px;">is02 = Могильник героя (Прохід до 29 данжу, арена для PVP турнірів)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">105</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 105 -175.4 143.8 333.0</code></td><td style="padding: 6px;">is05 = Печера вогненних скель (19 данж для людей)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">106</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 106 -381.5 332.7 335.0</code></td><td style="padding: 6px;">is06 = Лігво бешених вовків (19 данж для зооморфів)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">107</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 107 -201.9 81.7 334.0</code></td><td style="padding: 6px;">is07 = Печера повзучих гадів (19 данж для сидів)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">108</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 108 -24.6 -71.0 334.0</code></td><td style="padding: 6px;">is08 = Зелений курган (29 данж)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">109</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 109 446.2 177.5 333.0</code></td><td style="padding: 6px;">is09 = Темна обитель (39 данж)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">110</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 110 7.3 223.9 333.0</code></td><td style="padding: 6px;">is10 = Інеєвий предел (51 данж)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">111</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 111 -96.3 126.3 308.0</code></td><td style="padding: 6px;">is11 = Долина розхитувачів небес (59 данж)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">112</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 112 -415.0 -224.0 461.0</code></td><td style="padding: 6px;">is12 = Руїни в джунглях</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">113</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 113 56.8 -302.0 336.0</code></td><td style="padding: 6px;">is13 = Предел диявольських наваждень</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">114</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 114 -252.6 200.7 338.0</code></td><td style="padding: 6px;">is14 = Врата неспокійних духів (69 данж)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">115</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 115 -255.4 394.9 333.0</code></td><td style="padding: 6px;">is15 = Печера коштовностей (79 данж)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">116</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 116 -175.3 -437.6 257.0</code></td><td style="padding: 6px;">is16 = Небо ілюзій (89 райський данж)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">117</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 117 -179.7 -446.2 258.0</code></td><td style="padding: 6px;">is17 = Небо наваждень (89 пекельний данж)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">118</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 118 -200.0 -200.0 187.0</code></td><td style="padding: 6px;">is18 = Палац царя драконів</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">119</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 119 36.6 43.9 223.0</code></td><td style="padding: 6px;">is19 = Острів нічного плачу (Прохід до 79 данжу)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">120</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 120 -342.8 341.1 220.0</code></td><td style="padding: 6px;">is20 = Острів тисячі змій</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">121</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 121 761.2 -476.4 194.0</code></td><td style="padding: 6px;">is21 = Землі небожителів (Рай)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">122</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 122 -634.5 -745.2 250.0</code></td><td style="padding: 6px;">is22 = Землі магів і демонів (Пекло)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">123</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 123 330.0 -264.0 609.0</code></td><td style="padding: 6px;">is23 = Чистилище (99 райський данж)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">124</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 124 -334.1 -466.6 164.0</code></td><td style="padding: 6px;">is24 = Земне пекло (99 пекельний данж)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">125</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 125 -363.0 -349.0 566.0</code></td><td style="padding: 6px;">is25 = Місто бойових пісень (Село туманів. Колишній 109 райський данж)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">126</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 126 317.0 -164.0 25.0</code></td><td style="padding: 6px;">is26 = Зал переродження (Обитель бунтівників. Колишній 109 пекельний данж)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">127</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 127 -446.0 -17.0 217.0</code></td><td style="padding: 6px;">is27 = Долина священної луни (Місяць)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">128</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 128 -86.0 26.6 239.0</code></td><td style="padding: 6px;">is28 = Долина бездушия (Гуй)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">129</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 129 282.5 -210.7 248.0</code></td><td style="padding: 6px;">is29 = Місто інею (Іній)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">131</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 131 -447.0 475.0 132.0</code></td><td style="padding: 6px;">is31 = Сутінковий храм (Ікси)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">132</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 132 -1366.0 1502.0 1.0</code></td><td style="padding: 6px;">is32 = Куб долі (Куб)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">133</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 133 431.6 -143.0 529.0</code></td><td style="padding: 6px;">is33 = Лабіринт часу (Хроно)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">134</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 134 227.4 119.0 33.0</code></td><td style="padding: 6px;">is34 = Зал весіль (Лока для весіль)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">135</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 135 36.0 1537.0 33.0</code></td><td style="padding: 6px;">is35 = База гільдії (Клан хол)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">137</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 137 -1740.0 344.3 35.0</code></td><td style="padding: 6px;">is37 = Морай</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">138</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 138 -684.7 652.1 333.0</code></td><td style="padding: 6px;">is38 = Ущелище Фенікса</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">139</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 139 -412.0 186.0 285.0</code></td><td style="padding: 6px;">is39 = Печери вічності (Звичайні)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">140</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 140 275.0 880.0 65.0</code></td><td style="padding: 6px;">is40 = Підземелля морая (Печери (Лока з Атуіном), Палац короля сминфісів, Міраж у країні Грез (Лока для квесту У Вербовник Битви Династій), Скарбниця Країни Фонарів)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">141</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 141 -412.0 186.0 285.0</code></td><td style="padding: 6px;">is41 = Печери вічності (Посилені)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">142</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 142 -500.0 760.0 333.0</code></td><td style="padding: 6px;">is42 = Долина битв (Міжсерверна локація)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">143</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 143 -356.7 126.5 33.0</code></td><td style="padding: 6px;">is43 = Зал п'яти імператорів (Основна локація Битви династій)</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">144</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 144 2.0 0.0 25.0</code></td><td style="padding: 6px;">is44 = Поле бою Битви династій "Захоплення прапора"</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">145</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 145 -303.0 -331.0 163.0</code></td><td style="padding: 6px;">is45 = Поле бою Битви династій "Бій за кристали"</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">146</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 146 -184.4 28.9 297.0</code></td><td style="padding: 6px;">is46 = Поле бою Битви династій "Битва на мосту"</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">147</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 147 -5.0 -136.0 21.0</code></td><td style="padding: 6px;">is47 = Долина заходу (Лока для івента "Битва катапульт")</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">148</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 148 -220.0 409.0 1.0</code></td><td style="padding: 6px;">is48 = Зал покарань</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">149</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 149 -74.0 239.0 98.0</code></td><td style="padding: 6px;">is49 = Драконе укриття</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">150</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 150 91.5 75.8 564.0</code></td><td style="padding: 6px;">is50 = Країна грез</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">163</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 163 -270.0 -804.9 300.0</code></td><td style="padding: 6px;">is63 = Світ людей</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">166</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 166 147.4 -97.0 133.0</code></td><td style="padding: 6px;">is66 = Срібна цитадель</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">167</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 167 397.0 233.7 40.0</code></td><td style="padding: 6px;">is67 = Храм стихій</td></tr>
+      <tr style="border-bottom: 1px solid #333;"><td style="padding: 6px;">168</td><td style="padding: 6px;"><code style="color: rgb(255, 175, 2);">d 8888 168 -760.0 -83.0 371.0</code></td><td style="padding: 6px;">is68 = Світ людей (Лока для щоденних завдань Світу людей)</td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+</body>
+
+</html>
