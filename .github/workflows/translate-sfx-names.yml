@@ -25,36 +25,79 @@ jobs:
       - name: Translate Chinese SFX path names
         shell: python
         run: |
-          import os, re
+          import os, re, json, time, urllib.parse, urllib.request
           ROOT = 'assets/sfx . pck'
+          # Preferred translations for recurring game-specific names/terms.
           MAP = {
-              '晚上虫子': 'Night_Insects', '晚上青蛙': 'Night_Frogs', '晚上风虫': 'Night_Wind_and_Insects', '光晕': 'Halo', '喷泉': 'Fountain', '大火锅': 'Big_Fire_Pot', '水渠小': 'Small_Canal', '河流小': 'Small_River', '瀑布小': 'Small_Waterfall', '火大': 'Large_Fire', '火小': 'Small_Fire', '电流': 'Electrical_Current', '萤火虫': 'Fireflies', '风铃': 'Wind_Chimes',
-              '伸懒腰': 'Stretch', '向前冲锋': 'Charge_Forward', '四处张望': 'Look_Around', '坐下': 'Sit_Down', '害羞': 'Shy', '思考': 'Think', '抱拳': 'Clasp_Fists', '招手': 'Wave', '挑衅': 'Taunt', '摇头': 'Shake_Head', '晕倒及站起': 'Faint_and_Stand_Up', '晕倒及站立': 'Faint_and_Stand', '沮丧': 'Dejected', '点头': 'Nod', '生气': 'Angry', '站起': 'Stand_Up', '耸肩膀': 'Shrug', '胜利': 'Victory', '转动兵器': 'Spin_Weapon', '转动武器': 'Spin_Weapon', '飞吻': 'Blow_Kiss', '高兴': 'Happy', '喊叫': 'Shout', '死亡': 'Death',
-              '主宰': 'Dominator', '云猎': 'Cloud_Hunter', '暗刃': 'Dark_Blade', '森黎': 'Senli', '湮寒': 'Yanhan', '霸极': 'Baji', '互动': 'Interaction', '开启新的一天': 'Start_a_New_Day', '技能': 'Skill', '排课': 'Class_Schedule', '登场': 'Entrance', '进入战斗': 'Enter_Battle', '进阶': 'Advance', '退场': 'Exit', '稍快': 'Slightly_Faster', '稍慢': 'Slightly_Slower', '正常': 'Normal', '语速01': 'Speech_Rate_01', '语速02': 'Speech_Rate_02', '只有一种速度': 'Only_One_Speed', '单声道': 'Mono', '单': 'Mono',
-              '情人节钢琴曲': "Valentine's_Day_Piano", '万流城': 'City_of_Thousand_Streams', '五行神降': 'Five_Elements_Divine_Descent', '养育经验': 'Parenting_Experience', '双宿双飞': 'Together_Forever', '妖猴老者叙述': 'Old_Demon_Monkey_Narration', '婚礼进行曲': 'Wedding_March', '寻找元魂': 'Search_for_Primordial_Soul', '惊涛城': 'City_of_Surging_Waves', '捉迷藏': 'Hide_and_Seek', '春节序曲': 'Spring_Festival_Overture', '灵犀城': 'Lingxi_City', '祖龙城': 'Ancestor_Dragon_City', '积羽城': 'Jiyu_City', '童年记忆': 'Childhood_Memories', '舍生取义': 'Sacrifice_for_Righteousness', '菲雪之殇': 'Feixue_Sorrow', '表白': 'Confession', '赢霄城': 'Yingxiao_City', '重温旧梦': 'Relive_Old_Dreams', '仇英玄灵': 'Chouying_Xuanling', '凌云界': 'Lingyun_Realm', '天空城': 'Sky_City', '极乐村': 'Bliss_Village', '梵天魔灵': 'Brahma_Demon_Spirit', '飞鹰堡': 'Flying_Eagle_Fort', '野外出行': 'Outdoor_Travel', '餐后零食': 'After_Meal_Snack', '黑帝霸权': 'Black_Emperor_Hegemony', '语音': 'Voice',
-              '修女唱诗': 'Nun_Choir', '修女': 'Nun', '教父': 'Godfather', '交谈循环': 'Conversation_Loop', '休闲动作': 'Idle_Action', '伸手交谈': 'Reach_Out_Conversation', '抱胸交谈': 'Cross_Arms_Conversation', '歌姬': 'Songstress', '歌姬休闲动作舞蹈音乐': 'Songstress_Idle_Dance_Music', '怪物': 'Monsters', '摩托声音': 'Motorcycle_Sounds', '摩托车休闲': 'Motorcycle_Idle', '摩托车受伤': 'Motorcycle_Hurt', '摩托车奔跑': 'Motorcycle_Run', '摩托车攻击': 'Motorcycle_Attack', '摩托车跳跃落地': 'Motorcycle_Jump_Landing', '摩托车跳跃': 'Motorcycle_Jump',
+              '晚上虫子':'Night_Insects','晚上青蛙':'Night_Frogs','晚上风虫':'Night_Wind_and_Insects','光晕':'Halo','喷泉':'Fountain','大火锅':'Big_Fire_Pot','水渠小':'Small_Canal','河流小':'Small_River','瀑布小':'Small_Waterfall','火大':'Large_Fire','火小':'Small_Fire','电流':'Electrical_Current','萤火虫':'Fireflies','风铃':'Wind_Chimes',
+              '伸懒腰':'Stretch','向前冲锋':'Charge_Forward','四处张望':'Look_Around','坐下':'Sit_Down','害羞':'Shy','思考':'Think','抱拳':'Clasp_Fists','招手':'Wave','挑衅':'Taunt','摇头':'Shake_Head','晕倒及站起':'Faint_and_Stand_Up','晕倒及站立':'Faint_and_Stand','沮丧':'Dejected','点头':'Nod','生气':'Angry','站起':'Stand_Up','耸肩膀':'Shrug','胜利':'Victory','转动兵器':'Spin_Weapon','转动武器':'Spin_Weapon','飞吻':'Blow_Kiss','高兴':'Happy','喊叫':'Shout','死亡':'Death',
+              '主宰':'Dominator','云猎':'Cloud_Hunter','暗刃':'Dark_Blade','森黎':'Senli','湮寒':'Yanhan','霸极':'Baji','互动':'Interaction','开启新的一天':'Start_a_New_Day','技能':'Skill','排课':'Class_Schedule','登场':'Entrance','进入战斗':'Enter_Battle','进阶':'Advance','退场':'Exit','稍快':'Slightly_Faster','稍慢':'Slightly_Slower','正常':'Normal','语速01':'Speech_Rate_01','语速02':'Speech_Rate_02','只有一种速度':'Only_One_Speed','单声道':'Mono','单':'Mono',
+              '情人节钢琴曲':"Valentine's_Day_Piano",'万流城':'City_of_Thousand_Streams','五行神降':'Five_Elements_Divine_Descent','养育经验':'Parenting_Experience','双宿双飞':'Together_Forever','妖猴老者叙述':'Old_Demon_Monkey_Narration','婚礼进行曲':'Wedding_March','寻找元魂':'Search_for_Primordial_Soul','惊涛城':'City_of_Surging_Waves','捉迷藏':'Hide_and_Seek','春节序曲':'Spring_Festival_Overture','灵犀城':'Lingxi_City','祖龙城':'Ancestor_Dragon_City','积羽城':'Jiyu_City','童年记忆':'Childhood_Memories','舍生取义':'Sacrifice_for_Righteousness','菲雪之殇':'Feixue_Sorrow','表白':'Confession','赢霄城':'Yingxiao_City','重温旧梦':'Relive_Old_Dreams','仇英玄灵':'Chouying_Xuanling','凌云界':'Lingyun_Realm','天空城':'Sky_City','极乐村':'Bliss_Village','梵天魔灵':'Brahma_Demon_Spirit','飞鹰堡':'Flying_Eagle_Fort','野外出行':'Outdoor_Travel','餐后零食':'After_Meal_Snack','黑帝霸权':'Black_Emperor_Hegemony','语音':'Voice',
+              '修女唱诗':'Nun_Choir','修女':'Nun','教父':'Godfather','交谈循环':'Conversation_Loop','休闲动作':'Idle_Action','伸手交谈':'Reach_Out_Conversation','抱胸交谈':'Cross_Arms_Conversation','歌姬':'Songstress','歌姬休闲动作舞蹈音乐':'Songstress_Idle_Dance_Music','怪物':'Monsters','摩托声音':'Motorcycle_Sounds','摩托车休闲':'Motorcycle_Idle','摩托车受伤':'Motorcycle_Hurt','摩托车奔跑':'Motorcycle_Run','摩托车攻击':'Motorcycle_Attack','摩托车跳跃落地':'Motorcycle_Jump_Landing','摩托车跳跃':'Motorcycle_Jump',
           }
-          def translate_component(name):
-              for src in sorted(MAP, key=len, reverse=True): name = name.replace(src, MAP[src])
-              return name
-          chinese = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]')
-          if not os.path.isdir(ROOT): raise SystemExit(f'Missing directory: {ROOT}')
-          entries = []
-          for d, ds, fs in os.walk(ROOT, topdown=False): entries += [os.path.join(d, x) for x in fs + ds]
-          unresolved = []
-          for old in entries:
-              base = os.path.basename(old); newbase = translate_component(base)
-              if chinese.search(newbase): unresolved.append(os.path.relpath(old, ROOT)); continue
-              if newbase != base:
-                  new = os.path.join(os.path.dirname(old), newbase)
-                  if os.path.exists(new): raise SystemExit(f'Rename collision: {old} -> {new}')
-                  os.rename(old, new)
-          if unresolved:
-              print('UNRESOLVED CHINESE PATHS:'); print('\n'.join(unresolved)); raise SystemExit(2)
+          CJK = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]+')
+          cache = dict(MAP)
 
-      - name: Commit translated names and remove temporary workflows
+          def google_translate(text):
+              url = 'https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=zh-CN&tl=en&q=' + urllib.parse.quote(text)
+              req = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0'})
+              last = None
+              for attempt in range(4):
+                  try:
+                      with urllib.request.urlopen(req, timeout=20) as r:
+                          data = json.loads(r.read().decode('utf-8'))
+                      parts = [x.get('trans','') for x in data.get('sentences',[]) if x.get('trans')]
+                      result = ''.join(parts).strip()
+                      if result and not CJK.search(result): return result
+                      translit = ''.join(x.get('src_translit','') for x in data.get('sentences',[]) if x.get('src_translit')).strip()
+                      if translit and not CJK.search(translit): return translit
+                  except Exception as e:
+                      last = e
+                  time.sleep(1.5 * (attempt + 1))
+              raise RuntimeError(f'Could not translate {text!r}: {last}')
+
+          def translate_run(text):
+              if text in cache: return cache[text]
+              result = google_translate(text)
+              # Make translated path components filesystem-safe and compact.
+              result = re.sub(r'[<>:"/\\|?*]', '_', result)
+              result = re.sub(r'\s+', '_', result).strip(' ._')
+              if not result: raise RuntimeError(f'Empty translation for {text!r}')
+              cache[text] = result
+              time.sleep(0.15)
+              return result
+
+          if not os.path.isdir(ROOT): raise SystemExit(f'Missing directory: {ROOT}')
+          entries=[]
+          for d,ds,fs in os.walk(ROOT, topdown=False): entries += [os.path.join(d,x) for x in fs+ds]
+
+          # Translate every contiguous Chinese run, preserving the existing directory hierarchy and all non-Chinese parts.
+          for old in entries:
+              base = os.path.basename(old)
+              if not CJK.search(base): continue
+              newbase = CJK.sub(lambda m: translate_run(m.group(0)), base)
+              if CJK.search(newbase): raise RuntimeError(f'Chinese remains after translation: {base} -> {newbase}')
+              if newbase == base: continue
+              new = os.path.join(os.path.dirname(old), newbase)
+              if os.path.exists(new): raise RuntimeError(f'Rename collision: {old} -> {new}')
+              os.rename(old, new)
+
+          print(f'Translated {len(cache)-len(MAP)} previously-unmapped Chinese terms; all renamed paths are now ASCII/English.')
+
+      - name: Verify and commit translated names
         shell: bash
         run: |
+          python - <<'PY'
+          import os,re
+          rx=re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]')
+          root='assets/sfx . pck'
+          bad=[]
+          for d,ds,fs in os.walk(root):
+              for x in fs+ds:
+                  if rx.search(x): bad.append(os.path.relpath(os.path.join(d,x),root))
+          if bad:
+              print('\n'.join(bad)); raise SystemExit('Chinese names remain')
+          PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A -- "assets/sfx . pck"
