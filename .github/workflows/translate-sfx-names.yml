@@ -1,0 +1,120 @@
+name: Translate SFX names
+
+on:
+  push:
+    branches:
+      - Models-Database
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    if: ${{ !startsWith(github.event.head_commit.message, 'Translate SFX names') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Translate Chinese SFX path names
+        shell: python
+        run: |
+          import os
+          import re
+
+          ROOT = 'assets/sfx . pck'
+
+          # Phrase-level translations used by the extracted Perfect World SFX names.
+          # Proper names are kept as transliterations where translating them would alter identity.
+          MAP = {
+              '伸懒腰': 'Stretch', '向前冲锋': 'Charge_Forward', '四处张望': 'Look_Around',
+              '坐下': 'Sit_Down', '害羞': 'Shy', '思考': 'Think', '抱拳': 'Clasp_Fists',
+              '招手': 'Wave', '挑衅': 'Taunt', '摇头': 'Shake_Head', '晕倒及站起': 'Faint_and_Stand_Up',
+              '晕倒及站立': 'Faint_and_Stand', '沮丧': 'Dejected', '点头': 'Nod', '生气': 'Angry',
+              '站起': 'Stand_Up', '耸肩膀': 'Shrug', '胜利': 'Victory', '转动兵器': 'Spin_Weapon',
+              '转动武器': 'Spin_Weapon', '飞吻': 'Blow_Kiss', '高兴': 'Happy', '喊叫': 'Shout',
+              '死亡': 'Death',
+              '主宰': 'Dominator', '云猎': 'Cloud_Hunter', '暗刃': 'Dark_Blade',
+              '森黎': 'Senli', '湮寒': 'Yanhan', '霸极': 'Baji',
+              '互动': 'Interaction', '开启新的一天': 'Start_a_New_Day', '技能': 'Skill', '排课': 'Class_Schedule',
+              '登场': 'Entrance', '进入战斗': 'Enter_Battle', '进阶': 'Advance', '退场': 'Exit',
+              '稍快': 'Slightly_Faster', '稍慢': 'Slightly_Slower', '正常': 'Normal',
+              '语速01': 'Speech_Rate_01', '语速02': 'Speech_Rate_02', '只有一种速度': 'Only_One_Speed',
+              '单声道': 'Mono', '单': 'Mono',
+              '情人节钢琴曲': "Valentine's_Day_Piano", '万流城': 'City_of_Thousand_Streams',
+              '五行神降': 'Five_Elements_Divine_Descent', '养育经验': 'Parenting_Experience',
+              '双宿双飞': 'Together_Forever', '妖猴老者叙述': 'Old_Demon_Monkey_Narration',
+              '婚礼进行曲': 'Wedding_March', '寻找元魂': 'Search_for_Primordial_Soul',
+              '惊涛城': 'City_of_Surging_Waves', '捉迷藏': 'Hide_and_Seek', '春节序曲': 'Spring_Festival_Overture',
+              '灵犀城': 'Lingxi_City', '祖龙城': 'Ancestor_Dragon_City', '积羽城': 'Jiyu_City',
+              '童年记忆': 'Childhood_Memories', '舍生取义': 'Sacrifice_for_Righteousness',
+              '菲雪之殇': 'Feixue_Sorrow', '表白': 'Confession', '赢霄城': 'Yingxiao_City',
+              '重温旧梦': 'Relive_Old_Dreams', '仇英玄灵': 'Chouying_Xuanling', '凌云界': 'Lingyun_Realm',
+              '天空城': 'Sky_City', '极乐村': 'Bliss_Village', '梵天魔灵': 'Brahma_Demon_Spirit',
+              '飞鹰堡': 'Flying_Eagle_Fort', '野外出行': 'Outdoor_Travel', '餐后零食': 'After_Meal_Snack',
+              '黑帝霸权': 'Black_Emperor_Hegemony', '修女': 'Nun', '教父': 'Godfather',
+              '交谈循环': 'Conversation_Loop', '休闲动作': 'Idle_Action', '伸手交谈': 'Reach_Out_Conversation',
+              '抱胸交谈': 'Cross_Arms_Conversation', '歌姬': 'Songstress', '歌姬休闲动作舞蹈音乐': 'Songstress_Idle_Dance_Music',
+              '怪物': 'Monsters', '摩托声音': 'Motorcycle_Sounds', '摩托车休闲': 'Motorcycle_Idle',
+              '摩托车受伤': 'Motorcycle_Hurt', '摩托车奔跑': 'Motorcycle_Run', '摩托车攻击': 'Motorcycle_Attack',
+              '摩托车跳跃落地': 'Motorcycle_Jump_Landing', '摩托车跳跃': 'Motorcycle_Jump',
+          }
+
+          def translate_component(name):
+              out = name
+              # Longest phrases first, then individual known terms.
+              for src in sorted(MAP, key=len, reverse=True):
+                  out = out.replace(src, MAP[src])
+              return out
+
+          chinese = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]')
+          if not os.path.isdir(ROOT):
+              raise SystemExit(f'Missing directory: {ROOT}')
+
+          # Bottom-up rename preserves the existing hierarchy.
+          entries = []
+          for dirpath, dirnames, filenames in os.walk(ROOT, topdown=False):
+              for filename in filenames:
+                  entries.append(os.path.join(dirpath, filename))
+              for dirname in dirnames:
+                  entries.append(os.path.join(dirpath, dirname))
+
+          renamed = []
+          unresolved = []
+          for old in entries:
+              base = os.path.basename(old)
+              newbase = translate_component(base)
+              if chinese.search(newbase):
+                  unresolved.append(os.path.relpath(old, ROOT))
+                  continue
+              if newbase != base:
+                  new = os.path.join(os.path.dirname(old), newbase)
+                  if os.path.exists(new):
+                      raise SystemExit(f'Rename collision: {old} -> {new}')
+                  os.rename(old, new)
+                  renamed.append((os.path.relpath(old, ROOT), os.path.relpath(new, ROOT)))
+
+          if unresolved:
+              print('UNRESOLVED CHINESE PATHS:')
+              for p in unresolved:
+                  print(p)
+              raise SystemExit(2)
+
+          print(f'Renamed {len(renamed)} paths.')
+          for old, new in renamed:
+              print(f'{old} -> {new}')
+
+      - name: Commit translated names
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- "assets/sfx . pck"
+          if git diff --cached --quiet; then
+            echo "No SFX path changes."
+            exit 0
+          fi
+          git commit -m "Translate SFX names to English"
+          git push
