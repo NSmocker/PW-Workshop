@@ -1,0 +1,40 @@
+name: Diagnose SFX paths
+on:
+  push:
+    branches: [Models-Database]
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    if: ${{ !startsWith(github.event.head_commit.message, 'SFX path diagnostic') && !startsWith(github.event.head_commit.message, 'Translate SFX names') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: false
+          sparse-checkout: |
+            assets/sfx . pck
+          sparse-checkout-cone-mode: true
+      - name: Collect Chinese paths
+        shell: python
+        run: |
+          import os,re
+          root='assets/sfx . pck'
+          rx=re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]')
+          out=[]
+          for d,ds,fs in os.walk(root):
+            for x in fs+ds:
+              p=os.path.join(d,x)
+              if rx.search(x): out.append(os.path.relpath(p,root))
+          with open('unresolved_sfx_paths.txt','w',encoding='utf-8') as f:
+            f.write('\n'.join(sorted(out)))
+          print(f'Found {len(out)} paths containing Chinese characters')
+      - name: Commit diagnostic
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add unresolved_sfx_paths.txt
+          git commit -m "SFX path diagnostic"
+          git push
