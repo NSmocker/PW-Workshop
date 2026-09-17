@@ -28,6 +28,10 @@ jobs:
           import os, re
           ROOT = 'assets/sfx . pck'
           MAP = {
+              '晚上虫子': 'Night_Insects', '晚上青蛙': 'Night_Frogs', '晚上风虫': 'Night_Wind_and_Insects',
+              '光晕': 'Halo', '喷泉': 'Fountain', '大火锅': 'Big_Fire_Pot', '水渠小': 'Small_Canal',
+              '河流小': 'Small_River', '瀑布小': 'Small_Waterfall', '火大': 'Large_Fire', '火小': 'Small_Fire',
+              '电流': 'Electrical_Current', '萤火虫': 'Fireflies', '风铃': 'Wind_Chimes',
               '伸懒腰': 'Stretch', '向前冲锋': 'Charge_Forward', '四处张望': 'Look_Around', '坐下': 'Sit_Down', '害羞': 'Shy', '思考': 'Think', '抱拳': 'Clasp_Fists', '招手': 'Wave', '挑衅': 'Taunt', '摇头': 'Shake_Head', '晕倒及站起': 'Faint_and_Stand_Up', '晕倒及站立': 'Faint_and_Stand', '沮丧': 'Dejected', '点头': 'Nod', '生气': 'Angry', '站起': 'Stand_Up', '耸肩膀': 'Shrug', '胜利': 'Victory', '转动兵器': 'Spin_Weapon', '转动武器': 'Spin_Weapon', '飞吻': 'Blow_Kiss', '高兴': 'Happy', '喊叫': 'Shout', '死亡': 'Death',
               '主宰': 'Dominator', '云猎': 'Cloud_Hunter', '暗刃': 'Dark_Blade', '森黎': 'Senli', '湮寒': 'Yanhan', '霸极': 'Baji',
               '互动': 'Interaction', '开启新的一天': 'Start_a_New_Day', '技能': 'Skill', '排课': 'Class_Schedule', '登场': 'Entrance', '进入战斗': 'Enter_Battle', '进阶': 'Advance', '退场': 'Exit', '稍快': 'Slightly_Faster', '稍慢': 'Slightly_Slower', '正常': 'Normal', '语速01': 'Speech_Rate_01', '语速02': 'Speech_Rate_02', '只有一种速度': 'Only_One_Speed', '单声道': 'Mono', '单': 'Mono',
@@ -53,12 +57,13 @@ jobs:
           if unresolved:
               print('UNRESOLVED CHINESE PATHS:'); print('\n'.join(unresolved)); raise SystemExit(2)
 
-      - name: Commit translated names and remove temporary workflow
+      - name: Commit translated names and remove temporary workflows
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A -- "assets/sfx . pck"
-          git rm -f .github/workflows/translate-sfx-names.yml
+          git rm -f .github/workflows/translate-sfx-names.yml || true
+          git rm -f .github/workflows/diagnose-sfx.yml unresolved_sfx_paths.txt || true
           git commit -m "Translate SFX names to English"
           git push
