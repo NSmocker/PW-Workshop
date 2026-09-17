@@ -16,20 +16,18 @@ jobs:
           sparse-checkout: |
             assets/sfx . pck
           sparse-checkout-cone-mode: true
-      - name: Collect Chinese paths
+      - name: Collect unique Chinese terms
         shell: python
         run: |
           import os,re
           root='assets/sfx . pck'
-          rx=re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]')
-          out=[]
+          rx=re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]+')
+          terms=set()
           for d,ds,fs in os.walk(root):
-            for x in fs+ds:
-              p=os.path.join(d,x)
-              if rx.search(x): out.append(os.path.relpath(p,root))
+            for x in fs+ds: terms.update(rx.findall(x))
           with open('unresolved_sfx_paths.txt','w',encoding='utf-8') as f:
-            f.write('\n'.join(sorted(out)))
-          print(f'Found {len(out)} paths containing Chinese characters')
+            f.write('\n'.join(sorted(terms)))
+          print(f'Found {len(terms)} unique Chinese terms')
       - name: Commit diagnostic
         shell: bash
         run: |
