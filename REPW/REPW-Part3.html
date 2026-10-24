@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REPW Part 3 - PW Workshop</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN850ZWDRX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LN850ZWDRX');
+  </script>
+
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <style>
+    :root {
+      --reader-bg: #07090d;
+      --reader-border: rgba(255, 255, 255, 0.14);
+      --reader-text: #f6f1e8;
+      --reader-muted: #aeb5c2;
+      --reader-gold: #f2c14e;
+      --reader-red: #d94f45;
+      --reader-green: #5bbf9b;
+      --reader-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+    }
+
+    body {
+      color: var(--reader-text);
+      overflow-x: hidden;
+    }
+
+    .main-menu {
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .main-menu img {
+      width: 58px;
+      height: auto;
+      flex: 0 0 auto;
+    }
+
+    #MainInfoPanel {
+      width: min(1180px, 94vw);
+      padding: 26px 18px 34px;
+      background:
+        radial-gradient(circle at top left, rgba(217, 79, 69, 0.20), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(91, 191, 155, 0.13), transparent 28%),
+        rgba(5, 8, 13, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--reader-shadow);
+      box-sizing: border-box;
+    }
+
+    .comic-reader {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 18px;
+      border-radius: 0;
+      background: transparent;
+      box-sizing: border-box;
+    }
+
+    .reader-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 18px;
+      padding: 0 4px;
+    }
+
+    .reader-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .reader-logo {
+      width: clamp(130px, 22vw, 220px);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.55));
+    }
+
+    .reader-title {
+      min-width: 0;
+    }
+
+    .reader-title h1 {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 56px);
+      line-height: 0.95;
+      color: var(--reader-gold);
+      text-transform: uppercase;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.65);
+    }
+
+    .reader-title p {
+      margin: 8px 0 0;
+      color: var(--reader-muted);
+      font-size: 15px;
+    }
+
+    .reader-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .reader-button {
+      min-width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 14px;
+      border: 1px solid var(--reader-border);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--reader-text);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .reader-button:hover,
+    .reader-button:focus-visible {
+      background: rgba(242, 193, 78, 0.16);
+      border-color: rgba(242, 193, 78, 0.68);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .reader-button.primary {
+      background: var(--reader-gold);
+      border-color: var(--reader-gold);
+      color: #17120a;
+    }
+
+    .reader-stage {
+      position: relative;
+      display: grid;
+      grid-template-columns: 68px minmax(0, 1fr) 68px;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .page-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #030405;
+      border: 1px solid var(--reader-border);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.48);
+    }
+
+    .page-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      z-index: 2;
+    }
+
+    #previewImage {
+      width: 100%;
+      max-height: min(72vh, 780px);
+      object-fit: contain;
+      display: block;
+      background: #030405;
+      cursor: zoom-in;
+    }
+
+    .page-meta {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: rgba(5, 7, 11, 0.76);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      backdrop-filter: blur(10px);
+      z-index: 3;
+    }
+
+    #pageCounter {
+      color: var(--reader-gold);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .stage-nav {
+      width: 68px;
+      height: clamp(160px, 34vw, 360px);
+      border-radius: 8px;
+      border: 1px solid var(--reader-border);
+      background: rgba(255, 255, 255, 0.065);
+      color: var(--reader-text);
+      font-size: 54px;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .stage-nav:hover,
+    .stage-nav:focus-visible {
+      background: rgba(217, 79, 69, 0.18);
+      border-color: rgba(242, 193, 78, 0.62);
+      outline: none;
+      transform: scale(1.02);
+    }
+
+    #comicOverlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      display: none;
+      overflow: hidden;
+      background: rgba(2, 3, 6, 0.96);
+      z-index: 10000;
+    }
+
+    #comicOverlay.open {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .overlay-topbar {
+      min-width: 0;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 16px;
+      background: rgba(8, 10, 15, 0.86);
+      border-bottom: 1px solid var(--reader-border);
+      backdrop-filter: blur(12px);
+      z-index: 2;
+    }
+
+    .overlay-title {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--reader-muted);
+      font-weight: 700;
+    }
+
+    .overlay-title span:first-child {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #overlayCounter {
+      flex: 0 0 auto;
+      color: var(--reader-gold);
+      white-space: nowrap;
+    }
+
+    .overlay-stage {
+      min-width: 0;
+      box-sizing: border-box;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr) 76px;
+      grid-template-rows: minmax(0, 1fr);
+      align-items: center;
+      gap: 12px;
+      padding: 12px 12px 16px;
+    }
+
+    .overlay-stage .stage-nav {
+      max-height: 100%;
+    }
+
+    #overlayImage {
+      width: 100%;
+      height: 100%;
+      min-width: 0;
+      min-height: 0;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #020304;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 820px) {
+      #MainInfoPanel {
+        width: 100%;
+        padding: 18px 10px 26px;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .reader-header {
+        grid-template-columns: 1fr;
+      }
+
+      .reader-actions {
+        justify-content: flex-start;
+      }
+
+      .reader-stage,
+      .overlay-stage {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .stage-nav {
+        position: absolute;
+        top: 50%;
+        width: 48px;
+        height: 104px;
+        z-index: 4;
+        transform: translateY(-50%);
+        background: rgba(5, 7, 11, 0.72);
+      }
+
+      .stage-nav:hover,
+      .stage-nav:focus-visible {
+        transform: translateY(-50%) scale(1.02);
+      }
+
+      .stage-nav.prev {
+        left: 8px;
+      }
+
+      .stage-nav.next {
+        right: 8px;
+      }
+
+      .overlay-stage .stage-nav {
+        position: fixed;
+      }
+
+      #previewImage {
+        max-height: 68vh;
+      }
+
+      .page-meta {
+        left: 8px;
+        bottom: 8px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .reader-brand {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .reader-button {
+        height: 42px;
+        padding: 0 11px;
+      }
+
+      .reader-button .label {
+        display: none;
+      }
+
+      .overlay-topbar {
+        padding: 10px;
+      }
+
+      .overlay-title span:first-child {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<link rel="stylesheet" type="text/css" href="../navbar.css">
+<header class="main-menu">
+  <img src="../assets/imgs/workshop-icon.png">
+  <a href="../index.html">Головна</a>
+  <a href="../Software.html">Програмне Забезпечення</a>
+  <a href="../Guides.html">Гайди</a>
+  <a href="../HowTo.html">Контакти</a>
+  <a href="../3DModelsBase.html">База з 3Д моделями</a>
+  <a href="../StructureElementClient.html">Структура Element Client</a>
+  <a href="../comix.html">Комікси</a>
+</header>
+
+<div id="MainInfoPanel">
+  <main class="comic-reader" aria-label="REPW Part 3 comic reader">
+    <section class="reader-header">
+      <div class="reader-brand">
+        <img class="reader-logo" src="REPW-Manga-Logo.png" alt="REPW">
+        <div class="reader-title">
+          <h1>Частина 3</h1>
+          <p>28 сторінок</p>
+        </div>
+      </div>
+
+      <div class="reader-actions">
+        <button id="openOverlay" class="reader-button primary" type="button" aria-label="Відкрити на весь екран">
+          <span aria-hidden="true">[ ]</span>
+          <span class="label">На весь екран</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="reader-stage" aria-label="Поточна сторінка">
+      <button id="pagePrev" class="stage-nav prev" type="button" aria-label="Попередня сторінка">&lsaquo;</button>
+
+      <div class="page-shell">
+        <img id="previewImage" src="Part3/0.png" alt="REPW Part 3, сторінка 1">
+        <div class="page-meta">
+          <span id="pageCounter" aria-live="polite" aria-label="Поточна сторінка">1</span>
+        </div>
+      </div>
+
+      <button id="pageNext" class="stage-nav next" type="button" aria-label="Наступна сторінка">&rsaquo;</button>
+    </section>
+  </main>
+</div>
+
+<footer>
+  Розроблено  <a href="https://t.me/SilverEcho97">Silver Echo Games</a>
+</footer>
+
+<div id="comicOverlay" aria-hidden="true">
+  <div class="overlay-topbar" role="dialog" aria-modal="true" aria-label="REPW Part 3 fullscreen reader">
+    <div class="overlay-title">
+      <span>REPW - Частина 3</span>
+      <span id="overlayCounter" aria-live="polite" aria-label="Поточна сторінка">1</span>
+    </div>
+    <button id="overlayClose" class="reader-button" type="button" aria-label="Закрити">
+      <span aria-hidden="true">&times;</span>
+      <span class="label">Закрити</span>
+    </button>
+  </div>
+
+  <div class="overlay-stage">
+    <button id="overlayLeft" class="stage-nav prev" type="button" aria-label="Попередня сторінка">&lsaquo;</button>
+    <img id="overlayImage" src="Part3/0.png" alt="REPW Part 3, сторінка 1">
+    <button id="overlayRight" class="stage-nav next" type="button" aria-label="Наступна сторінка">&rsaquo;</button>
+  </div>
+</div>
+
+<script>
+  (function(){
+    const images = [
+      "Part3/0.png",
+      "Part3/1.png",
+      "Part3/2.png",
+      "Part3/3.png",
+      "Part3/3.1.png",
+      "Part3/4.png",
+      "Part3/5.png",
+      "Part3/6.png",
+      "Part3/7.png",
+      "Part3/8.png",
+      "Part3/9.png",
+      "Part3/10.png",
+      "Part3/11.png",
+      "Part3/12.png",
+      "Part3/13.png",
+      "Part3/14.png",
+      "Part3/15.png",
+      "Part3/16.png",
+      "Part3/17.png",
+      "Part3/18.png",
+      "Part3/19.png",
+      "Part3/20.png",
+      "Part3/21.png",
+      "Part3/22.png",
+      "Part3/23.png",
+      "Part3/24.png",
+      "Part3/25.png",
+      "Part3/26.png"
+    ];
+
+    let index = 0;
+    const previewImage = document.getElementById('previewImage');
+    const pageCounter = document.getElementById('pageCounter');
+    const pagePrev = document.getElementById('pagePrev');
+    const pageNext = document.getElementById('pageNext');
+    const openOverlayButton = document.getElementById('openOverlay');
+
+    const overlay = document.getElementById('comicOverlay');
+    const overlayImage = document.getElementById('overlayImage');
+    const overlayCounter = document.getElementById('overlayCounter');
+    const overlayLeft = document.getElementById('overlayLeft');
+    const overlayRight = document.getElementById('overlayRight');
+    const overlayClose = document.getElementById('overlayClose');
+
+    function updateUI() {
+      const pageNumber = index + 1;
+      const counterText = String(pageNumber);
+      const imageAlt = 'REPW Part 3, сторінка ' + pageNumber;
+
+      previewImage.src = images[index];
+      previewImage.alt = imageAlt;
+      overlayImage.src = images[index];
+      overlayImage.alt = imageAlt;
+      pageCounter.textContent = counterText;
+      overlayCounter.textContent = counterText;
+    }
+
+    function goTo(newIndex) {
+      index = (newIndex + images.length) % images.length;
+      updateUI();
+    }
+
+    function nextImage() {
+      goTo(index + 1);
+    }
+
+    function prevImage() {
+      goTo(index - 1);
+    }
+
+    function openOverlay() {
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      updateUI();
+      overlayClose.focus();
+    }
+
+    function closeOverlay() {
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      openOverlayButton.focus();
+    }
+
+    pagePrev.addEventListener('click', prevImage);
+    pageNext.addEventListener('click', nextImage);
+    previewImage.addEventListener('click', openOverlay);
+    openOverlayButton.addEventListener('click', openOverlay);
+    overlayLeft.addEventListener('click', prevImage);
+    overlayRight.addEventListener('click', nextImage);
+    overlayClose.addEventListener('click', closeOverlay);
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft') {
+        prevImage();
+      } else if (e.key === 'ArrowRight') {
+        nextImage();
+      } else if (e.key === 'Escape' && overlay.classList.contains('open')) {
+        closeOverlay();
+      } else if ((e.key === 'Enter' || e.key === ' ') && document.activeElement === previewImage) {
+        openOverlay();
+      }
+    });
+
+    updateUI();
+  })();
+</script>
+
+</body>
+</html>
