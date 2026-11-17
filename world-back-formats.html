@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Формати карти WinterMap — довідник по папці «world back»</title>
+<style>
+  :root{
+    --bg:#f4f7fb; --panel:#fff; --ink:#0f172a; --muted:#5b6b82;
+    --line:#dbe3ee; --line-2:#eef2f8;
+    --accent:#1d4ed8; --accent-2:#0e9f9a; --accent-soft:#e9efff;
+    --warn:#b45309; --warn-soft:#fff7e6;
+    --danger:#b91c1c; --danger-soft:#fef2f2;
+    --ok:#15803d; --ok-soft:#effaf1;
+    --code:#0b1220; --code-ink:#dbe7ff;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(15,23,42,.04), 0 10px 26px rgba(15,23,42,.05);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.65 "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:100;transition:width .12s linear}
+
+  .layout{display:grid;grid-template-columns:286px minmax(0,1fr);gap:34px;max-width:1460px;margin:0 auto;padding:0 28px}
+  aside{position:sticky;top:0;height:100vh;padding:28px 0 24px;display:flex;flex-direction:column;gap:18px;overflow:auto}
+  .brand{display:flex;gap:12px;align-items:center;padding:0 6px}
+  .brand .mark{width:40px;height:40px;border-radius:12px;flex:0 0 40px;background:linear-gradient(135deg,#1d4ed8,#0e9f9a);display:grid;place-items:center;color:#fff;font-weight:800;font-size:18px;box-shadow:0 6px 16px rgba(29,78,216,.25)}
+  .brand b{display:block;font-size:14px;line-height:1.25}
+  .brand span{display:block;font-size:11.5px;color:var(--muted);line-height:1.3}
+  .toc{font-size:13.5px;display:flex;flex-direction:column;gap:1px}
+  .toc a{display:block;padding:6px 10px;border-radius:8px;color:#334155;border-left:2px solid transparent}
+  .toc a:hover{background:#e9eef8;text-decoration:none}
+  .toc a.sub{padding-left:22px;font-size:12.8px;color:#52627a}
+  .toc a.active{background:var(--accent-soft);color:#123cab;border-left-color:var(--accent);font-weight:600}
+  .toc .grp{margin:13px 10px 3px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#8593a8;font-weight:700}
+  .aside-note{margin-top:auto;padding:12px;border:1px solid var(--line);background:#fbfcff;border-radius:12px;font-size:11.8px;color:var(--muted)}
+  .aside-note b{color:#334155}
+
+  main{min-width:0;padding:34px 0 80px}
+  .hero{background:linear-gradient(140deg,#0f1c39 0%,#152a5a 54%,#123f52 100%);color:#eaf1ff;border-radius:20px;padding:34px 34px 30px;box-shadow:0 18px 44px rgba(13,28,60,.22);position:relative;overflow:hidden}
+  .hero:after{content:"";position:absolute;right:-90px;top:-110px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(14,159,154,.35),transparent 66%)}
+  .hero .kicker{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8fb6e8;font-weight:700}
+  .hero h1{margin:8px 0 10px;font-size:31px;line-height:1.2;letter-spacing:-.02em;font-weight:800}
+  .hero p{margin:0;max-width:72ch;color:#c6d6ef;font-size:14.5px}
+  .hero .path{display:inline-block;margin-top:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:7px 11px;border-radius:8px;font:12.5px/1.4 Consolas,"Cascadia Mono",monospace;color:#dbe7ff;word-break:break-all}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;position:relative;z-index:1}
+  .chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#e7efff;border-radius:999px;padding:5px 11px;font-size:12px;font-weight:600;white-space:nowrap}
+
+  section{scroll-margin-top:24px;margin-top:38px}
+  h2{font-size:23px;line-height:1.25;letter-spacing:-.015em;margin:0 0 6px;display:flex;align-items:center;gap:10px}
+  h2 .num{display:inline-grid;place-items:center;min-width:30px;height:30px;border-radius:9px;background:var(--accent);color:#fff;font-size:13.5px;font-weight:800;padding:0 8px}
+  h3{font-size:17px;margin:26px 0 8px;letter-spacing:-.01em}
+  h4{font-size:14.5px;margin:18px 0 6px}
+  .lead{color:var(--muted);max-width:88ch;margin:0 0 16px;font-size:14.5px}
+  p{margin:0 0 12px}
+  ul,ol{margin:8px 0 14px;padding-left:22px}
+  li{margin:5px 0}
+  li>code,p>code,td>code,th>code{font-family:Consolas,"Cascadia Mono",monospace;font-size:12.7px;background:#eef2f9;border:1px solid #e2e8f2;padding:1px 5px;border-radius:5px;color:#1e3a8a;white-space:nowrap}
+  code.block,pre{display:block;background:var(--code);color:var(--code-ink);border-radius:12px;padding:14px 16px;font:12.8px/1.62 Consolas,"Cascadia Mono",monospace;overflow:auto;border:1px solid #16233c}
+  pre b{color:#7dd3fc;font-weight:600}
+  pre i{color:#86efac;font-style:normal}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px;margin:14px 0}
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:var(--shadow)}
+  .stat .v{font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+  .stat .k{font-size:11.6px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-top:3px}
+  .stat .s{font-size:12px;color:#64748b;margin-top:4px}
+
+  table{width:100%;border-collapse:separate;border-spacing:0;font-size:13.2px;margin:12px 0 16px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  th,td{padding:9px 11px;border-bottom:1px solid var(--line-2);text-align:left;vertical-align:top}
+  th{background:#f2f6fc;font-size:11.6px;text-transform:uppercase;letter-spacing:.05em;color:#4b5c74;font-weight:800;border-bottom:1px solid var(--line)}
+  tr:last-child td{border-bottom:none}
+  tbody tr:nth-child(even) td{background:#fbfcff}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .table-wrap{overflow:auto;border-radius:12px}
+  .table-wrap table{min-width:640px}
+
+  .badge{display:inline-block;font:11px/1.5 Consolas,monospace;padding:1px 7px;border-radius:6px;background:#eef2ff;border:1px solid #dbe4ff;color:#1e40af;font-weight:700;white-space:nowrap}
+  .badge.g{background:#ecfdf5;border-color:#c7f0dd;color:#047857}
+  .badge.o{background:#fff7ed;border-color:#fed7aa;color:#9a3412}
+  .badge.r{background:#fef2f2;border-color:#fecaca;color:#991b1b}
+  .badge.m{background:#f5f3ff;border-color:#ddd6fe;color:#5b21b6}
+
+  .note{border-left:3px solid var(--accent);background:#f7faff;padding:12px 15px;border-radius:0 10px 10px 0;margin:14px 0;font-size:13.8px}
+  .note.warn{border-left-color:#d97706;background:var(--warn-soft)}
+  .note.danger{border-left-color:#dc2626;background:var(--danger-soft)}
+  .note.ok{border-left-color:#16a34a;background:var(--ok-soft)}
+  .note b{display:block;margin-bottom:3px;font-size:12.4px;text-transform:uppercase;letter-spacing:.06em}
+  .note.warn b{color:#92400e}.note.danger b{color:#991b1b}.note.ok b{color:#166534}.note b{color:#1e40af}
+
+  .fmt{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+  .fmt .ext{font:700 21px/1.2 Consolas,monospace;letter-spacing:-.02em}
+  .fmt .tag{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+  .fmt-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;border-bottom:1px solid var(--line-2);padding-bottom:10px;margin-bottom:12px;flex-wrap:wrap}
+  .kv{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 16px;font-size:13.4px;margin:10px 0}
+  .kv dt{color:#64748b;font-weight:600}
+  .kv dd{margin:0}
+
+  .chain{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:16px 0 6px}
+  .chain .box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;position:relative;box-shadow:var(--shadow)}
+  .chain .box:after{content:"→";position:absolute;right:-11px;top:50%;transform:translateY(-50%);color:#94a3b8;font-weight:700;font-size:15px;z-index:2}
+  .chain .box:last-child:after{content:""}
+  .chain .box b{display:block;font-size:13px;margin-bottom:3px}
+  .chain .box span{font-size:11.7px;color:var(--muted);line-height:1.4;display:block}
+  .chain .box .n{font:11px/1 Consolas,monospace;color:#94a3b8;display:block;margin-bottom:5px}
+  .chain-note{font-size:12.4px;color:var(--muted);margin-top:8px}
+
+  .bars{display:flex;flex-direction:column;gap:7px;margin:14px 0 4px}
+  .bar{display:grid;grid-template-columns:118px minmax(0,1fr) 92px;gap:10px;align-items:center;font-size:12.6px}
+  .bar .track{height:9px;background:#edf1f8;border-radius:999px;overflow:hidden}
+  .bar .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#1d4ed8,#3b82f6)}
+  .bar .fill.alt{background:linear-gradient(90deg,#0e9f9a,#2dd4bf)}
+  .bar .fill.warn{background:linear-gradient(90deg,#b45309,#f59e0b)}
+  .bar .fill.gray{background:linear-gradient(90deg,#64748b,#94a3b8)}
+  .bar .v{text-align:right;color:#475569;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  .toc-toggle{display:none}
+  @media (max-width:1080px){
+    .layout{display:block;padding:0 16px}
+    aside{position:relative;height:auto;padding:16px 0 0;overflow:visible;display:none}
+    aside.open{display:flex}
+    .toc-toggle{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;bottom:16px;z-index:90;background:#0f172a;color:#fff;border:0;border-radius:999px;padding:10px 15px;font:600 13px/1 inherit;box-shadow:0 10px 24px rgba(15,23,42,.25);cursor:pointer}
+    main{padding:20px 0 70px}
+    .hero{padding:24px 20px;border-radius:16px}
+    .hero h1{font-size:25px}
+    .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .g3{grid-template-columns:1fr}
+    .g2{grid-template-columns:1fr}
+    .chain{grid-template-columns:1fr}
+    .chain .box:after{content:"↓";right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%)}
+    .bar{grid-template-columns:96px minmax(0,1fr) 78px}
+  }
+  @media print{
+    aside,#progress,.toc-toggle{display:none!important}
+    .layout{display:block;max-width:none;padding:0}
+    body{background:#fff;font-size:11pt}
+    .hero{background:#0f1c39!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    section{page-break-inside:auto;margin-top:24px}
+    .card,.stat,table{box-shadow:none;break-inside:avoid}
+    a{color:inherit}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="layout">
+<aside id="sidebar">
+  <div class="brand">
+    <div class="mark">W</div>
+    <div>
+      <b>WinterMap · world back</b>
+      <span>Довідник форматів даних</span>
+    </div>
+  </div>
+  <nav class="toc" id="toc">
+    <div class="grp">Огляд</div>
+    <a href="#overview">1. Що лежить у папці</a>
+    <a href="#chain">2. Ланцюг завантаження</a>
+    <a href="#container">3. Контейнер AFile / MOXB</a>
+    <div class="grp">Рельєф</div>
+    <a href="#terrain">4. Родина terrain-файлів</a>
+    <a href="#trn2" class="sub">4.1 .trn2 — паспорт</a>
+    <a href="#t2bk" class="sub">4.2 .t2bk — блоки</a>
+    <a href="#t2mk" class="sub">4.3 .t2mk — маски</a>
+    <a href="#t2lm" class="sub">4.4 .t2lm / .t2lm1</a>
+    <a href="#t2hc" class="sub">4.5 .t2hc — culling</a>
+    <div class="grp">Сцена та об’єкти</div>
+    <a href="#scene">5. Родина scene-файлів</a>
+    <a href="#ecwld" class="sub">5.1 .ecwld</a>
+    <a href="#ecbsd" class="sub">5.2 .ecbsd</a>
+    <a href="#bsdata" class="sub">5.3 bsdata\N.dat</a>
+    <a href="#cld" class="sub">5.4 world.cld</a>
+    <div class="grp">Світло</div>
+    <a href="#light">6. Освітлення</a>
+    <a href="#scenelights" class="sub">6.1 scenelights.dat</a>
+    <a href="#worldlight" class="sub">6.2 world_light.dat</a>
+    <div class="grp">Навігація</div>
+    <a href="#nav">7. movemap</a>
+    <a href="#cfg" class="sub">7.1 .cfg</a>
+    <a href="#prmap" class="sub">7.2 .prmap</a>
+    <a href="#pdhmap" class="sub">7.3 .pdhmap</a>
+    <a href="#mlu" class="sub">7.4 .mlu</a>
+    <div class="grp">Довідники</div>
+    <a href="#inventory">8. Інвентар файлів</a>
+    <a href="#practice">9. Практика та помилки</a>
+    <a href="#code">10. Де це в коді</a>
+    <a href="#magic">11. Швидка мапа сигнатур</a>
+  </nav>
+  <div class="aside-note">
+    <b>Джерело даних:</b> бінарний розбір усіх 479 файлів папки + заголовки й завантажувачі клієнта Perfect World / Angelica3D у <code>B:\Git\PW_ClientSource</code>.
+  </div>
+</aside>
+
+<main>
+<div class="hero">
+  <div class="kicker">Технічна документація · Perfect World · Angelica3D</div>
+  <h1>Формати карти WinterMap:<br>що відповідає за що</h1>
+  <p>Повний розбір вмісту папки <b>«world back»</b>: від контейнера <code style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18);color:#e7efff">MOXB</code> і тайлів рельєфу до навігаційних графів для NPC. Для кожного формату — призначення, структура, фактичні значення цієї карти, хто його читає та що зламається, якщо файл відсутній або застарілий.</p>
+  <div class="path">B:\Cyber Working Folder\CyberPW_WinterMap\client\maps\world back</div>
+  <div class="chips">
+    <span class="chip">479 файлів</span>
+    <span class="chip">360,6 МБ</span>
+    <span class="chip">8192 × 11264 м</span>
+    <span class="chip">22 528 блоків</span>
+    <span class="chip">88 суб-террейнів</span>
+    <span class="chip">14 розширень</span>
+  </div>
+</div>
+
+<section id="overview">
+  <h2><span class="num">1</span> Що лежить у папці</h2>
+  <p class="lead">Перед нами не «один формат карти», а набір із п’яти підсистем, які редагуються й експортуються різними інструментами, але працюють разом. Папка містить повний, самодостатній світ: геометрію рельєфу, розфарбування поверхні, денні й нічні lightmap-и, розстановку об’єктів, статичне світло, хмари та навігацію для NPC.</p>
+
+  <div class="grid g4">
+    <div class="stat"><div class="v">8192 × 11264</div><div class="k">метрів</div><div class="s">≈ 92,3 км²; 176 × 128 блоків по 64 м</div></div>
+    <div class="stat"><div class="v">88</div><div class="k">суб-террейнів</div><div class="s">сітка 11 × 8, кожен 1024 × 1024 м</div></div>
+    <div class="stat"><div class="v">220</div><div class="k">текстур поверхні</div><div class="s">список у <code>world.trn2</code></div></div>
+    <div class="stat"><div class="v">4 406</div><div class="k">джерел світла</div><div class="s">статичні точкові світла сцени</div></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">П’ять підсистем</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Підсистема</th><th>Файли</th><th>За що відповідає</th><th>Хто редагує / генерує</th></tr></thead>
+      <tbody>
+        <tr><td><b>Рельєф</b></td><td><code>.trn2</code>, <code>.t2bk</code>, <code>.t2mk</code>, <code>.t2lm</code>, <code>.t2lm1</code>, <code>.t2hc</code></td><td>Висоти, нормалі, розфарбування шарами, денні/нічні lightmap-и, відсікання за горизонтом</td><td>World Editor / terrain-експортер Angelica3D</td></tr>
+        <tr><td><b>Сцена</b></td><td><code>.ecwld</code>, <code>.ecbsd</code>, <code>bsdata\N.dat</code>, <code>world.cld</code></td><td>Розстановка дерев, трави, води, декорацій, ефектів, криттерів, звуків; великі масиви даних; хмари</td><td>Element Editor (CElementEditor)</td></tr>
+        <tr><td><b>Світло</b></td><td><code>scenelights.dat</code>, <code>world_light.dat</code></td><td>Статичні джерела світла для рендера; обмінний файл для світловиків</td><td>Element Editor / окремий експорт освітлення</td></tr>
+        <tr><td><b>Навігація</b></td><td><code>movemap\*.cfg/.prmap/.pdhmap/.mlu</code></td><td>Прохідність, висоти під кроки, кластерний граф для пошуку шляху NPC</td><td>AutoMove / PF-редактор</td></tr>
+        <tr><td><b>Контейнер</b></td><td>префікс <code>MOXB</code> у багатьох файлах</td><td>4-байтова обгортка AngelicaFile, що автоматично пропускається при читанні</td><td>Бібліотека AngelicaFile</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>Головне правило</b>
+    Усі числа в файлах — little-endian. Рядки в <code>.trn2</code> і <code>.ecbsd</code> зберігаються з префіксом довжини (4 байти), а не з нульовим термінатором; китайські шляхи текстур у <code>.trn2</code> закодовані в GBK, тому в hex-редакторі виглядають «кракозябрами». Це нормально.
+  </div>
+</section>
+
+<section id="chain">
+  <h2><span class="num">2</span> Ланцюг завантаження карти</h2>
+  <p class="lead">Клієнт не читає всі 479 файлів одразу. Спочатку відкривається «кореневий» <code>.ecwld</code>, з нього — <code>.ecbsd</code> і список суб-террейнів, далі підвантажуються тайли рельєфу навколо гравця. Розуміння цього ланцюга пояснює, чому одні файли можна замінити локально, а інші — ні.</p>
+
+  <div class="chain">
+    <div class="box"><span class="n">01</span><b>world.ecwld</b><span>Загальний паспорт світу: розміри, сітка блоків, таблиця 22 528 блоків, типи дерев і трави</span></div>
+    <div class="box"><span class="n">02</span><b>world.ecbsd</b><span>Спільні дані блоків + імена 88 файлів <code>BSData\N.dat</code></span></div>
+    <div class="box"><span class="n">03</span><b>world.trn2 + t2*</b><span>Рельєф: висоти, маски, lightmap-и, culling. По файлу на суб-террейн</span></div>
+    <div class="box"><span class="n">04</span><b>scenelights.dat</b><span>Статичні джерела світла, прив’язані до блоків сцени</span></div>
+    <div class="box"><span class="n">05</span><b>movemap + cld</b><span>Навігація для NPC та хмари; вантажаться окремими менеджерами</span></div>
+  </div>
+  <div class="chain-note">Фактичний порядок у <code>CECWorld</code>/<code>CECScene</code>: сценарний файл → BSD → суб-террейн за потребою; <code>.t2hc</code> і <code>.cld</code> — допоміжні, підключаються своїми класами.</div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Що з чим мусить бути узгоджене</h3>
+    <ul>
+      <li><b>Кількість суб-террейнів</b>: 88 у <code>world.trn2</code>, 88 імен у <code>world.ecbsd</code>, 88 наборів <code>world_N.t2bk/.t2mk/.t2lm/.t2lm1</code> і 88 файлів <code>bsdata\N.dat</code>. Якщо додати/видалити один суб-террейн — треба синхронно правити все.</li>
+      <li><b>Кількість блоків</b>: 22 528 = 176 × 128. У кожному <code>.t2bk</code> рівно 256 блоків (16 × 16), у <code>.ecwld</code> — таблиця на 22 528 записів.</li>
+      <li><b>Mask area</b>: 16 на суб-террейн (4 × 4 по 4 × 4 блоки). У кожному <code>.t2mk</code> — 16 областей, у <code>.t2lm</code> — теж 16.</li>
+      <li><b>День/ніч</b>: <code>.t2lm</code> і <code>.t2lm1</code> мають бути парними за розміром і структурою; інакше нічний режим «попливе» або впаде.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="container">
+  <h2><span class="num">3</span> Контейнер AFile / MOXB</h2>
+  <p class="lead">Це найважливіша деталь для будь-кого, хто читає ці файли власним кодом. <code>MOXB</code> — не магія формату карти, а 4-байтовий FOURCC бібліотеки <code>AngelicaFile</code> (<code>AFILE_TYPE_BINARY</code>, значення <code>0x42584F4D</code>).</p>
+
+  <div class="card">
+    <h3 style="margin-top:0">Як це працює</h3>
+    <p>Коли файл створюється через <code>AFile</code> без прапорця <code>AFILE_NOHEAD</code>, бібліотека першим ділом пише 4 байти:</p>
+    <ul>
+      <li><code>4D 4F 58 42</code> → ASCII <b>MOXB</b> — бінарний вміст;</li>
+      <li><code>4D 4F 58 54</code> → ASCII <b>MOXT</b> — текстовий вміст.</li>
+    </ul>
+    <p>Під час відкриття <code>AFile::Open</code> читає ці 4 байти. Якщо це <code>MOXB</code> — вмикає бінарний режим і <b>залишає покажчик одразу після префікса</b>. Тому логічний вміст починається з 5-го байта фізичного файлу, і в коді ви зустрічаєте або <code>Seek(4, AFILE_SEEK_SET)</code>, або коментар «file is created by AFile class which adds 4 bytes at the beginning of file, skip it».</p>
+    <pre><b>Фізичний файл:</b>
+  4D 4F 58 42 | 44 57 43 45 | 0C 00 00 00 | ...
+  "M  O  X  B" | "D  W  C  E" | версія 12  |
+               ↑
+               логічний початок для AFile
+
+<b>Логічний потік, який бачить код:</b>
+  44 57 43 45 | 0C 00 00 00 | ...
+  "D  W  C  E" | версія 12  |</pre>
+    <div class="note warn">
+      <b>Пастка для власних інструментів</b>
+      Якщо ви пишете файл звичайним <code>fwrite</code>, <code>MOXB</code> не з’явиться. Для більшості бінарних читачів це не проблема (вони відкривають із <code>AFILE_BINARY</code>), але якщо ваш код очікує зсув на 4 байти — ви отримаєте зсув на 4 байти в інший бік. Завжди перевіряйте, чи файл створено через <code>AFile</code>, чи «голим» записом.
+    </div>
+    <p style="margin-bottom:0">Саме тому <code>.prmap</code> і <code>.pdhmap</code> починаються з версії <code>01 00 00 00</code> без <code>MOXB</code>, а <code>.cfg</code>, <code>.mlu</code>, <code>.cld</code>, <code>bsdata\N.dat</code>, <code>.ecbsd</code> — з <code>MOXB</code>.</p>
+  </div>
+
+  <h3>Де префікс є, а де немає</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Файл</th><th>Перші байти (hex)</th><th>ASCII</th><th>MOXB</th></tr></thead>
+    <tbody>
+      <tr><td><code>world.trn2</code></td><td><code>32 4E 52 54</code></td><td>2NRT</td><td>ні</td></tr>
+      <tr><td><code>world_1.t2bk</code></td><td><code>42 4B 42 54</code></td><td>BKBT</td><td>ні</td></tr>
+      <tr><td><code>world_1.t2mk</code></td><td><code>42 4B 4D 54</code></td><td>BKMT</td><td>ні</td></tr>
+      <tr><td><code>world_1.t2lm</code></td><td><code>4D 4C 32 54</code></td><td>ML2T</td><td>ні</td></tr>
+      <tr><td><code>world.t2hc</code></td><td><code>43 48 32 54</code></td><td>CH2T</td><td>ні</td></tr>
+      <tr><td><code>world.ecwld</code></td><td><code>44 57 43 45</code></td><td>DWCE</td><td>ні</td></tr>
+      <tr><td><code>world.ecbsd</code></td><td><code>4D 4F 58 42 46 44 53 42</code></td><td>MOXBFDSB</td><td>так</td></tr>
+      <tr><td><code>bsdata\1.dat</code></td><td><code>4D 4F 58 42 02 00 00 00</code></td><td>MOXB + v2</td><td>так</td></tr>
+      <tr><td><code>world.cld</code></td><td><code>4D 4F 58 42 0B 00 00 00</code></td><td>MOXB + 11</td><td>так</td></tr>
+      <tr><td><code>movemap\*.cfg</code></td><td><code>4D 4F 58 42 66 67 66 63</code></td><td>MOXBfgfc</td><td>так</td></tr>
+      <tr><td><code>movemap\*.mlu</code></td><td><code>4D 4F 58 42 66 75 6C 6D</code></td><td>MOXBfulm</td><td>так</td></tr>
+      <tr><td><code>movemap\*.prmap</code></td><td><code>01 00 00 00</code></td><td>—</td><td>ні</td></tr>
+      <tr><td><code>movemap\*.pdhmap</code></td><td><code>01 00 00 00</code></td><td>—</td><td>ні</td></tr>
+      <tr><td><code>scenelights.dat</code></td><td><code>01 00 00 80</code></td><td>—</td><td>ні</td></tr>
+      <tr><td><code>world_light.dat</code></td><td><code>36 11 00 00</code></td><td>—</td><td>ні</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="terrain">
+  <h2><span class="num">4</span> Родина terrain-файлів</h2>
+  <p class="lead">Рельєф розбитий на 88 суб-террейнів (11 рядів × 8 колонок). Кожен суб-террейн — це квадрат 1024 × 1024 м, який складається з 16 × 16 блоків по 64 м. Усередині блоку сітка 32 × 32 клітинки з кроком 2 м. Такий поділ дозволяє вантажити лише те, що видно навколо гравця, і саме тому форматів шість, а не один.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Розширення</th><th>Файлів</th><th>Сумарно</th><th>Роль</th><th>Обов’язковий?</th></tr></thead>
+    <tbody>
+      <tr><td><code>.trn2</code></td><td class="num">1</td><td class="num">13,5 КБ</td><td>Загальний опис рельєфу, список текстур, параметри loader-а</td><td>так</td></tr>
+      <tr><td><code>.t2bk</code></td><td class="num">88</td><td class="num">137,4 МіБ</td><td>Висоти, нормалі, денний/нічний дифузний колір блоків</td><td>так</td></tr>
+      <tr><td><code>.t2mk</code></td><td class="num">88</td><td class="num">80,0 МіБ</td><td>Маски шарів поверхні (splat maps) 256 × 256</td><td>так</td></tr>
+      <tr><td><code>.t2lm</code></td><td class="num">88</td><td class="num">44,2 МіБ</td><td>Денні lightmap-и (DDS)</td><td>так</td></tr>
+      <tr><td><code>.t2lm1</code></td><td class="num">88</td><td class="num">44,2 МіБ</td><td>Нічні lightmap-и (DDS)</td><td>для нічного режиму</td></tr>
+      <tr><td><code>.t2hc</code></td><td class="num">1</td><td class="num">354 КБ</td><td>Дані horizon culling — прискорення відсікання</td><td>ні, але бажано</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note">
+    <b>Іменування</b>
+    Файли звуться <code>world_1.t2bk</code> … <code>world_88.t2bk</code>. Індексація починається з <b>1</b>, файлу <code>world_0.*</code> немає. Усередині <code>.ecwld</code> та <code>.ecbsd</code> індекси суб-террейнів — <b>0-based</b>, тому перший запис відповідає <code>world_1.*</code> і <code>BSData\1.dat</code>.
+  </div>
+</section>
+
+<section id="trn2">
+  <h2><span class="num">4.1</span> <code>.trn2</code> — паспорт рельєфу</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">world.trn2</span><span class="tag">Terrain 2 general information</span></div>
+      <div><span class="badge">MAGIC 2NRT</span> <span class="badge o">VERSION 1</span> <span class="badge g">13 815 B</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Це єдиний файл, який описує весь рельєф одразу: розміри світу, розмір блоку, сітку, кількість суб-террейнів, список 220 текстур поверхні та параметри завантажувача. Сам по собі він не містить геометрії — лише «шапку» і список імен, за якими loader знаходить <code>.t2bk</code>, <code>.t2mk</code> і <code>.t2lm</code>.</p>
+
+    <h4>Заголовок (фактичні значення)</h4>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Поле</th><th>Значення</th><th>Пояснення</th></tr></thead>
+      <tbody>
+        <tr><td><code>dwIdentify</code></td><td><code>0x54524E32</code> («2NRT»)</td><td>Сигнатура; у файлі читається як <code>2NRT</code></td></tr>
+        <tr><td><code>dwVersion</code></td><td class="num">1</td><td>Версія формату</td></tr>
+        <tr><td><code>fTerrainWid</code></td><td class="num">8192,0 м</td><td>Ширина світу по X</td></tr>
+        <tr><td><code>fTerrainHei</code></td><td class="num">11264,0 м</td><td>Довжина світу по Z</td></tr>
+        <tr><td><code>fBlockSize</code></td><td class="num">64,0 м</td><td>Розмір одного блоку</td></tr>
+        <tr><td><code>iBlockGrid</code></td><td class="num">32</td><td>Клітинок сітки в блоці по кожній осі (32 × 32)</td></tr>
+        <tr><td><code>iNumBlock</code></td><td class="num">22 528</td><td>Усього блоків: 176 × 128</td></tr>
+        <tr><td><code>iTrnBlkRow</code> / <code>iTrnBlkCol</code></td><td class="num">176 / 128</td><td>Блоків по рядах / колонках</td></tr>
+        <tr><td><code>iNumTexture</code></td><td class="num">220</td><td>Текстур поверхні у списку</td></tr>
+        <tr><td><code>iNumMaskArea</code></td><td class="num">1 408</td><td>Mask area: 16 на суб-террейн × 88</td></tr>
+        <tr><td><code>iMaskBlock</code></td><td class="num">4</td><td>Сторона mask area в блоках: 4 × 4 блоки = 256 × 256 м</td></tr>
+        <tr><td><code>iMaskGrid</code></td><td class="num">128</td><td>Клітинок сітки в mask area (128 × 2 м = 256 м)</td></tr>
+        <tr><td><code>iNumSubTrn</code></td><td class="num">88</td><td>Кількість суб-террейнів</td></tr>
+        <tr><td><code>iSubTrnRow</code> / <code>iSubTrnCol</code></td><td class="num">11 / 8</td><td>Сітка суб-террейнів</td></tr>
+        <tr><td><code>iSubTrnGrid</code></td><td class="num">512</td><td>Клітинок у суб-террейні по осі (512 × 2 м = 1024 м)</td></tr>
+        <tr><td><code>fGridSize</code></td><td class="num">2,0 м</td><td>Крок сітки рельєфу</td></tr>
+        <tr><td><code>dwTexOffset</code></td><td class="num">844</td><td>Зсув списку імен текстур</td></tr>
+        <tr><td><code>iLoaderID</code></td><td class="num">1</td><td>1 = <code>A3DTerrain2LoaderB</code> (саме він читає <code>.t2bk</code> цього типу)</td></tr>
+        <tr><td><code>dwLoaderOff</code></td><td class="num">12 764</td><td>Зсув блоку loader-даних</td></tr>
+        <tr><td><code>aReserved[56]</code></td><td>нулі</td><td>Резерв</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h4>Порядок блоків у файлі</h4>
+    <pre>TRN2FILEIDVER                 <i>8 B</i>   ← "2NRT" + версія 1
+TRN2FILEHEADER              <i>132 B</i>   ← заголовок + 56 B резерву
+TRN2FILESUBTRN × 88          <i>704 B</i>   ← min/max висота кожного суб-террейну
+texture names × 220       <i>11 920 B</i>   ← [int len][chars], GBK
+loader data                <i>1 051 B</i>   ← TRN2FILELOADERINFO: int iMaskMapSize = 256</pre>
+    <p style="margin-bottom:0">Перевірка: <code>8 + 132 + 704 + 11 920 + 1 051 = 13 815</code> байт — точно збігається з розміром файлу. Перший суб-террейн має діапазон висот <code>0,0 … 800,0 м</code>.</p>
+
+    <div class="note warn">
+      <b>Що буде, якщо змінити</b>
+      <code>.trn2</code> — це «контракт» для loader-а. Якщо кількість суб-террейнів або текстур не збігається з реальними файлами, клієнт або не знайде тайл, або прочитає список імен зі зсувом і покаже «биту» текстуру. Не редагуйте його вручну — генеруйте експортером.
+    </div>
+  </div>
+</section>
+
+<section id="t2bk">
+  <h2><span class="num">4.2</span> <code>.t2bk</code> — блоки рельєфу</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">world_N.t2bk</span><span class="tag">Terrain 2 block data · LoaderB</span></div>
+      <div><span class="badge">MAGIC BKBT</span> <span class="badge o">VERSION 6</span> <span class="badge g">88 файлів · 137,4 МіБ</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Геометрія рельєфу: висоти вершин, нормалі, денний і нічний дифузний колір. Один файл = один суб-террейн = 256 блоків (16 × 16). Саме ці дані формують видимий ландшафт; без них на місці суб-террейну буде порожнеча або плаский «нуль».</p>
+
+    <h4>Структура файлу</h4>
+    <pre>T2BKFILEIDVER                  <i>8 B</i>   ← "BKBT" + версія 6
+T2BKFILEHEADER5                <i>8 B</i>   ← iNumBlock = 256, byCompressed = 0x35
+block offsets × 256          <i>1 024 B</i>   ← DWORD, абсолютні зсуви блоків
+T2BKFILEBLOCK6 + payload      <i>…</i>       ← 36 B заголовок + стиснені масиви
+texture names × 220       <i>11 920 B</i>   ← той самий список, що в .trn2</pre>
+
+    <h4>Запис блоку (36 байт)</h4>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Поле</th><th>Що це</th></tr></thead>
+      <tbody>
+        <tr><td><code>iMaskArea</code></td><td>Індекс mask area (0…15), до якої належить блок</td></tr>
+        <tr><td><code>iRowInTrn</code>, <code>iColInTrn</code></td><td>Позиція блоку в суб-террейні (0…15)</td></tr>
+        <tr><td><code>fLODScale</code></td><td>Масштаб LOD; зазвичай 1,0</td></tr>
+        <tr><td><code>dwLayerFlags</code></td><td>Прапорці ефект-шарів (наприклад, сніг/лід)</td></tr>
+        <tr><td><code>dwHeiSize</code></td><td>Розмір стиснених даних висот</td></tr>
+        <tr><td><code>dwNormalSize</code></td><td>Розмір стиснених нормалей</td></tr>
+        <tr><td><code>dwDiffSize</code></td><td>Розмір денного дифузного кольору</td></tr>
+        <tr><td><code>dwDiffSize1</code></td><td>Розмір нічного дифузного кольору</td></tr>
+        <tr><td><code>dwBlkFlags</code></td><td>Прапорці поведінки блоку (див. нижче)</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h4>Прапорці стиснення (байт <code>0x35</code> = 53)</h4>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Біт</th><th>Назва</th><th>Значення тут</th><th>Що означає</th></tr></thead>
+      <tbody>
+        <tr><td><code>0x01</code></td><td>T2BKCOMP_COL_ZIP</td><td>✔</td><td>Колір стиснуто ZIP</td></tr>
+        <tr><td><code>0x04</code></td><td>T2BKCOMP_HEI_ZIP</td><td>✔</td><td>Висоти стиснуто ZIP</td></tr>
+        <tr><td><code>0x08</code></td><td>T2BKCOMP_HEI_INC</td><td>—</td><td>Інкрементальне кодування висот</td></tr>
+        <tr><td><code>0x10</code></td><td>T2BKCOMP_NOR_ZIP</td><td>✔</td><td>Нормалі стиснуто ZIP</td></tr>
+        <tr><td><code>0x20</code></td><td>T2BKCOMP_NOR_DEG</td><td>✔</td><td>Нормалі в градусному (компактному) вигляді</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h4>Прапорці блоку <code>dwBlkFlags</code></h4>
+    <ul>
+      <li><code>0x01</code> <b>NORENDER</b> — блок узагалі не рендериться;</li>
+      <li><code>0x02</code> <b>NOTRACE</b> — виключений з RayTrace (промені його ігнорують);</li>
+      <li><code>0x04</code> <b>NOPOSHEIGHT</b> — для блоку не можна отримати висоту (GetPosHeight);</li>
+      <li><code>0x08</code> <b>NORENDERWITHWATER</b> — не рендериться разом із водою.</li>
+    </ul>
+
+    <div class="note ok">
+      <b>Контрольний приклад: перший блок world_1.t2bk</b>
+      <code>maskArea=0, row=0, col=0, LOD=1,0, layerFlags=1, heiSize=3248, norSize=1700, diffSize=1079, diffSize1=929, blkFlags=0</code>. Тобто це звичайний блок без спецпрапорців, із повним набором денних і нічних даних.
+    </div>
+    <p style="margin-bottom:0">Усі 88 файлів мають однаковий заголовок (256 блоків, <code>0x35</code>), але різні розміри: від компактних ділянок до насичених деталями гірських масивів. Найбільші файли — у суб-террейнах із пересіченою місцевістю.</p>
+  </div>
+</section>
+
+<section id="t2mk">
+  <h2><span class="num">4.3</span> <code>.t2mk</code> — маски шарів поверхні</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">world_N.t2mk</span><span class="tag">Terrain 2 mask map · LoaderB</span></div>
+      <div><span class="badge">MAGIC BKMT</span> <span class="badge o">VERSION 2</span> <span class="badge g">88 файлів · 80,0 МіБ</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Це «розфарбування» поверхні: для кожної з 16 mask area зберігаються маски шарів, які змішують текстури зі списку <code>.trn2</code>. Типово на область припадає 3 шари: базовий (без маски, покриває все) і два шари з масками 256 × 256 пікселів (1 піксель = 1 м).</p>
+
+    <h4>Структура</h4>
+    <pre>T2MKFILEIDVER                 <i>8 B</i>   ← "BKMT" + версія 2
+T2MKFILEHEADER2              <i>12 B</i>   ← iNumMaskArea=16, iNumLayer=3, bCompressed=1
+mask area offsets × 16       <i>64 B</i>   ← зсуви блоків областей
+T2MKFILELAYER × 3            <i>84 B</i>   ← глобальний опис шарів (28 B на запис)
+area #0 … #15                 <i>…</i>       ← {iNumLayer} + {iLayer, off, size} + стиснені маски</pre>
+    <p>Перша область починається зі зсуву <code>168</code>. У ній <code>iNumLayer = 3</code>; базовий шар має нульовий розмір маски (він не маскується), а шари 1 і 2 — по <code>256 × 256</code> пікселів, стиснені ZIP (приклад: 10 038 байт на маску замість 65 536 «сирих»).</p>
+
+    <h4>Поля запису шару (28 байт через вирівнювання)</h4>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Поле</th><th>Призначення</th></tr></thead>
+      <tbody>
+        <tr><td><code>iTextureIdx</code></td><td>Індекс текстури в списку <code>.trn2</code></td></tr>
+        <tr><td><code>iSpecMapIdx</code></td><td>Індекс specular-карти; <code>-1</code> — немає</td></tr>
+        <tr><td><code>iMaskMapSize</code></td><td>Розмір маски (256; <code>-1</code> для базового шару)</td></tr>
+        <tr><td><code>byProjAxis</code></td><td>Вісь проєкції текстури (0 = X, 1 = Y, 2 = Z)</td></tr>
+        <tr><td><code>fUScale</code>, <code>fVScale</code></td><td>Масштаб UV для тайлінгу</td></tr>
+        <tr><td><code>byWeight</code></td><td>Вага шару при змішуванні</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="note ok">
+      <b>Порожні тайли</b>
+      Чотири файли — <code>world_73</code>, <code>world_81</code>, <code>world_82</code>, <code>world_83</code> — мають розмір рівно <b>368 байт</b>: 16 областей по одному шару без жодних даних. Це нормальний стан для ділянок, які не потребують змішування текстур (наприклад, суцільний сніг або лід). Не вважайте це пошкодженням.
+    </div>
+
+    <h4>Зв’язок із <code>.t2lm</code></h4>
+    <p style="margin-bottom:0">Кількість областей (16) і розмір маски (256) збігаються з lightmap-ами. Це не випадково: і маски, і lightmap-и адресуються однаково — за індексом mask area та координатами всередині неї. Якщо ви змінюєте нарізку областей в експортері, обидва формати треба перегенерувати разом.</p>
+  </div>
+</section>
+
+<section id="t2lm">
+  <h2><span class="num">4.4</span> <code>.t2lm</code> / <code>.t2lm1</code> — денні та нічні lightmap-и</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">world_N.t2lm · world_N.t2lm1</span><span class="tag">Terrain 2 light map</span></div>
+      <div><span class="badge">MAGIC ML2T</span> <span class="badge o">VERSION 2</span> <span class="badge g">по 44,2 МіБ</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Запечене освітлення рельєфу. <code>.t2lm</code> — денний варіант, <code>.t2lm1</code> — нічний. Кожен файл містить 16 DDS-текстур (по одній на mask area), які накладаються на поверхню і дають м’які тіні, підсвічування схилів і нічне «синє» світло без витрат на реальний рендер.</p>
+
+    <h4>Структура</h4>
+    <pre>T2LMFILEIDVER                 <i>8 B</i>   ← "ML2T" + версія 2
+T2LMFILEHEADER2              <i>16 B</i>   ← iNumMaskArea=16, iMaskLMSize=256,
+                                     dwFlags=1 (T2LMFILE_DDS), iLMDataSize=32 896
+offsets × 16                 <i>64 B</i>   ← зсуви DDS-блоків
+DDS-блок #0 … #15        <i>16 × 32 896 B</i>   ← "DDS " + DXT1 256×256 + mip-и</pre>
+    <p style="margin-bottom:0">Перевірка: <code>8 + 16 + 64 + 16 × 32 896 = 526 424</code> байт — рівно розмір кожного <code>.t2lm</code> і <code>.t2lm1</code>. Усі шістнадцять блоків починаються з сигнатури <code>DDS </code>, тому файл можна «розрізати» на окремі DDS-текстури будь-яким інструментом, що розуміє DXT1.</p>
+
+    <div class="grid g2">
+      <div class="note" style="margin:0">
+        <b>День (.t2lm)</b>
+        Тепліше світло, тіні від сонця, підсвічені снігові схили. Використовується як основна карта освітлення.
+      </div>
+      <div class="note ok" style="margin:0">
+        <b>Ніч (.t2lm1)</b>
+        Холодніше, тьмяніше світло, інші акценти. Підмішується за фактором день/ніч у <code>CECSceneLights</code>.
+      </div>
+    </div>
+
+    <div class="note warn" style="margin-top:14px">
+      <b>Не видаляйте «зайвий» .t2lm1</b>
+      Якщо карта використовується лише вдень, здається, що нічні lightmap-и не потрібні. Але клієнт може звертатися до них під час зміни часу доби або в інших локаціях; відсутність файлу дасть чорний/зелений рельєф уночі. Пара має бути повною.
+    </div>
+  </div>
+</section>
+
+<section id="t2hc">
+  <h2><span class="num">4.5</span> <code>.t2hc</code> — horizon culling</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">world.t2hc</span><span class="tag">Terrain 2 horizon cull</span></div>
+      <div><span class="badge">MAGIC CH2T</span> <span class="badge o">VERSION 1</span> <span class="badge g">362 900 B</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Це не візуальні дані, а прискорювач відсікання: список «ребер горизонту» — пар висот <code>y1/y2</code>, які дозволяють швидко відкинути блоки, сховані за горами. Без нього карта працює, але GPU/CPU витрачає час на далекі блоки, які все одно не видно.</p>
+    <pre>TRN2HCFILEIDVER               <i>8 B</i>   ← "CH2T" + версія 1
+TRN2HCFILEHEADER             <i>12 B</i>   ← iNumBlockRow=176, iNumBlockCol=128, iNumEdge=45 360
+TRN2HCFILEEDGE × 45 360   <i>362 880 B</i>   ← float y1, float y2</pre>
+    <p style="margin-bottom:0">Перевірка: <code>8 + 12 + 45 360 × 8 = 362 900</code> байт. Файл читає <code>A3DTerrain2CullHC</code>; він будує бітову маску «вже вставлених» ребер і перевіряє видимість блоків за горизонтом.</p>
+    <div class="note">
+      <b>Коли перегенеровувати</b>
+      Після будь-якої зміни висот (<code>.t2bk</code>). Якщо цього не зробити, на стиках суб-террейнів можуть «зникати» видимі ділянки або, навпаки, рендеритися зайві блоки за горою. На практиці це помітно як мерехтіння далеких схилів.
+    </div>
+  </div>
+</section>
+
+<section id="scene">
+  <h2><span class="num">5</span> Родина scene-файлів</h2>
+  <p class="lead">Сцена влаштована трирівнево. <code>.ecwld</code> — «що і де стоїть» у кожному з 22 528 блоків. <code>.ecbsd</code> — спільні великі об’єкти, на які блоки лише посилаються. <code>bsdata\N.dat</code> — масивні бітові карти трави та інші «важкі» дані, розкладені по суб-террейнах. Така схема дозволяє не дублювати геометрію води чи декорацій у кожному блоці.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Файл</th><th>Розмір</th><th>Роль</th><th>Гранулярність</th></tr></thead>
+    <tbody>
+      <tr><td><code>world.ecwld</code></td><td class="num">2,65 МіБ</td><td>Розстановка об’єктів по блоках + типи дерев/трави</td><td>1 файл на світ</td></tr>
+      <tr><td><code>world.ecbsd</code></td><td class="num">2,28 МіБ</td><td>Спільні дані блоків: вода, трави, box area, декорації, криттери, bezier, звуки</td><td>1 файл на світ</td></tr>
+      <tr><td><code>bsdata\N.dat</code></td><td class="num">4,79 МіБ</td><td>Бітові карти трави та інші масові дані</td><td>88 файлів, по суб-террейну</td></tr>
+      <tr><td><code>world.cld</code></td><td class="num">26,3 КБ</td><td>Спрайти хмар для неба</td><td>1 файл на світ</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="ecwld">
+  <h2><span class="num">5.1</span> <code>.ecwld</code> — карта розстановки</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">world.ecwld</span><span class="tag">Element Client World</span></div>
+      <div><span class="badge">MAGIC DWCE</span> <span class="badge o">VERSION 12</span> <span class="badge g">2 777 569 B</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Це головний файл сцени. Він каже клієнту, що саме лежить у кожному блоці 64 × 64 м: скільки дерев, води, трави, декорацій, box area, ефектів, EC-моделей, криттерів, bezier-маршрутів і звуків. Самі об’єкти зберігаються або тут (дерева), або в <code>.ecbsd</code>/<code>bsdata</code> (за посиланнями).</p>
+
+    <h4>Заголовок (фактичні значення)</h4>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Поле</th><th>Значення</th><th>Пояснення</th></tr></thead>
+      <tbody>
+        <tr><td><code>dwIdentify</code></td><td><code>DWCE</code></td><td>Сигнатура <code>ECWDFILE_IDENTIFY</code></td></tr>
+        <tr><td><code>dwVersion</code></td><td class="num">12</td><td>Актуальна версія формату</td></tr>
+        <tr><td><code>fWorldWid</code></td><td class="num">8192,0 м</td><td>Ширина світу</td></tr>
+        <tr><td><code>fWorldLen</code></td><td class="num">11264,0 м</td><td>Довжина світу</td></tr>
+        <tr><td><code>fBlockSize</code></td><td class="num">64,0 м</td><td>Розмір блоку</td></tr>
+        <tr><td><code>iBlockGrid</code></td><td class="num">32</td><td>Сітка всередині блоку (32 × 32)</td></tr>
+        <tr><td><code>iNumBlock</code></td><td class="num">22 528</td><td>Кількість блоків</td></tr>
+        <tr><td><code>iWorldBlkRow</code> / <code>iWorldBlkCol</code></td><td class="num">176 / 128</td><td>Блоків по рядах / колонках</td></tr>
+        <tr><td><code>dwTreeOff</code></td><td class="num">2 758 629</td><td>Зсув масиву типів дерев</td></tr>
+        <tr><td><code>dwGrassOff</code></td><td class="num">2 763 929</td><td>Зсув масиву типів трави</td></tr>
+        <tr><td><code>iNumTreeType</code></td><td class="num">59</td><td>Різновидів дерев</td></tr>
+        <tr><td><code>iNumGrassType</code></td><td class="num">248</td><td>Різновидів трави</td></tr>
+        <tr><td><code>dwFlags</code></td><td class="num">0</td><td><code>ECWFFLAG_EDITOREXP</code> — експорт із редактора (1 = домашній редактор)</td></tr>
+        <tr><td><code>aReserved[60]</code></td><td>нулі</td><td>Резерв</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Заголовок займає 140 байт, далі йде таблиця з 22 528 DWORD-зсувів (90 112 байт) — по одному на блок. Блоки лежать у довільному порядку, тому не можна вважати, що блок <i>N</i> фізично йде після блоку <i>N−1</i>.</p>
+
+    <h4>Запис блоку <code>ECWDFILEBLOCK9</code> (44 байти)</h4>
+    <pre>WORD  iRowInWorld, iColInWorld
+int   iNumTree, iNumWater, iNumGrass, iNumOrnament, iNumBoxArea,
+      iNumEffect, iNumECModel, iNumCritter, iNumBezier, iNumSound
+      ↓ далі масиви записів у тому ж порядку</pre>
+    <p>Дерева зберігаються прямо в блоці: <code>{DWORD dwType; float vPos[3];}</code> — 16 байт на екземпляр. Усі інші типи об’єктів посилаються на спільні дані парою <code>{DWORD dwExportID; DWORD dwOffset;}</code>, де <code>dwOffset</code> — зсув у <code>.ecbsd</code>.</p>
+
+    <div class="grid g2">
+      <div class="note" style="margin:0">
+        <b>Типи дерев (59)</b>
+        Кожен запис — два рядки з префіксом довжини: шлях до <code>.spd</code>-моделі та шлях до comp-map (карти компонування). Клієнт вантажить модель лише тоді, коли вона реально потрібна.
+      </div>
+      <div class="note ok" style="margin:0">
+        <b>Типи трави (248)</b>
+        Кожен запис — структура <code>ECWDFILEGRASSTYPE</code> (24 байти: alpha blend, alpha ref, size, size var, softness, sight range) плюс рядок із шляхом до текстури/моделі трави.
+      </div>
+    </div>
+
+    <div class="note warn" style="margin-top:14px">
+      <b>Що буде, якщо видалити або замінити</b>
+      Зникне вся розстановка об’єктів — дерева, трава, вода, декорації, звуки. Рельєф залишиться, але світ стане порожнім. Якщо замінити <code>.ecwld</code> від іншої карти без відповідних <code>.ecbsd</code>/<code>bsdata</code>, клієнт читатиме зсуви «не туди» й може впасти або показати об’єкти в неправильних місцях.
+    </div>
+  </div>
+</section>
+
+<section id="ecbsd">
+  <h2><span class="num">5.2</span> <code>.ecbsd</code> — спільні дані блоків</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">world.ecbsd</span><span class="tag">Element Client Block Shared Data</span></div>
+      <div><span class="badge">MAGIC BSDF</span> <span class="badge o">VERSION 12</span> <span class="badge g">2 392 814 B</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Контейнер «важких» об’єктів, на які посилаються блоки <code>.ecwld</code>. Тут лежать полігони води, бітові карти трави, box area (туман, ambient, сонце, небо), декорації, криттери, bezier-маршрути, звукові зони. Один об’єкт зберігається один раз, скільки б блоків на нього не посилалися.</p>
+
+    <h4>Структура</h4>
+    <pre>FOURCC "MOXB"                  <i>4 B</i>   ← контейнер AFile
+ECBSDFILEHEADER               <i>72 B</i>   ← "BSDF", версія 12, iNumSubTrn=88 + 60 B резерву
+імена файлів × 88          <i>~1 491 B</i>   ← [int len]"BSData\1.dat" … "BSData\88.dat"
+спільні записи                <i>…</i>       ← адресуються з .ecwld парою {exportID, offset}</pre>
+    <p>Імена починаються з <code>BSData\1.dat</code> і закінчуються <code>BSData\88.dat</code>; заголовок списку закінчується на зсуві <b>1 563</b>. Далі — «мішок» записів, кожен зі своїм заголовком і даними. Саме тому файл лише 2,28 МіБ: геометрія води та трави винесена в <code>bsdata</code>, а тут залишилися метадані й невеликі об’єкти.</p>
+
+    <h4>Що саме лежить у shared-записах</h4>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Тип</th><th>Вміст</th><th>Навіщо</th></tr></thead>
+      <tbody>
+        <tr><td><b>Grass area</b></td><td>Тип трави, сітка, розмір, бітова карта прохідності/наявності</td><td>Масові поля трави; сама карта — у <code>bsdata</code></td></tr>
+        <tr><td><b>Water area</b></td><td>Полігон/сітка води, рівень, параметри</td><td>Річки, озера, водоспади</td></tr>
+        <tr><td><b>Box area</b></td><td>Позиція, піврозміри, осі; туман (день/ніч), підводний туман, ambient, напрямне світло, швидкість неба, масштаб світла рельєфу, час переходу</td><td>Локальні зони освітлення й атмосфери</td></tr>
+        <tr><td><b>Ornament</b></td><td>Export ID, позиція, напрям, up-вектор, прапорці reflect/refract</td><td>Декорації, що не є деревами</td></tr>
+        <tr><td><b>Critter group</b></td><td>Група криттерів (метелики, птахи, комахи)</td><td>Живість сцени</td></tr>
+        <tr><td><b>Bezier</b></td><td>Маршрут із контрольних точок</td><td>Рух об’єктів/камер/криттерів</td></tr>
+        <tr><td><b>Sound</b></td><td>Звукова зона з параметрами</td><td>Ембієнт у локаціях</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="note">
+      <b>Box area — це не лише туман</b>
+      У записі box area зберігаються <b>денні й нічні</b> кольори туману, ambient, напрямне світло, швидкість руху неба та час переходу між станами. Якщо нічний рельєф виглядає «пласким» або різко змінює колір на межі локації — шукайте проблему саме тут, а не в lightmap-ах.
+    </div>
+  </div>
+</section>
+
+<section id="bsdata">
+  <h2><span class="num">5.3</span> <code>bsdata\N.dat</code> — масові дані</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">bsdata\1.dat … 88.dat</span><span class="tag">World mass data</span></div>
+      <div><span class="badge">MOXB</span> <span class="badge o">VERSION 2</span> <span class="badge g">88 файлів · 4,79 МіБ</span></div>
+    </div>
+    <p><b>За що відповідає.</b> «Вантажні» дані суб-террейну: насамперед бітові карти трави (512 × 512 біт = 32 768 байт «сирих»), а також інші масиви, на які посилаються записи <code>.ecbsd</code>. Клієнт відкриває файл лише тоді, коли об’єкт із цього суб-террейну потрапляє в активну зону.</p>
+
+    <h4>Структура</h4>
+    <pre>FOURCC "MOXB"                  <i>4 B</i>
+ECWDDTFILEHEADER               <i>8 B</i>   ← dwVersion=2, bCompress=1 (+ вирівнювання)
+chunk #0 … #N                  <i>…</i>       ← {dwCompSize, dwOriginSize} + стиснені дані
+таблиця офсетів              <i>N × 4 B</i>   ← абсолютні зсуви chunk-ів
+кількість офсетів              <i>4 B</i>   ← останній DWORD файлу</pre>
+    <p>Клієнт читає <b>кількість офсетів із кінця файлу</b>, потім саму таблицю, потім за потрібним індексом переходить до chunk-а. Кожен chunk починається парою <code>DWORD dwCompSize, dwOriginSize</code>; якщо <code>bCompress = 1</code>, далі йде zlib-потік (сигнатура <code>78 01</code>), який розпаковується в буфер розміром <code>dwOriginSize</code>.</p>
+
+    <h4>Фактичні дані</h4>
+    <ul>
+      <li>Усього <b>88</b> файлів; сумарно <b>5 023 843</b> байти.</li>
+      <li><b>10</b> файлів порожні — рівно <b>16 байт</b>: <code>MOXB</code> + версія + прапорець + нульова кількість офсетів.</li>
+      <li>Найбільший — <code>54.dat</code>, <b>257 735</b> байт, 10 записів.</li>
+      <li>Типовий grass-чанк: <code>dwOriginSize = 32 768</code> (512 × 512 біт), <code>dwCompSize</code> ≈ 247…658 байт завдяки zlib.</li>
+    </ul>
+
+    <div class="note warn">
+      <b>Не всі записи — трава</b>
+      Таблиця офсетів спільна для різних типів масових даних. У <code>54.dat</code> перші записи мають іншу структуру й не схожі на grass-чанки (заголовок не дає 32 768). Тому не можна сліпо вважати, що кожен offset указує на <code>{comp, 32768}</code>: тип визначається контекстом посилання з <code>.ecbsd</code>.
+    </div>
+  </div>
+</section>
+
+<section id="cld">
+  <h2><span class="num">5.4</span> <code>world.cld</code> — хмари</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">world.cld</span><span class="tag">Cloud sprites</span></div>
+      <div><span class="badge">MOXB</span> <span class="badge g">26 924 B</span> <span class="badge m">88 записів</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Набір спрайтів хмар, розкладених по сітці сцен 11 × 8 (та сама сітка, що й суб-террейни, по 1024 м). Кожен спрайт — білборд із позицією, індексом текстури, рівнем і чотирма кольорами (для затінення небом/сонцем). Групи задають спільний центр і розмір для пакетного рендера.</p>
+
+    <h4>Структура</h4>
+    <pre>FOURCC "MOXB"                  <i>4 B</i>
+int nSceneRow = 11             <i>4 B</i>   ← рядів сцени
+int nSceneCol = 8              <i>4 B</i>   ← колонок сцени
+int nFiles = 88                <i>4 B</i>   ← кількість записів
+record × 88                    <i>…</i>       ← {idxScene, nLength, payload}</pre>
+    <p>Payload непорожнього запису:</p>
+    <pre>int nSprites
+  sprite × nSprites            <i>36 B</i>   ← {float pos[3]; int texture; int level; A3DCOLORVALUE clr[4];}
+int nGroups
+  group × nGroups              <i>…</i>       ← {float center[3]; float spriteSize; int count; int indices[count];}</pre>
+    <p style="margin-bottom:0">Порожній запис — рівно 8 байт (<code>nSprites = 0</code>, <code>nGroups = 0</code>). У цьому файлі непорожні <b>14</b> записів: <code>12, 13, 17, 20, 34, 35, 41, 42, 43, 44, 50, 51, 52, 53</code>. Наприклад, запис 12 містить 226 спрайтів і 3 групи; запис 13 — 10 спрайтів і 2 групи. Загальний розмір сходиться точно: <code>12 + 88 × 8 + сума payload-ів = 26 924</code>.</p>
+
+    <div class="note">
+      <b>Хто читає</b>
+      <code>CELCloudManager::LoadCloudFiles</code>. Він будує центри сцен за сіткою 11 × 8, вантажить лише видимі й малює їх як окремий шар неба. На геймплей файл не впливає, але без нього небо втрачає хмари.
+    </div>
+  </div>
+</section>
+
+<section id="light">
+  <h2><span class="num">6</span> Освітлення</h2>
+  <p class="lead">У папці два різні файли світла, і їх легко переплутати. <code>scenelights.dat</code> — <b>робочий</b> файл клієнта зі статичними джерелами. <code>world_light.dat</code> — <b>обмінний</b> експорт для редактора освітлення; клієнт його не читає.</p>
+</section>
+
+<section id="scenelights">
+  <h2><span class="num">6.1</span> <code>scenelights.dat</code> — статичне світло сцени</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">scenelights.dat</span><span class="tag">Scene static lights</span></div>
+      <div><span class="badge">VERSION 0x80000001</span> <span class="badge g">4406 світла</span> <span class="badge">493 480 B</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Джерела світла, які не рухаються: ліхтарі, вікна, магічні кола, підсвічування скель. Клієнт розкладає їх по блоках (за замовчуванням 12 м, сітка 10 × 10) і під час рендера вибирає ті, що впливають на видимі об’єкти.</p>
+
+    <h4>Заголовок і записи</h4>
+    <pre>DWORD dwVersion = 0x80000001    <i>4 B</i>
+DWORD dwNumLights = 4406        <i>4 B</i>
+SCENELIGHT × 4406             <i>112 B</i>   ← разом 493 480 B</pre>
+
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Поле <code>SCENELIGHT</code></th><th>Тип</th><th>Призначення</th></tr></thead>
+      <tbody>
+        <tr><td><code>vecPos</code></td><td>A3DVECTOR3 (12 B)</td><td>Позиція джерела у світі</td></tr>
+        <tr><td><code>vRange</code></td><td>float</td><td>Радіус дії</td></tr>
+        <tr><td><code>vAttenuation0/1/2</code></td><td>float × 3</td><td>Коефіцієнти загасання</td></tr>
+        <tr><td><code>diffuse</code></td><td>A3DCOLORVALUE (16 B)</td><td>Основний колір</td></tr>
+        <tr><td><code>ambient</code></td><td>A3DCOLORVALUE (16 B)</td><td>Колір підсвічування</td></tr>
+        <tr><td><code>aabb</code></td><td>A3DAABB (24 B)</td><td>Обмежувальний бокс впливу</td></tr>
+        <tr><td><code>flags</code></td><td>DWORD</td><td>Біт 0 — джерело працює <b>лише вночі</b> (<code>SCENELIGHT_NIGHT_ONLY</code>)</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="margin-bottom:0">Запис займає 112 байт через вирівнювання структури; <code>8 + 4406 × 112 = 493 480</code> — точно збігається. Під час зміни дня й ночі клієнт множить <code>diffuse</code>/<code>ambient</code> нічних джерел на фактор <code>m_fDNFactor</code> (0 — день, 1 — ніч).</p>
+  </div>
+</section>
+
+<section id="worldlight">
+  <h2><span class="num">6.2</span> <code>world_light.dat</code> — обмінний експорт освітлення</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">world_light.dat</span><span class="tag">Editor light export</span></div>
+      <div><span class="badge">NO HEADER</span> <span class="badge g">4406 записів</span> <span class="badge">475 852 B</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Це файл для світловиків: повний опис кожного джерела у форматі <code>A3DLIGHTPARAM</code> плюс ознака, у який час доби воно працює. Його пише <code>CExportLitDlg::ExpLitData</code> і читає назад лише редактор — ігровий клієнт до нього не звертається.</p>
+
+    <pre>int nLitNum = 4406              <i>4 B</i>
+record × 4406                 <i>108 B</i>   ← int effectType + A3DLIGHTPARAM (104 B)</pre>
+    <p>Поле <code>effectType</code>: <b>0</b> — день, <b>1</b> — ніч, <b>2</b> — день і ніч. Структура <code>A3DLIGHTPARAM</code> містить тип, diffuse, specular, ambient, position, direction, range, falloff, attenuation 0/1/2, theta, phi. Розмір 104 байти — через вирівнювання після enum-поля.</p>
+    <p style="margin-bottom:0">Перевірка: <code>4 + 4406 × 108 = 475 852</code> байт. Файл відкривається з <code>AFILE_NOHEAD</code>, тому <code>MOXB</code> у ньому немає — перший DWORD одразу кількість.</p>
+
+    <div class="note warn">
+      <b>Не підміняйте scenelights.dat цим файлом</b>
+      Формати різні: у <code>scenelights.dat</code> 112-байтовий <code>SCENELIGHT</code> з AABB і без <code>effectType</code>, а тут — 108-байтовий запис з іншим набором полів. Якщо перейменувати <code>world_light.dat</code> у <code>scenelights.dat</code>, клієнт прочитає сміття й освітлення зникне або «вибухне».
+    </div>
+  </div>
+</section>
+
+<section id="nav">
+  <h2><span class="num">7</span> movemap — навігація NPC</h2>
+  <p class="lead">Навігація зроблена не однією гігантською картою, а вісьмома прямокутними наборами, кожен зі своїм <code>.cfg</code>, <code>.prmap</code>, <code>.pdhmap</code> і <code>.mlu</code>. Клієнт вантажить лише той набір, у якому зараз перебуває NPC або гравець, тому пам’ять не роздувається на всю карту.</p>
+
+  <div class="card">
+    <h3 style="margin-top:0">Як читати імена</h3>
+    <p><code>r1_2-c7_7-l0</code> означає: ряди суб-террейнів <b>1…2</b>, колонки <b>7…7</b>, шар <b>l0</b> (нульовий, єдиний). Оскільки кожен суб-террейн — 1024 × 1024 м, розмір набору легко обчислити: <code>(cols) × 1024</code> на <code>(rows) × 1024</code> метрів. Наприклад, <code>r4_7-c2_3</code> — 4 ряди × 2 колонки = 2048 × 4096 м.</p>
+    <p style="margin-bottom:0">Набір <code>l0</code> — це «шар» навігації. У цій карті він один; у складніших картах шари можуть розділяти наземний і підземний рух.</p>
+  </div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr>
+      <th>Набір</th><th>Суб-террейни</th><th>Розмір, м</th><th class="num">.prmap</th><th class="num">clu, м</th><th>Сітка кластерів</th><th class="num">Кластерів</th><th class="num">.mlu</th>
+    </tr></thead>
+    <tbody>
+      <tr><td><code>r1_2-c7_7-l0</code></td><td>2 × 1</td><td>1024 × 2048</td><td class="num">262 172</td><td class="num">100</td><td>21 × 11</td><td class="num">231</td><td class="num">639 168</td></tr>
+      <tr><td><code>r1_5-c4_5-l0</code></td><td>5 × 2</td><td>2048 × 5120</td><td class="num">1 310 748</td><td class="num">115</td><td>45 × 18</td><td class="num">810</td><td class="num">5 282 276</td></tr>
+      <tr><td><code>r3_3-c6_6-l0</code></td><td>1 × 1</td><td>1024 × 1024</td><td class="num">131 100</td><td class="num">66</td><td>16 × 16</td><td class="num">256</td><td class="num">288 640</td></tr>
+      <tr><td><code>r4_5-c2_3-l0</code></td><td>2 × 2</td><td>2048 × 2048</td><td class="num">524 316</td><td class="num">65</td><td>32 × 32</td><td class="num">1 024</td><td class="num">2 796 800</td></tr>
+      <tr><td><code>r4_7-c2_3-l0</code></td><td>4 × 2</td><td>2048 × 4096</td><td class="num">1 048 604</td><td class="num">64</td><td>64 × 32</td><td class="num">2 048</td><td class="num">5 840 152</td></tr>
+      <tr><td><code>r6_7-c2_3-l0</code></td><td>2 × 2</td><td>2048 × 2048</td><td class="num">524 316</td><td class="num">65</td><td>32 × 32</td><td class="num">1 024</td><td class="num">2 862 592</td></tr>
+      <tr><td><code>r8_8-c1_3-l0</code></td><td>1 × 3</td><td>3072 × 1024</td><td class="num">393 244</td><td class="num">66</td><td>16 × 47</td><td class="num">752</td><td class="num">2 437 120</td></tr>
+      <tr><td><code>r8_9-c6_6-l0</code></td><td>2 × 1</td><td>1024 × 2048</td><td class="num">262 172</td><td class="num">64</td><td>32 × 16</td><td class="num">512</td><td class="num">1 076 640</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:12.4px;color:#64748b;margin-top:-6px">Розміри в байтах — фактичні. Сумарно <code>.mlu</code> — 21 223 388 B, <code>.prmap</code> — 4 456 672 B, <code>.pdhmap</code> — 2 774 816 B.</p>
+</section>
+
+<section id="cfg">
+  <h2><span class="num">7.1</span> <code>.cfg</code> — маніфест набору</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">*.cfg</span><span class="tag">PF map config</span></div>
+      <div><span class="badge">MAGIC cfgf</span> <span class="badge o">VERSION 1</span> <span class="badge g">60 B</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Маленький файл, який зв’язує набір воєдино: скільки шарів, як вони звуться, які файли для них існують і який <code>.mlu</code> вантажити. Без нього клієнт не знайде ні карту прохідності, ні граф.</p>
+    <pre>FOURCC "MOXB"                  <i>4 B</i>
+DWORD  "cfgf"                  <i>4 B</i>   ← PFMAP_CFG_FILE_MAGIC
+DWORD  version = 1             <i>4 B</i>
+int    layerCount = 1          <i>4 B</i>
+  [int len]["r1_2-c7_7-l0"]    <i>16 B</i>   ← ім’я шару
+  DWORD hasRMap = 1            <i>4 B</i>   ← .prmap існує
+  DWORD hasDHMap = 1           <i>4 B</i>   ← .pdhmap існує
+  DWORD hasIsl = 0             <i>4 B</i>   ← .isl відсутній
+[int len]["r1_2-c7_7-l0"]      <i>16 B</i>   ← ім’я .mlu (без розширення)</pre>
+    <p style="margin-bottom:0">Рівно 60 байт: 4 + 4 + 4 + 4 + (4+12) + 4 + 4 + 4 + (4+12). Клієнт будує шляхи відносно папки <code>.cfg</code>, тому набір можна переносити цілком, не змінюючи вміст.</p>
+  </div>
+</section>
+
+<section id="prmap">
+  <h2><span class="num">7.2</span> <code>.prmap</code> — карта прохідності</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">*.prmap</span><span class="tag">BITIMAGE v1</span></div>
+      <div><span class="badge">NO MAGIC</span> <span class="badge o">VERSION 1</span> <span class="badge g">1 біт/піксель</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Двовимірна маска «можна ходити / не можна ходити» з роздільністю 1 метр на піксель. Саме нею користується A* для побудови шляху: біт <b>1</b> — прохідно, <b>0</b> — перешкода.</p>
+    <pre>DWORD version = 1              <i>4 B</i>
+DWORD bufSize                  <i>4 B</i>
+int   m_iWidth                 <i>4 B</i>   ← ширина в байтах (пікселі / 8)
+int   m_iLength                <i>4 B</i>   ← висота в пікселях
+int   m_iImageWidth            <i>4 B</i>   ← логічна ширина в пікселях
+int   m_iImageLength           <i>4 B</i>   ← логічна висота
+float m_fPixelSize             <i>4 B</i>   ← 1,0 м
+BYTE  bits[m_iWidth × m_iLength]</pre>
+    <p style="margin-bottom:0">Біти упаковані молодшим бітом уперед: піксель <code>x</code> лежить у байті <code>x >> 3</code>, біт — <code>x &amp; 7</code>. Рядки йдуть зверху вниз. Початок координат карти — її центр (<code>origin = (−W/2, −L/2)</code>), тому світові координати NPC перераховуються зі зсувом.</p>
+    <div class="note">
+      <b>Чому версія 1, а не 3</b>
+      Поточна <code>BITIMAGE_VER</code> у коді — 3, але ці файли створені старим інструментом і мають версію 1 без <code>magic</code>. Завантажувач явно приймає <code>BITIMAGE_OLD_VER = 1</code>, тому все працює. Якщо писати свій генератор — або повторіть v1, або переконайтеся, що клієнтська версія розуміє v3.
+    </div>
+  </div>
+</section>
+
+<section id="pdhmap">
+  <h2><span class="num">7.3</span> <code>.pdhmap</code> — карта висот для кроків</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">*.pdhmap</span><span class="tag">BLOCKIMAGE v1 · FIX16</span></div>
+      <div><span class="badge">NO MAGIC</span> <span class="badge o">VERSION 1</span> <span class="badge g">1/64 м</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Висоти для перевірки «чи можна зробити крок»: NPC не повинен залазити на стрімкий схил або провалюватися крізь підлогу. Значення зберігаються як <code>FIX16</code> — 16-бітне фіксоване число з кроком <b>1/64 метра</b>.</p>
+    <pre>DWORD version = 1                 <i>4 B</i>
+DWORD bufSize                     <i>4 B</i>
+int   m_iWidth                    <i>4 B</i>   ← блоків по X
+int   m_iLength                   <i>4 B</i>   ← блоків по Y
+int   m_iBlockSizeExp = 4         <i>4 B</i>   ← 2^4 = 16 пікселів у блоці
+int   m_iImageWidth               <i>4 B</i>   ← логічна ширина
+int   m_iImageLength              <i>4 B</i>   ← логічна висота
+float m_fPixelSize = 1,0          <i>4 B</i>
+int   blockIDs[m_iWidth × m_iLength]   ← -1 = блок не збережено
+int   numBlocks
+FIX16 blocks[numBlocks][16 × 16]</pre>
+    <p style="margin-bottom:0">Формат <b>розріджений</b>: блоки, заповнені значенням за замовчуванням, не пишуться, а в таблиці <code>blockIDs</code> для них стоїть <code>-1</code>. Тому файли компактні: наприклад, <code>r3_3-c6_6</code> — лише 22 052 байти на карту 1024 × 1024 м. Під час читання відсутній блок трактується як типова висота (0 = «немає даних»), і NPC не отримує хибних перепадів.</p>
+    <div class="note warn">
+      <b>Не редагуйте blockIDs вручну</b>
+      <code>-1</code> — це не «нульова висота», а «блок відсутній». Якщо замінити його на 0, завантажувач спробує прочитати блок зі списку, якого немає, і зсуне весь масив. Генеруйте файл редактором або повністю повторіть структуру.
+    </div>
+  </div>
+</section>
+
+<section id="mlu">
+  <h2><span class="num">7.4</span> <code>.mlu</code> — кластерний граф</h2>
+  <div class="card">
+    <div class="fmt-head">
+      <div class="fmt"><span class="ext">*.mlu</span><span class="tag">Multi-cluster graph</span></div>
+      <div><span class="badge">MAGIC fulm</span> <span class="badge o">VERSION 2</span> <span class="badge g">0,28…5,57 МіБ</span></div>
+    </div>
+    <p><b>За що відповідає.</b> Це не «карта», а граф для швидкого пошуку шляху. Карта прохідності ділиться на кластери розміром 64…115 м; усередині кожного кластера зберігаються вузли (прохідні точки) і ребра з вартістю. Глобальний пошук іде між кластерами, локальний — усередині кластера. Так NPC можуть планувати шлях через усю карту, не тримаючи в пам’яті мільйони клітинок.</p>
+    <pre>FOURCC "MOXB"                  <i>4 B</i>
+DWORD  "fulm"                  <i>4 B</i>   ← MLU_FILE_MAGIC
+DWORD  version = 2             <i>4 B</i>
+int    cluSize                 <i>4 B</i>   ← розмір кластера в метрах
+int    rowCount                <i>4 B</i>
+int    colCount                <i>4 B</i>
+uint   clusterRows             <i>4 B</i>
+  for each row: uint count; Cluster × count
+CluGraph                       <i>…</i>       ← вузли, ребра, вартості</pre>
+    <p style="margin-bottom:0">Кількість кластерів = <code>rowCount × colCount</code> (наприклад, 21 × 11 = 231 або 64 × 32 = 2 048). Розмір <code>.mlu</code> зростає майже квадратично від площі: найбільший набір <code>r4_7-c2_3</code> — 5,57 МіБ на 2 048 кластерів.</p>
+
+    <div class="note">
+      <b>Файл <code>.isl</code></b>
+      У <code>.cfg</code> є третій прапорець — <code>hasIsl</code>. Він відповідає за список островів/переходів (<code>IslandList</code>), який допомагає з’єднувати ізольовані ділянки. У цій карті прапорець дорівнює <b>0</b>, файлів <code>.isl</code> немає. Якщо колись з’явиться потреба в «телепортах» між островами, це саме той механізм.
+    </div>
+  </div>
+</section>
+
+<section id="inventory">
+  <h2><span class="num">8</span> Інвентар файлів</h2>
+  <p class="lead">Повна картина того, що займає місце. Найбільше важать три формати рельєфу: <code>.t2bk</code>, <code>.t2mk</code> і два набори lightmap-ів — разом понад 88% обсягу папки.</p>
+
+  <div class="bars">
+    <div class="bar"><span>.t2bk</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="v">137,4 МіБ</span></div>
+    <div class="bar"><span>.t2mk</span><div class="track"><div class="fill" style="width:58.3%"></div></div><span class="v">80,0 МіБ</span></div>
+    <div class="bar"><span>.t2lm</span><div class="track"><div class="fill alt" style="width:32.2%"></div></div><span class="v">44,2 МіБ</span></div>
+    <div class="bar"><span>.t2lm1</span><div class="track"><div class="fill alt" style="width:32.2%"></div></div><span class="v">44,2 МіБ</span></div>
+    <div class="bar"><span>.mlu</span><div class="track"><div class="fill warn" style="width:14.7%"></div></div><span class="v">20,2 МіБ</span></div>
+    <div class="bar"><span>.dat</span><div class="track"><div class="fill gray" style="width:4.2%"></div></div><span class="v">5,7 МіБ</span></div>
+    <div class="bar"><span>.prmap</span><div class="track"><div class="fill gray" style="width:3.1%"></div></div><span class="v">4,3 МіБ</span></div>
+    <div class="bar"><span>.pdhmap</span><div class="track"><div class="fill gray" style="width:1.9%"></div></div><span class="v">2,6 МіБ</span></div>
+    <div class="bar"><span>решта</span><div class="track"><div class="fill gray" style="width:1.9%"></div></div><span class="v">5,4 МіБ</span></div>
+  </div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Розширення</th><th class="num">Файлів</th><th class="num">Байт</th><th class="num">Частка</th><th>Що це</th></tr></thead>
+    <tbody>
+      <tr><td><code>.t2bk</code></td><td class="num">88</td><td class="num">144 043 204</td><td class="num">39,94%</td><td>Блоки рельєфу</td></tr>
+      <tr><td><code>.t2mk</code></td><td class="num">88</td><td class="num">83 909 256</td><td class="num">23,27%</td><td>Маски шарів</td></tr>
+      <tr><td><code>.t2lm</code></td><td class="num">88</td><td class="num">46 325 312</td><td class="num">12,85%</td><td>Денні lightmap-и</td></tr>
+      <tr><td><code>.t2lm1</code></td><td class="num">88</td><td class="num">46 325 312</td><td class="num">12,85%</td><td>Нічні lightmap-и</td></tr>
+      <tr><td><code>.mlu</code></td><td class="num">8</td><td class="num">21 223 388</td><td class="num">5,89%</td><td>Кластерні графи</td></tr>
+      <tr><td><code>.dat</code></td><td class="num">90</td><td class="num">5 993 175</td><td class="num">1,66%</td><td>88 × bsdata + scenelights + world_light</td></tr>
+      <tr><td><code>.prmap</code></td><td class="num">8</td><td class="num">4 456 672</td><td class="num">1,24%</td><td>Прохідність</td></tr>
+      <tr><td><code>.pdhmap</code></td><td class="num">8</td><td class="num">2 774 816</td><td class="num">0,77%</td><td>Висоти кроків</td></tr>
+      <tr><td><code>.ecwld</code></td><td class="num">1</td><td class="num">2 777 569</td><td class="num">0,77%</td><td>Розстановка об’єктів</td></tr>
+      <tr><td><code>.ecbsd</code></td><td class="num">1</td><td class="num">2 392 814</td><td class="num">0,66%</td><td>Спільні дані блоків</td></tr>
+      <tr><td><code>.t2hc</code></td><td class="num">1</td><td class="num">362 900</td><td class="num">0,10%</td><td>Horizon culling</td></tr>
+      <tr><td><code>.cld</code></td><td class="num">1</td><td class="num">26 924</td><td class="num">0,007%</td><td>Хмари</td></tr>
+      <tr><td><code>.trn2</code></td><td class="num">1</td><td class="num">13 815</td><td class="num">0,004%</td><td>Паспорт рельєфу</td></tr>
+      <tr><td><code>.cfg</code></td><td class="num">8</td><td class="num">480</td><td class="num">&lt;0,001%</td><td>Маніфести movemap</td></tr>
+      <tr style="font-weight:700"><td>Разом</td><td class="num">479</td><td class="num">360 625 637</td><td class="num">100%</td><td>≈ 360,6 МБ (344 МіБ)</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="practice">
+  <h2><span class="num">9</span> Практика: порядок генерації та типові помилки</h2>
+
+  <div class="card">
+    <h3 style="margin-top:0">Правильний порядок перегенерації</h3>
+    <ol>
+      <li><b>Висоти</b> — <code>.t2bk</code>. Це фундамент: від них залежать нормалі, тіні, culling і навігаційні висоти.</li>
+      <li><b>Маски поверхні</b> — <code>.t2mk</code>. Вони прив’язані до тих самих блоків і mask area.</li>
+      <li><b>Lightmap-и</b> — <code>.t2lm</code> і <code>.t2lm1</code>. Запікаються вже після остаточних висот і текступних шарів.</li>
+      <li><b>Culling</b> — <code>.t2hc</code>. Будується з фінальних висот.</li>
+      <li><b>Сцена</b> — <code>.ecwld</code> → <code>.ecbsd</code> → <code>bsdata</code>. Спочатку розстановка, потім спільні об’єкти, потім масові дані.</li>
+      <li><b>Світло</b> — <code>scenelights.dat</code> (і за потреби обмінний <code>world_light.dat</code>).</li>
+      <li><b>Хмари</b> — <code>world.cld</code>.</li>
+      <li><b>Навігація</b> — <code>.prmap</code> → <code>.pdhmap</code> → <code>.mlu</code> → <code>.cfg</code>. Граф будується з готових карт прохідності та висот.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Симптом → причина → що робити</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Симптом</th><th>Найімовірніша причина</th><th>Дія</th></tr></thead>
+      <tbody>
+        <tr><td>Порожнеча або «дірка» в рельєфі на одному квадраті 1024 × 1024 м</td><td>Відсутній або пошкоджений <code>world_N.t2bk</code></td><td>Перевірити наявність файлу, сигнатуру <code>BKBT</code>, версію 6 і кількість блоків 256</td></tr>
+        <tr><td>Рельєф є, але поверхня однотонна / без текступних переходів</td><td>Відсутній <code>.t2mk</code> або маски не відповідають <code>.trn2</code></td><td>Перегенерувати маски; перевірити 16 областей і 3 шари</td></tr>
+        <tr><td>Уночі рельєф чорний або «зелений»</td><td>Немає <code>.t2lm1</code> або він від іншої версії карти</td><td>Покласти парний нічний lightmap; перевірити <code>iLMDataSize = 32 896</code></td></tr>
+        <tr><td>Далекі схили мерехтять / зникають</td><td>Застарілий <code>.t2hc</code> після зміни висот</td><td>Перегенерувати horizon culling</td></tr>
+        <tr><td>Зникли дерева/трава/вода, але рельєф на місці</td><td>Немає <code>.ecwld</code> або <code>.ecbsd</code>; не збігаються версії</td><td>Відновити обидва файли з однієї збірки; перевірити версію 12</td></tr>
+        <tr><td>Об’єкти на місці, але частина з них «у повітрі» або під землею</td><td>Розстановка від однієї карти, рельєф — від іншої</td><td>Перегенерувати сцену після фінальних висот</td></tr>
+        <tr><td>NPC стоять на місці або біжать у стіну</td><td>Застарілий <code>.mlu</code> / <code>.prmap</code> або неправильний <code>.cfg</code></td><td>Перегенерувати навігацію; перевірити, що <code>hasRMap = 1</code> і <code>hasDHMap = 1</code></td></tr>
+        <tr><td>Клієнт падає під час входу в локацію</td><td>Невідповідність кількості суб-террейнів / блоків / зсувів</td><td>Звірити 88 / 22 528 / 16 і перегенерувати <code>.ecwld</code> + <code>.ecbsd</code></td></tr>
+        <tr><td>У hex-редакторі «зсув на 4 байти»</td><td>Забули про <code>MOXB</code></td><td>Врахувати префікс або відкривати через <code>AFile</code></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="note danger" style="margin:0">
+      <b>Не можна безпечно видаляти</b>
+      <code>.trn2</code>, <code>.t2bk</code>, <code>.t2mk</code>, <code>.t2lm</code>, <code>.ecwld</code>, <code>.ecbsd</code>, <code>bsdata\*</code>, <code>scenelights.dat</code>, <code>movemap\*</code> — кожен відповідає за окрему підсистему, і «порожня» поведінка не передбачена.
+    </div>
+    <div class="note ok" style="margin:0">
+      <b>Можна перегенерувати</b>
+      <code>.t2hc</code>, <code>.t2lm1</code> (за наявності денного), <code>world.cld</code>, <code>world_light.dat</code>, <code>.mlu</code> (якщо є <code>.prmap</code>/<code>.pdhmap</code>). Але краще мати резервну копію всієї папки: зв’язки між файлами складніші, ніж здається.
+    </div>
+  </div>
+
+  <div class="note warn" style="margin-top:14px">
+    <b>Про назву папки</b>
+    <code>world back</code> з пробілом — схоже на резервну копію основного світу <code>world</code>. Якщо ви підключаєте її як окрему карту, переконайтеся, що конфігурація клієнта/сервера посилається саме на цей шлях, а лапки в конфігах не «з’їдають» пробіл. Для тестів безпечніше скопіювати папку під ім’ям без пробілів.
+  </div>
+</section>
+
+<section id="code">
+  <h2><span class="num">10</span> Де це в коді</h2>
+  <p class="lead">Усі висновки звірені з вихідниками клієнта. Нижче — файли, у яких варто дивитися структуру та логіку читання, якщо потрібно писати власний парсер або експортер.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Файл у <code>PW_ClientSource</code></th><th>Що визначає</th></tr></thead>
+    <tbody>
+      <tr><td><code>SDK\Angelica3D\Header\A3DTerrain2File.h</code></td><td><code>.trn2</code>, <code>.t2bk</code>, <code>.t2mk</code>, <code>.t2lm</code>: структури, магії, версії, прапорці стиснення й блоків</td></tr>
+      <tr><td><code>SDK\Angelica3D\Header\A3DTerrain2CullHC.h</code></td><td><code>.t2hc</code>: заголовок і пари <code>y1/y2</code></td></tr>
+      <tr><td><code>SDK\Angelica3D\Source\A3DTerrain2LoaderB.cpp</code></td><td>Реальне читання блоків, масок, lightmap-ів, прапорці <code>0x35</code></td></tr>
+      <tr><td><code>SDK\AngelicaFile\Source\AFile.cpp</code></td><td>Контейнер <code>MOXB</code>/<code>MOXT</code>, поведінка <code>Seek</code>/<code>Tell</code>, <code>AFILE_NOHEAD</code></td></tr>
+      <tr><td><code>client\CElement\CCommon\EC_WorldFile.h</code></td><td><code>.ecwld</code>, <code>.ecbsd</code>, <code>bsdata</code>: <code>ECWDFILEHEADER</code>, <code>ECWDFILEBLOCK9</code>, <code>ECBSDFILEHEADER</code>, <code>ECWDDTFILECHUNK</code>, box area</td></tr>
+      <tr><td><code>client\CElement\CElementClient\EC_World.cpp</code></td><td>Порядок відкриття світу й суб-террейнів</td></tr>
+      <tr><td><code>client\CElement\CElementClient\EC_Scene.cpp</code></td><td><code>.ecwld</code> + <code>.ecbsd</code> + <code>bsdata\N.dat</code>: offset-таблиця, zlib-чанки, масові дані</td></tr>
+      <tr><td><code>client\CElement\CElementClient\EC_SceneLights.h/.cpp</code></td><td><code>scenelights.dat</code>: <code>SCENELIGHT</code> (112 B), нічний прапорець, фактор день/ніч</td></tr>
+      <tr><td><code>client\CElement\CElementEditor\ExportLitDlg.cpp</code></td><td><code>world_light.dat</code>: <code>effectType</code> + <code>A3DLIGHTPARAM</code>, <code>AFILE_NOHEAD</code></td></tr>
+      <tr><td><code>client\CElement\CElementEditor\SceneExportor.cpp</code></td><td>Експорт <code>.ecwld</code>/<code>.ecbsd</code>/<code>BSData\*.dat</code>, zlib-стиснення чанків</td></tr>
+      <tr><td><code>client\CElement\CElementEditor\EL_CloudCreator.cpp</code></td><td>Генерація та збереження <code>.cld</code></td></tr>
+      <tr><td><code>client\CElement\CCommon\EL_CloudManager.cpp</code></td><td>Читання <code>.cld</code>: 11 × 8 сцен, записи <code>{idx, len, payload}</code></td></tr>
+      <tr><td><code>client\CElement\AutoPFImp\AutoMoveImp\MoveMap.cpp</code></td><td><code>.cfg</code> і <code>.mlu</code>: маніфест, шари, кластерний граф</td></tr>
+      <tr><td><code>client\CElement\AutoPFImp\AutoMoveImp\bitimage.h</code></td><td><code>.prmap</code>: <code>BITIMAGE</code>, 1 bpp, версії 1 і 3</td></tr>
+      <tr><td><code>client\CElement\AutoPFImp\AutoMoveImp\blockimage.h</code></td><td><code>.pdhmap</code>: <code>BLOCKIMAGE</code>, <code>FIX16</code>, блоки 16 × 16, <code>-1</code></td></tr>
+      <tr><td><code>client\CElement\AutoPFImp\AutoMoveImp\MultiCluGraph.cpp</code></td><td>Формат <code>.mlu</code>: <code>fulm</code>, версія 2, <code>cluSize</code>, rows/cols, графи</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="magic">
+  <h2><span class="num">11</span> Швидка мапа сигнатур</h2>
+  <p class="lead">Одна таблиця для перевірки «а що це за файл» у hex-редакторі. Пам’ятайте: якщо на початку стоїть <code>MOXB</code>, справжня сигнатура починається з 5-го байта.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Файл</th><th>Байти 0–7</th><th>ASCII / тлумачення</th><th>Версія</th></tr></thead>
+    <tbody>
+      <tr><td><code>world.trn2</code></td><td><code>32 4E 52 54 01 00 00 00</code></td><td>2NRT · TRN2</td><td class="num">1</td></tr>
+      <tr><td><code>world_N.t2bk</code></td><td><code>42 4B 42 54 06 00 00 00</code></td><td>BKBT · TBKB</td><td class="num">6</td></tr>
+      <tr><td><code>world_N.t2mk</code></td><td><code>42 4B 4D 54 02 00 00 00</code></td><td>BKMT · TMKB</td><td class="num">2</td></tr>
+      <tr><td><code>world_N.t2lm</code></td><td><code>4D 4C 32 54 02 00 00 00</code></td><td>ML2T · T2LM</td><td class="num">2</td></tr>
+      <tr><td><code>world_N.t2lm1</code></td><td><code>4D 4C 32 54 02 00 00 00</code></td><td>ML2T · T2LM (ніч)</td><td class="num">2</td></tr>
+      <tr><td><code>world.t2hc</code></td><td><code>43 48 32 54 01 00 00 00</code></td><td>CH2T · T2HC</td><td class="num">1</td></tr>
+      <tr><td><code>world.ecwld</code></td><td><code>44 57 43 45 0C 00 00 00</code></td><td>DWCE · ECWD</td><td class="num">12</td></tr>
+      <tr><td><code>world.ecbsd</code></td><td><code>4D 4F 58 42 46 44 53 42</code></td><td>MOXB + BSDF</td><td class="num">12</td></tr>
+      <tr><td><code>bsdata\N.dat</code></td><td><code>4D 4F 58 42 02 00 00 00</code></td><td>MOXB + версія 2</td><td class="num">2</td></tr>
+      <tr><td><code>world.cld</code></td><td><code>4D 4F 58 42 0B 00 00 00</code></td><td>MOXB + rows=11</td><td>—</td></tr>
+      <tr><td><code>*.cfg</code></td><td><code>4D 4F 58 42 66 67 66 63</code></td><td>MOXB + cfgf</td><td class="num">1</td></tr>
+      <tr><td><code>*.mlu</code></td><td><code>4D 4F 58 42 66 75 6C 6D</code></td><td>MOXB + fulm</td><td class="num">2</td></tr>
+      <tr><td><code>*.prmap</code></td><td><code>01 00 00 00 …</code></td><td>BITIMAGE</td><td class="num">1</td></tr>
+      <tr><td><code>*.pdhmap</code></td><td><code>01 00 00 00 …</code></td><td>BLOCKIMAGE</td><td class="num">1</td></tr>
+      <tr><td><code>scenelights.dat</code></td><td><code>01 00 00 80 36 11 00 00</code></td><td>версія 0x80000001 + 4406</td><td>—</td></tr>
+      <tr><td><code>world_light.dat</code></td><td><code>36 11 00 00 00 00 00 00</code></td><td>4406 записів, <code>effectType=0</code></td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note ok">
+    <b>Мінімальний чек-лист цілісності</b>
+    88 × <code>.t2bk</code> + 88 × <code>.t2mk</code> + 88 × <code>.t2lm</code> + 88 × <code>.t2lm1</code>; 88 імен у <code>.ecbsd</code>; 88 файлів у <code>bsdata</code>; 16 областей у кожному <code>.t2mk</code>/<code>.t2lm</code>; 256 блоків у кожному <code>.t2bk</code>; 22 528 записів у <code>.ecwld</code>; 4 406 світел; 8 наборів <code>movemap</code>. Якщо будь-що з цього не сходиться — карта зібрана з різних версій.
+  </div>
+</section>
+
+<footer style="margin-top:44px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12.4px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+  <div>Довідник підготовлено за бінарним розбором папки <code>client\maps\world back</code> та вихідниками Angelica3D / CElement.</div>
+  <div>Станом на 17.11.2026 · 479 файлів · 360 625 637 байт</div>
+</footer>
+
+
+
+
+</main>
+</div>
+<button class="toc-toggle" id="tocToggle" aria-label="Зміст">☰ Зміст</button>
+<script>
+(function(){
+  var bar=document.getElementById('progress');
+  var links=[].slice.call(document.querySelectorAll('#toc a'));
+  var targets=links.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+    var y=window.scrollY+120, cur=null;
+    targets.forEach(function(t){ if(t.offsetTop<=y) cur=t.id; });
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+cur); });
+  }
+  document.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  var sidebar=document.getElementById('sidebar');
+  document.getElementById('tocToggle').addEventListener('click',function(){ sidebar.classList.toggle('open'); });
+  links.forEach(function(a){ a.addEventListener('click',function(){ if(window.innerWidth<=1080) sidebar.classList.remove('open'); }); });
+})();
+</script>
+</body>
+</html>
